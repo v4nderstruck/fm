@@ -33,7 +33,7 @@ export default function Upcoming() {
             data={mockData}
             render={(item) => {
                 return (
-                    <div key={item.id} className="w-[20%] h-28 hover:h-44 overflow-hidden relative">
+                    <div key={item.id} className={`w-[20%] ${item.playing ? "h-28" : "h-24"}  hover:h-44 overflow-hidden relative `}>
                         <Image 
                             src={item.art}
                         />
