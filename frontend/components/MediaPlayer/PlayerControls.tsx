@@ -27,8 +27,8 @@ export default function PlayerControls() {
                     >
                         {isPlaying ? <IconPlayerPause size={32} /> : <IconPlayerPlay size={32} />}
                     </UnstyledButton>
-                    <div className="flex items-center gap-2">
-                        <MediaQuery smallerThan={"md"} styles={{display: "none"}}>
+                    <div className="flex items-center gap-4">
+                        <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
                             <Slider
                                 thumbChildren={<IconVolume size={24} />}
                                 styles={{ thumb: { borderWidth: 1 } }}
@@ -40,8 +40,9 @@ export default function PlayerControls() {
                             />
                         </MediaQuery>
                         <UnstyledButton>
-                            <Indicator>
-                                <IconMessage size={32} />
+                            <Indicator color="pink">
+                                <IconMessage className="text-pink-400"
+                                    size={32} />
                             </Indicator>
                         </UnstyledButton>
                     </div>

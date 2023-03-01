@@ -7,6 +7,7 @@ export default function ContentArea() {
     return (
         <Container>
             <Upcoming />
+            <Upcoming />
         </Container>
     )
 }

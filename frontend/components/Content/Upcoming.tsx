@@ -1,19 +1,13 @@
-import { IconHeadphones, IconLivePhoto } from "@tabler/icons-react";
+import { IconHeadphones, IconLivePhoto, IconVolume2 } from "@tabler/icons-react";
 import { Badge, Image, Text, UnstyledButton, useMantineTheme } from "@mantine/core";
 import GenericCarousel from "./GenericCarousel";
 
 const mockData = [
-    { id: 1, title: 'Blinding lights', subtitle: 'The Weeknd', art: "https://picsum.photos/200" },
+    { id: 1, playing: true, title: 'Blinding lights', subtitle: 'The Weeknd', art: "https://picsum.photos/200" },
     { id: 2, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-    { id: 3, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-    { id: 4, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-    { id: 5, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-    { id: 6, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-    { id: 8, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-    { id: 9, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-    { id: 10, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-    { id: 11, title: 'Paparazzi', subtitle: 'Lady Gaga', art: "https://picsum.photos/200" },
-
+    { id: 3, title: 'I can\'t feel my face', subtitle: 'The Weeknd', art: "https://picsum.photos/200" },
+    { id: 4, title: 'Like it', subtitle: 'Doja Cat', art: "https://picsum.photos/200" },
+    { id: 5, title: 'Dont\'t Stop me', subtitle: 'Queen', art: "https://picsum.photos/200" },
 ]
 
 export default function Upcoming() {
@@ -39,18 +33,24 @@ export default function Upcoming() {
             data={mockData}
             render={(item) => {
                 return (
-                    <div key={item.id} className="w-32 h-44 bg-transparent snap-center">
-                        <div className="w-full h-full p-1 gap-2 flex flex-col items-start justify-center">
-                            <Image
-                                height={100}
-                                width={100}
-                                fit="cover"
-                                withPlaceholder
-                                src={item.art}
-                            />
-                            <div className="w-full flex flex-col justify-start">
-                                <Text fz="md" fw={600} lineClamp={1}>{item.title}</Text>
-                                <Text fz="sm" fw={400} lineClamp={1}>{item.subtitle}</Text>
+                    <div key={item.id} className="w-[20%] h-28 hover:h-44 overflow-hidden relative">
+                        <Image 
+                            src={item.art}
+                        />
+                        {item.playing && 
+                            <Badge variant="outline" 
+                                className="border-opacity-60 border-red-600 text-opacity-60 text-red-600 right-1 top-1 absolute z-10"
+                                leftSection={<IconVolume2 size={16}/>}
+                                >
+                                PLAYING
+                            </Badge>
+                        }
+                        <div className="absolute left-0 top-0 p-2 w-full h-full bg-opacity-50 bg-gray-400"> 
+                            <div className="flex h-full w-full gap-1 flex-col-reverse text-white">
+                                <Text className="p-1 bg-red-800 bg-opacity-60 w-fit rounded-lg" 
+                                    fz="sm" fw={600}>{item.title}</Text>
+                                <Text className="p-1 bg-red-800 bg-opacity-60 w-fit rounded-lg" 
+                                    fz="xs" fw={300}>{item.subtitle}</Text>
                             </div>
                         </div>
                     </div>
