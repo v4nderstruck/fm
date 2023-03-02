@@ -2,11 +2,16 @@ import { Footer, UnstyledButton, Text, Avatar, Indicator, Slider, Container, Med
 import { useMediaQuery } from "@mantine/hooks";
 import { IconHeadphones, IconMessage, IconPlayerPause, IconPlayerPlay, IconVolume } from "@tabler/icons-react";
 import { useState } from "react";
+import AudioStream from "./AudioStream";
+
+
 
 export default function PlayerControls() {
     const [isPlaying, setIsPlaying] = useState(false);
+    const [volume, setVolume] = useState(50);
     return (
         <Footer height={60} p="md">
+            <AudioStream isPlaying={isPlaying} volume={volume}  />
             <Container size="md" px={0}>
                 <div className="flex justify-between items-center gap-4 w-full h-full">
                     <div className="max-w-[40%] overflow-hidden flex gap-2 ">
@@ -36,12 +41,14 @@ export default function PlayerControls() {
                                 defaultValue={50}
                                 className="w-32"
                                 min={0}
+                                onChangeEnd={setVolume}
+                                value={volume}
                                 max={100}
                             />
                         </MediaQuery>
                         <UnstyledButton>
                             <Indicator color="pink">
-                                <IconMessage className="text-pink-400"
+                                <IconMessage className="text-orange-500"
                                     size={32} />
                             </Indicator>
                         </UnstyledButton>

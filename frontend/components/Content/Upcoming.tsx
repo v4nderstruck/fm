@@ -39,7 +39,7 @@ export default function Upcoming() {
                         />
                         {item.playing && 
                             <Badge variant="outline" 
-                                className="border-opacity-60 border-red-600 text-opacity-60 text-red-600 right-1 top-1 absolute z-10"
+                                className="border-opacity-60 border-white text-opacity-60 text-white right-1 top-1 absolute z-10"
                                 leftSection={<IconVolume2 size={16}/>}
                                 >
                                 PLAYING
