@@ -12,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
+import zensayyy.fm.yt.api.types.LatestVersionsType;
 
 @Component
 @Slf4j
@@ -21,6 +22,7 @@ public class QueryLatestVersion implements ApiIfc<String> {
     private WebClient webClient;
 
     private JSONObject ctx;
+    private int itag = 140;
     public static final String END_POINT = "/youtubei/v1/player";
 
     public QueryLatestVersion() {
@@ -30,6 +32,10 @@ public class QueryLatestVersion implements ApiIfc<String> {
 
     public void setVideoId(String videoId) {
         ctx.put("videoId", videoId);
+    }
+
+    public void setItag(int itag) {
+        this.itag = itag;
     }
 
     @Cacheable
@@ -49,7 +55,7 @@ public class QueryLatestVersion implements ApiIfc<String> {
     // return the latest version given a video id
     @Override
     public String query() {
-        Mono<String> result = webClient.post()
+        Mono<LatestVersionsType> result = webClient.post()
                 .uri(uriBuilder -> uriBuilder
                         .path(END_POINT)
                         .queryParam("key", "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8")
@@ -59,9 +65,13 @@ public class QueryLatestVersion implements ApiIfc<String> {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(ctx.toString()))
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(LatestVersionsType.class);
 
-        log.info("QueryLatesVersion result: {}", result.block());
+        if (result.block() != null) {
+            String url = result.block().findStreamByItag(itag);
+            log.info("QueryLatesVersion found Url: {}", url);
+            return url;
+        }  
         return "";
     }
 }

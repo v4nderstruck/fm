@@ -46,22 +46,9 @@ public class Client {
 
         log.info("Cookies {}", defaultCookiesMap);
 
-        // delete all cookies that have empty values
-        defaultCookiesMap.entrySet().removeIf(entry -> entry.getValue().get(0).isEmpty());
-
-        // map defaultCookiemap to a string in format Key=Value;Key=Value..
-        String cookieString = defaultCookiesMap.entrySet().stream()
-                .map(entry -> entry.getKey() + "=" + entry.getValue().get(0))
-                .reduce((a, b) -> a + "; " + b)
-                .get();
-
         WebClient web = WebClient.builder()
                 .baseUrl(YT_URL)
-                .defaultHeader("Cookie", cookieString)
-                .clientConnector(new ReactorClientHttpConnector(
-                    HttpClient.create()
-                        .wiretap(true)
-                ))
+                .defaultCookies(cookies -> cookies.addAll(defaultCookiesMap))
                 .build();
         return web;
     }

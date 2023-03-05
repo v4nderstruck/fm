@@ -1,5 +1,7 @@
 package zensayyy.fm;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Component;
@@ -20,11 +22,18 @@ public class FmWebsocketHandler extends BinaryWebSocketHandler {
 
     @Override
     public void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
-        log.info("Received message: {}", message);
+        String videoId = new String(message.getPayload().array());
+        log.info("Received message: {}", videoId);
 
-        ytPlayer.queryLatestVersion.setVideoId("TvZskcqdYcE");
-        ytPlayer.queryLatestVersion.query();
-        log.info("Query done");
+        
+        ytPlayer.queryLatestVersion.setVideoId(videoId);
+        String url = ytPlayer.queryLatestVersion.query();
+        
+        try {
+            session.sendMessage(new BinaryMessage(url.getBytes()));
+        } catch(IOException e) {
+            log.error("Error sending message: {}", e);
+        }
     }
     
     @Override

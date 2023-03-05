@@ -7,3 +7,7 @@ ws.on('open', () => {
   const hello = Buffer.from('TvZskcqdYcE'); 
   ws.send(hello);
 });
+
+ws.on("message", (data) => {
+  console.log(data.toString());
+});
