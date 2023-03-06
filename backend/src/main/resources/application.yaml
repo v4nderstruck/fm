@@ -8,3 +8,7 @@ logging:
         http:
           client:
             HttpClient: DEBUG
+
+spring:
+  main:
+    allow-bean-definition-overriding: true

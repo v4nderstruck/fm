@@ -16,6 +16,7 @@ dependencies {
 	compileOnly("org.projectlombok:lombok:1.18.26")
 	annotationProcessor("org.projectlombok:lombok:1.18.26")
 
+	implementation("com.google.protobuf:protobuf-java:3.22.0")
 	implementation("org.springframework.boot:spring-boot-starter-webflux:3.0.4")
 	implementation("org.json:json:20230227")
 	implementation("org.springframework.boot:spring-boot-starter-graphql")
