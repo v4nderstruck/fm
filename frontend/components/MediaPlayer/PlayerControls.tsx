@@ -11,7 +11,9 @@ export default function PlayerControls() {
     const [volume, setVolume] = useState(50);
     return (
         <Footer height={60} p="md">
+            {/* not rendered */}
             <AudioStream isPlaying={isPlaying} volume={volume}  />
+
             <Container size="md" px={0}>
                 <div className="flex justify-between items-center gap-4 w-full h-full">
                     <div className="max-w-[40%] overflow-hidden flex gap-2 ">
