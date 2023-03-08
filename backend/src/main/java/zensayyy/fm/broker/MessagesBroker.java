@@ -6,19 +6,16 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.WebSocketSession;
 
 import lombok.extern.slf4j.Slf4j;
-import zensayyy.fm.proto.Stream;
 import zensayyy.fm.proto.Stream.StreamAction;
 import zensayyy.fm.proto.Stream.StreamJoin;
+import zensayyy.fm.proto.Stream.StreamMessage;
 import zensayyy.fm.proto.Stream.StreamUpdate;
-import zensayyy.fm.proto.Stream.StreamUpdateSummary;
-import zensayyy.fm.proto.Stream.StreamMessage;;
+import zensayyy.fm.proto.Stream.StreamUpdateSummary;;
 
 @Component
 @Slf4j
