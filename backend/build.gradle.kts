@@ -10,12 +10,15 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
 	mavenCentral()
+	maven(url = "https://jitpack.io")
+	
 }
 
 dependencies {
 	compileOnly("org.projectlombok:lombok:1.18.26")
 	annotationProcessor("org.projectlombok:lombok:1.18.26")
 
+	implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.22.1")
 	implementation("com.google.protobuf:protobuf-java:3.22.0")
 	implementation("org.springframework.boot:spring-boot-starter-webflux:3.0.4")
 	implementation("org.json:json:20230227")

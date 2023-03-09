@@ -1,6 +1,9 @@
 package zensayyy.fm.yt.api.types;
 
+import org.json.JSONObject;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class BaseStreamType {
@@ -16,6 +19,7 @@ class StreamingDataType {
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LatestVersionsType {
     public StreamingDataType streamingData; 
+
 
     public String findStreamByItag(int itag) {
         for(BaseStreamType stream: streamingData.adaptiveFormats) {

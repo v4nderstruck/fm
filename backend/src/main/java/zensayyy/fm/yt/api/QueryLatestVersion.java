@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 import zensayyy.fm.yt.api.types.LatestVersionsType;
@@ -50,10 +53,22 @@ public class QueryLatestVersion implements ApiIfc<String> {
         ctx.put("context", context);
     }
 
+    // Todo
+    public String decryptSignatureString(String signature) {
+        // get decryption function from https://www.youtube.com/s/player/21246a91/player_ias.vflset/en_US/base.js
+        // find decrypt function using regex /^(?<name>[^=]+)=function\(\w\){\w=\w\.split\(""\);[^\. ]+\.[^( ]+/m
+
+        return "";
+    }
+
+    // Todo: check playabilityStatus
+    // Todo: move to NewPipeExtractor
     // return the latest version given a video id
     @Override
     public String query() {
-        Mono<LatestVersionsType> result = webClient.post()
+        log.info("QueryLatesVersion with {}", ctx.toString());
+        // Mono<LatestVersionsType> result = webClient.post()
+        Mono<String> result = webClient.post()
                 .uri(uriBuilder -> uriBuilder
                         .path(END_POINT)
                         .queryParam("key", "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8")
@@ -63,13 +78,24 @@ public class QueryLatestVersion implements ApiIfc<String> {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(ctx.toString()))
                 .retrieve()
-                .bodyToMono(LatestVersionsType.class);
+                // log response body to log.info for debugging
+                .bodyToMono(String.class);
+                //.bodyToMono(LatestVersionsType.class);
+        
 
-        if (result.block() != null) {
-            String url = result.block().findStreamByItag(itag);
-            log.info("QueryLatesVersion found Url: {}", url);
-            return url;
-        }  
+        log.info("Result {}", result.block());
+        // if (result.block() != null) {
+        //     ObjectMapper mapper = new ObjectMapper();
+
+        //     try {
+        //         log.info("Result {}", mapper.writeValueAsString(result.block()));
+        //     } catch( JsonProcessingException e) {
+        //         log.error("Error {}", e.getMessage());
+        //     }
+        //     String url = result.block().findStreamByItag(itag);
+        //     log.info("QueryLatesVersion found Url: {}", url);
+        //     return url;
+        // }  
         return "";
     }
 }

@@ -20,7 +20,7 @@ public class FmApplication {
 	private MessagesBroker messagesBroker;
 
 	private void addVideo(String id, StreamJoin streamJoin, String title, String description) {
-		ytPlayer.queryLatestVersion.setVideoId("TvZskcqdYcE");
+		ytPlayer.queryLatestVersion.setVideoId(id);
 		String some = ytPlayer.queryLatestVersion.query();
 		messagesBroker.addStreamUpdate(streamJoin, StreamUpdate.newBuilder()
 			.setUpcoming( ClipMetadata.newBuilder()
@@ -40,7 +40,7 @@ public class FmApplication {
 		messagesBroker.addStream(main);
 
 		addVideo("TvZskcqdYcE", main, "FM84", "Running in the Night");	
-		addVideo("qFNOx2PczMo", main, "Caitlin Myers", "Fly Me to the Moon");	
+		addVideo("mkQ6H21QBXE", main, "Caitlin Myers", "Fly Me to the Moon");	
 	}
 
 	public static void main(String[] args) {

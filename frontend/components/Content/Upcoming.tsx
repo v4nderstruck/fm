@@ -1,6 +1,8 @@
 import { IconHeadphones, IconLivePhoto, IconVolume2 } from "@tabler/icons-react";
 import { Badge, Image, Text, UnstyledButton, useMantineTheme } from "@mantine/core";
 import GenericCarousel from "./GenericCarousel";
+import { StreamContext } from "../Provider/StreamProvider";
+import { useContext } from "react";
 
 const mockData = [
     { id: 1, playing: true, title: 'Blinding lights', subtitle: 'The Weeknd', art: "https://picsum.photos/200" },
@@ -12,6 +14,7 @@ const mockData = [
 
 export default function Upcoming() {
     const theme = useMantineTheme();
+    const streamContext = useContext(StreamContext);
     return (
         <GenericCarousel title={
             <div className="flex justify-between item-center w-full">
