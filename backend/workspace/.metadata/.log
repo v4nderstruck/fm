@@ -1,0 +1,11 @@
+!SESSION 2023-03-09 19:45:54.998 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.6
+java.vendor=Homebrew
+BootLoader constants: OS=macosx, ARCH=aarch64, WS=cocoa, NL=en_DE
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-03-09 19:45:55.703
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-03-09 19:45:55.784
+!MESSAGE Main thread is waiting

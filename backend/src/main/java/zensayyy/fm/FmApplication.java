@@ -34,6 +34,7 @@ public class FmApplication {
 
 	@PostConstruct
 	private void setSomeData() {
+		YTPlayer.init();
 		StreamJoin main = StreamJoin.newBuilder()
 				.setStreamId("yt_stream")
 				.build();
