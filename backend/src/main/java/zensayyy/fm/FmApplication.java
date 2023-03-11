@@ -41,7 +41,7 @@ public class FmApplication {
 		messagesBroker.addStream(main);
 
 		addVideo("TvZskcqdYcE", main, "FM84", "Running in the Night");	
-		addVideo("mkQ6H21QBXE", main, "Caitlin Myers", "Fly Me to the Moon");	
+		addVideo("mkQ6H21QBXE", main, "Timecop1983", "Let's Talk");	
 	}
 
 	public static void main(String[] args) {

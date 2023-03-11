@@ -1,6 +1,7 @@
+// generic ??
 export interface GenericCarouselProps {
     title: React.ReactElement;
-    render: React.FunctionComponent<any>;
+  render: React.FunctionComponent<{item: any, index: number}>;
     data: any[];
     withSeparator?: boolean;
     separator?: React.ReactElement;
@@ -13,7 +14,7 @@ export default function GenericCarousel(props: GenericCarouselProps) {
             {title}
             {(withSeparator && separator) && separator}
             <div className="flex gap-2 p-2 overflow-hidden">
-                {data.map((item, index) => { return render(item) })}
+                {data.map((item, index) => { return render({item, index}) })}
             </div>
         </div>
     )
