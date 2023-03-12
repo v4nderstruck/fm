@@ -7,7 +7,7 @@ import { ClipMetadata } from "@/types/protocol/Stream";
 
 
 export default function Upcoming() {
-  const {state} = useContext(StreamContext) || {};
+  const { state } = useContext(StreamContext);
   return (
     <GenericCarousel title={
       <div className="flex justify-between item-center w-full">
@@ -26,9 +26,9 @@ export default function Upcoming() {
       withSeparator
       separator={<div className="w-full h-0.5 mb-2 rounded-lg
                                         bg-gradient-to-r from-pink-400 via-red-500 to-orange-400" />}
-      data={state != undefined ? state.clips : []}
-      render={({item, index}) => {
-        const {src, title, description} = item as ClipMetadata; // Todo: add thumbnail
+      data={state.clips}
+      render={({ item, index }) => {
+        const { src, title, description } = item as ClipMetadata; // Todo: add thumbnail
         return (
           <div key={src} className={`w-[20%] ${index == 0 ? "h-28" : "h-24"}  hover:h-44 overflow-hidden relative `}>
             <Image

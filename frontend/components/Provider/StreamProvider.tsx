@@ -9,9 +9,11 @@ export interface StreamProviderProps {
   children: React.ReactNode;
 }
 
-
 export type StreamContextType = { state: StreamReducerState, dispatch: (action: StreamReducerAction) => void };
-const StreamContext = createContext<StreamContextType | null>(null);
+const StreamContext = createContext<StreamContextType>({
+  state: { clips: [] },
+  dispatch: () => { }
+});
 
 const openHandler = () => {
   console.log("Connected to live server");
