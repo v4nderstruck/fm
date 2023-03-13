@@ -16,7 +16,9 @@ function useStreamPlayer(controls: StreamControls) {
     const track = player.length > 0 && player[0];
     if (controls.isPlaying && track && !track.playing())
       track.play();
-    if (!controls.isPlaying)
+    if (!controls.isPlaying && track && track.playing())
+      track.pause();
+    else if (!controls.isPlaying)
       Howler.stop();
 
     Howler.volume(controls.volume / 100);

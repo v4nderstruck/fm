@@ -32,14 +32,15 @@ export default function Upcoming() {
                                         bg-gradient-to-r from-pink-400 via-red-500 to-orange-400" />}
       data={state.clips}
       render={({ item, index }) => {
-        const { title, description } = item as ClipMetadata; // Todo: add thumbnail
+        const { title, description, thumbnail } = item as ClipMetadata; // Todo: add thumbnail
         return (
           <CSSTransition key={title} nodeRef={item.ref} timeout={500} classNames={{ ...styles }}>
             <div ref={item.ref} className={`w-[20%] ${index == 0 ? "h-28" : "h-24"} overflow-hidden relative 
                 transition-all ease-in-out delay-100 hover:h-44 duration-300` }>
               <Image
+                height={200}
                 alt="thumbnail"
-                src={"https://picsum.photos/200"}
+                src={thumbnail}
               />
               {index == 0 &&
                 <Badge variant="outline"
