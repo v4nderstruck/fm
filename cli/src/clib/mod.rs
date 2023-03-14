@@ -9,6 +9,7 @@ pub trait Executable {
 }
 
 #[derive(Parser, Debug)]
+#[command(arg_required_else_help = true)]
 pub struct Cli {
     /// controls log verbosity
     #[arg(short, long, default_value = "0")]
@@ -19,6 +20,7 @@ pub struct Cli {
 }
 
 #[derive(Subcommand, Debug)]
+#[command(arg_required_else_help = true)]
 pub enum ControlCmd {
     /// control stream
     Stream(StreamArgs),
@@ -31,6 +33,7 @@ pub struct StreamArgs {
 }
 
 #[derive(Debug, Subcommand)]
+#[command(arg_required_else_help = true)]
 pub enum StreamCmd {
     /// add new title to stream
     Add(StreamAddArgs),

@@ -1,6 +1,6 @@
-mod lib;
+mod clib;
 use clap::Parser;
-use lib::Cli;
+use clib::Cli;
 
 fn main() {
     let cli = Cli::parse();
