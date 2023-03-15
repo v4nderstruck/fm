@@ -49,7 +49,7 @@ export interface StreamUpdate {
   upcoming:
     | ClipMetadata
     | undefined;
-  /** timestamp from server */
+  /** timestamp from server (???) */
   time: Date | undefined;
 }
 

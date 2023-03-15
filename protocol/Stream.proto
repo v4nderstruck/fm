@@ -16,7 +16,7 @@ message ClipMetadata {
 
 message StreamUpdate {
   ClipMetadata upcoming = 2;  // next upcoming clip, first one is the active one
-  google.protobuf.Timestamp time = 3; // timestamp from server
+  google.protobuf.Timestamp time = 3; // timestamp from server (???)
 }
 
 message StreamUpdateSummary {

@@ -1,10 +1,16 @@
 mod clib;
+mod connection;
+mod proto;
+
 use clap::Parser;
 use clib::Cli;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let cli = Cli::parse();
-    match cli.exec() {
+    let mut connection = connection::Connection::new().await.unwrap();
+
+    match cli.exec(&mut connection).await {
         Ok(_) => (),
         Err(e) => {
             eprintln!("{}", e);

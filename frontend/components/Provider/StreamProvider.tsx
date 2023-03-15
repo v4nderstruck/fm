@@ -27,8 +27,12 @@ const errorHandler = (event: WebSocketEventMap["error"]) => {
   console.log("Error on live server connection ", event);
 };
 
-export type StreamReducerAction = { type: "nextClip" } |
-{ type: "set", state: StreamReducerState };
+export type StreamReducerAction =
+  { type: "nextClip" } |
+  { type: "set", state: StreamReducerState } |
+  { type: "add", clip: ClipMetadata };
+
+
 export type StreamReducerState = { clips: ClipMetadata[] };
 
 function streamReducer(state: StreamReducerState, action: StreamReducerAction) {
@@ -39,6 +43,10 @@ function streamReducer(state: StreamReducerState, action: StreamReducerAction) {
       }
     case "set":
       return action.state;
+    case "add":
+      return {
+        clips: [...state.clips, action.clip]
+      }
   }
 }
 
@@ -79,6 +87,14 @@ function StreamProvider({ children }: StreamProviderProps) {
 
     if (streamMsg.update) {
       console.log("Received update ", streamMsg.update);
+
+      let dispatch: StreamReducerAction = {
+        type: "add",
+        clip: streamMsg.update.upcoming!
+      };
+
+      streamDispatch(dispatch);
+
     } else if (streamMsg.updateSummary) {
       console.log("Received UpdateSummary ", streamMsg.updateSummary);
       if (streamMsg.action == StreamAction.FRESH) {

@@ -1,11 +1,15 @@
-pub mod stream_add;
 pub mod cli;
+pub mod stream_add;
 
 use anyhow::Result;
 use clap::{command, Args, Parser, Subcommand};
+use protobuf::Message;
 
-pub trait Executable {
-    fn run(&self) -> Result<()>;
+pub trait Executable<T>
+where
+    T: Message,
+{
+    fn parse(self) -> Result<T>;
 }
 
 #[derive(Parser, Debug)]

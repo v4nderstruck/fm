@@ -1117,7 +1117,7 @@ public final class Stream {
 
     /**
      * <pre>
-     * timestamp from server
+     * timestamp from server (???)
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1126,7 +1126,7 @@ public final class Stream {
     boolean hasTime();
     /**
      * <pre>
-     * timestamp from server
+     * timestamp from server (???)
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1135,7 +1135,7 @@ public final class Stream {
     com.google.protobuf.Timestamp getTime();
     /**
      * <pre>
-     * timestamp from server
+     * timestamp from server (???)
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1219,7 +1219,7 @@ public final class Stream {
     private com.google.protobuf.Timestamp time_;
     /**
      * <pre>
-     * timestamp from server
+     * timestamp from server (???)
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1231,7 +1231,7 @@ public final class Stream {
     }
     /**
      * <pre>
-     * timestamp from server
+     * timestamp from server (???)
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1243,7 +1243,7 @@ public final class Stream {
     }
     /**
      * <pre>
-     * timestamp from server
+     * timestamp from server (???)
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1753,7 +1753,7 @@ public final class Stream {
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeBuilder_;
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1764,7 +1764,7 @@ public final class Stream {
       }
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1779,7 +1779,7 @@ public final class Stream {
       }
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1799,7 +1799,7 @@ public final class Stream {
       }
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1817,7 +1817,7 @@ public final class Stream {
       }
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1840,7 +1840,7 @@ public final class Stream {
       }
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1857,7 +1857,7 @@ public final class Stream {
       }
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1869,7 +1869,7 @@ public final class Stream {
       }
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
@@ -1884,7 +1884,7 @@ public final class Stream {
       }
       /**
        * <pre>
-       * timestamp from server
+       * timestamp from server (???)
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 3;</code>
