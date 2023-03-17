@@ -10,7 +10,7 @@ export default function ClipPlaying() {
   return (
     <div className="relative w-full h-full mix-blend-color-dodge">
 
-      <div className={`absolute left-4 w-[50%] ${styles.wrap}`}>
+      <div className={`absolute -top-12 right-4 w-[50%] ${styles.wrap} flex flex-col items-end`}>
         {/* @ts-ignore */}
         <span style={{ "--color-even": "#8F43EE" }}
           className={`${styles["fly"]} ${styles.even}`}> {description} </span>
@@ -23,7 +23,6 @@ export default function ClipPlaying() {
         {/* @ts-ignore */}
         <span style={{ "--color-odd": "#DC5F00" }}
           className={`${styles["fly"]} ${styles.odd}`}> {title} </span>
-
       </div>
     </div>
 
