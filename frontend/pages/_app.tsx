@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
       withGlobalStyles
       withNormalizeCSS
       theme={{
-        colorScheme: 'light'
+        colorScheme: 'dark'
       }}
       >
       <StreamProvider>

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Tomorrow:wght@600&display=swap');
+
+.wrap{
+  position: absolute;
+  /* animation: fly_text_move 2s infinite linear; */
+}
+
+.fly{
+  word-wrap: break-word;
+  width: inherit;
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 118px;
+  line-height: 118px;
+  text-transform: uppercase;
+}
+
+.odd {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-odd);
+  text-shadow: none;
+}
+
+.even {
+  text-shadow: black;
+color: var(--color-even);
+
+}
+
+@keyframes fly_text_move{
+  from{
+    bottom: -100%;
+  }
+  to{
+    bottom: -39.08%;
+  }
+}
