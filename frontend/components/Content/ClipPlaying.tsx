@@ -1,30 +1,37 @@
 import styles from "@/styles/ClipPlaying.module.css";
-import { useContext } from "react";
+import { ForwardedRef, forwardRef, RefObject, useCallback, useContext, useEffect, useState } from "react";
 import { StreamContext } from "../Provider/StreamProvider";
+import { FastAverageColor } from "fast-average-color";
 
 
-export default function ClipPlaying() {
+
+const ClipPlaying = () => {
+
+
   const { state } = useContext(StreamContext);
   const title = state.clips.length > 0 ? state.clips[0].title : "";
   const description = state.clips.length > 0 ? state.clips[0].description : "";
+
   return (
     <div className="relative w-full h-full mix-blend-color-dodge">
 
-      <div className={`absolute -top-12 right-4 w-[50%] ${styles.wrap} flex flex-col items-end`}>
+      <div className={`absolute -top-12 right-4 w-[100%] sm:w-[50%] ${styles.wrap} flex flex-col items-end`}>
         {/* @ts-ignore */}
-        <span style={{ "--color-even": "#8F43EE" }}
+        <span style={{ "--text-color": state.render.textColorA }}
           className={`${styles["fly"]} ${styles.even}`}> {description} </span>
         {/* @ts-ignore */}
-        <span style={{ "--color-odd": "#DC5F00" }}
+        <span style={{ "--text-color": state.render.textColorB }}
           className={`${styles["fly"]} ${styles.odd}`}> {title} </span>
         {/* @ts-ignore */}
-        <span style={{ "--color-even": "#8F43EE" }}
+        <span style={{ "--text-color": state.render.textColorA }}
           className={`${styles["fly"]} ${styles.even}`}> {description} </span>
         {/* @ts-ignore */}
-        <span style={{ "--color-odd": "#DC5F00" }}
+        <span style={{ "--text-color": state.render.textColorB }}
           className={`${styles["fly"]} ${styles.odd}`}> {title} </span>
       </div>
     </div>
 
   )
 }
+
+export default ClipPlaying;

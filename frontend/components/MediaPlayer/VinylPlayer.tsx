@@ -1,9 +1,10 @@
 import { Image, Transition } from '@mantine/core';
 import styles from '@/styles/Vinyl.module.css';
-import { useContext, useState } from 'react';
+import { ForwardedRef, forwardRef, RefObject, useContext, useEffect, useRef, useState } from 'react';
 import { useStreamPlayer } from './useStreamPlayer';
 import { StreamContext } from '../Provider/StreamProvider';
 import ProgressBar from './ProgressBar';
+import { FastAverageColor } from 'fast-average-color';
 
 
 const scaleSize = {
@@ -13,8 +14,13 @@ const scaleSize = {
   transitionProperty: "height, width"
 }
 
-export default function VinylPlayer() {
+const fac = new FastAverageColor();
+
+const VinylPlayer = () => {
+  const { dispatch } = useContext(StreamContext);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const ref = useRef(null);
 
   const { state } = useContext(StreamContext);
   const thumbnail = state.clips.length > 0 ? state.clips[0].thumbnail : "";
@@ -55,6 +61,7 @@ export default function VinylPlayer() {
             alt="Vinyl"
           />
           <Image
+            ref={ref}
             className={`absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 
                   -translate-y-1/2 rounded-full overflow-hidden`}
             width={105}
@@ -67,3 +74,5 @@ export default function VinylPlayer() {
     </div >
   );
 }
+
+export default VinylPlayer;

@@ -9,9 +9,23 @@ export interface StreamProviderProps {
   children: React.ReactNode;
 }
 
-export type StreamContextType = { state: StreamReducerState, dispatch: (action: StreamReducerAction) => void };
+export type StreamRenderer = {
+  textColorA: string;
+  textColorB: string;
+}
+
+
+export type StreamReducerState = {
+  clips: ClipMetadata[],
+  render: StreamRenderer
+};
+
+export type StreamContextType = {
+  state: StreamReducerState,
+  dispatch: (action: StreamReducerAction) => void
+};
 const StreamContext = createContext<StreamContextType>({
-  state: { clips: [] },
+  state: { clips: [], render: { textColorA: "#fff", textColorB: "#fff" } },
   dispatch: () => { }
 });
 
@@ -30,22 +44,29 @@ const errorHandler = (event: WebSocketEventMap["error"]) => {
 export type StreamReducerAction =
   { type: "nextClip" } |
   { type: "set", state: StreamReducerState } |
-  { type: "add", clip: ClipMetadata };
+  { type: "add", clip: ClipMetadata } |
+  { type: "render", render: StreamRenderer };
 
 
-export type StreamReducerState = { clips: ClipMetadata[] };
 
 function streamReducer(state: StreamReducerState, action: StreamReducerAction) {
   switch (action.type) {
     case "nextClip":
       return {
+        ...state,
         clips: state.clips.slice(1)
       }
     case "set":
       return action.state;
     case "add":
       return {
+        ...state,
         clips: [...state.clips, action.clip]
+      }
+    case "render":
+      return {
+        ...state,
+        render: action.render 
       }
   }
 }
@@ -53,7 +74,12 @@ function streamReducer(state: StreamReducerState, action: StreamReducerAction) {
 
 function StreamProvider({ children }: StreamProviderProps) {
 
-  const [streamData, streamDispatch] = useReducer(streamReducer, { clips: [] } as StreamReducerState);
+  const [streamData, streamDispatch] = useReducer(streamReducer,
+    {
+      clips: [],
+      render: { textColorA: "#fff", textColorB: "#fff" },
+    } as StreamReducerState
+  );
 
   const { sendMessage, lastMessage, readyState, getWebSocket } = useWebSocket(WS_URL, {
     onOpen: openHandler,
@@ -101,6 +127,7 @@ function StreamProvider({ children }: StreamProviderProps) {
         let dispatch: StreamReducerAction = {
           type: "set",
           state: {
+            render: { textColorA: "#fff", textColorB: "#fff" },
             clips: streamMsg.updateSummary.updates
               .filter((update) => update.upcoming != undefined && true)
               .map((update) => update.upcoming!)
