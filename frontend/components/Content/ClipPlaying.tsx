@@ -13,9 +13,8 @@ const ClipPlaying = () => {
   const description = state.clips.length > 0 ? state.clips[0].description : "";
 
   return (
-    <div className="relative w-full h-full mix-blend-color-dodge">
-
-      <div className={`absolute -top-12 right-4 w-[100%] sm:w-[50%] ${styles.wrap} flex flex-col items-end`}>
+    <div className="relative h-full w-full mix-blend-color-dodge blur-sm">
+      <div className={`absolute right-0 w-[100%] ${styles.wrap} flex flex-col items-end`}>
         {/* @ts-ignore */}
         <span style={{ "--text-color": state.render.textColorA }}
           className={`${styles["fly"]} ${styles.even}`}> {description} </span>

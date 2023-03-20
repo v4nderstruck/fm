@@ -9,7 +9,7 @@ import { FastAverageColor } from 'fast-average-color';
 
 const scaleSize = {
   out: { height: 0, width: 0 },
-  in: { height: "175%", width: "175%" },
+  in: { height: "300%", width: "300%" },
   common: {},
   transitionProperty: "height, width"
 }
@@ -29,22 +29,18 @@ const VinylPlayer = () => {
   return (
     <div
       className={`relative w-fit h-fit cursor-grab `}>
-      <Transition mounted={isPlaying} transition={scaleSize} duration={1000} timingFunction="ease">
-        {(transition) => (
-          <div
-            style={{ ...transition, backgroundImage: `url(${thumbnail})`, backgroundSize: "cover", opacity: "20%" }}
-            className='absolute -z-20 top-1/2 left-1/2 transform -translate-x-1/2 
-                  -translate-y-1/2 blur-3xl rounded-full'  >
-          </div>
-        )}
-      </Transition>
       <div
-        className={`absolute bg-black w-full h-full z-10 rounded-full pointer-events-none opacity-50`} />
+        className={`absolute bg-black w-full h-full z-10 rounded-full pointer-events-none opacity-20`} />
       <div className={`absolute -z-20 w-fit h-fit top-1/2 left-1/2 transform -translate-x-1/2 
                   -translate-y-1/2 -rotate-90`}
       >
         <ProgressBar size={310}
           progress={playerProgress} trackWidth={5} indicatorWidth={5} />
+      </div>
+      <div
+        style={{ height: "300%", width: "300%", backgroundImage: `url(${thumbnail})`, backgroundSize: "cover", opacity: "30%" }}
+        className='absolute -z-20 top-1/2 left-1/2 transform -translate-x-1/2 
+                  -translate-y-1/2 blur-3xl rounded-full'  >
       </div>
       <div
         onClick={() => setIsPlaying(!isPlaying)}

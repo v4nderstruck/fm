@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+ --doc-height: 100%;
+}
 body {
   display: flex; 
   flex-direction: column;
   margin: 0;
   min-height: 100vh;
+  height: var(--doc-height);
 }
 main {
   flex: 1;
