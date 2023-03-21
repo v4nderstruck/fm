@@ -37,8 +37,8 @@ public class FmApplication {
     StreamJoin main = StreamJoin.newBuilder().setStreamId("yt_stream").build();
     messagesBroker.addStream(main);
 
-    addVideo("TvZskcqdYcE", main, "FM84", "Running in the Night");
-    addVideo("mkQ6H21QBXE", main, "Timecop1983", "Let's Talk");
+    addVideo("DCkJ5lGPqFs", main, "Out of Touch", "Daryl Hall & John Oates");
+    addVideo("Lo2qQmj0_h4", main, "You Shooke Me All Night long", "AC/DC");
   }
 
   public static void main(String[] args) {
