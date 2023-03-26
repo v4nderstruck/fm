@@ -1,0 +1,25 @@
+syntax = "proto3";
+package zensayyy.fm.proto;
+import "protocol/Track.proto";
+import "google/protobuf/timestamp.proto";
+
+message MixerControl {
+  string steamId = 1; 
+  string token = 2;
+
+  enum Control {
+    DATA = 0;
+  }
+
+  Control control = 3; 
+  repeated Track tracks = 4;
+}
+
+message MixerProtocol {
+  google.protobuf.Timestamp time = 1;  
+  oneof msg {
+    MixerControl control = 2;
+  }
+
+}
+

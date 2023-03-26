@@ -1,0 +1,30 @@
+syntax = "proto3";
+package zensayyy.fm.proto;
+import "google/protobuf/timestamp.proto";
+import "protocol/Track.proto";
+
+/// Control Messages received by the Client
+/// Todo: Control Messages for Synchronize Streams
+message FmControl {
+  enum Control {
+    SYNC_REQ = 0; // client request DATA
+    DATA = 1; 
+  }
+  Control control = 1;
+  repeated Track tracks = 2; 
+}
+
+/// Join Message send by the clients
+message FmJoin {
+  string streamId = 1;
+}
+
+/// FmProtocol Message
+message FmProtocol {
+  google.protobuf.Timestamp time = 1;
+  oneof msg {
+    FmJoin join = 2; 
+    FmControl control = 3; 
+  } 
+}
+
