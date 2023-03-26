@@ -62,7 +62,6 @@ public final class NewPipeDownloader extends Downloader {
     var reqBody = dataToSend == null ? BodyInserters.empty()
                                      : BodyInserters.fromValue(dataToSend);
 
-    log.info("NewPipeDownloader executing {} {}", method, url);
     String body = "";
     try {
       body = webClient.method(method)

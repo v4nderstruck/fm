@@ -22,6 +22,7 @@ public class YTPlayer {
 
     @Bean
     public YTPlayer ytPlayer() {
+        NewPipe.init(NewPipeDownloader.getInstance());
         return new YTPlayer();
     }
 }
