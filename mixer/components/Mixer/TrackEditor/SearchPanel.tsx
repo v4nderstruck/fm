@@ -8,13 +8,13 @@ import Spinner from "../helpers/Spinner";
 
 export default function SearchPanel() {
   const inputRef = useRef(null);
-  const [trackId, setTrackId] = useState<string>("");
+  const [trackId, setTrackId] = useState<{value: string}>({value: ""});
   const [track, setTrack] = useState<TrackMetadata | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
-    if (trackId !== "") {
+    if (trackId.value !== "") {
       setLoading(true);
-      axios.get(`/api/yt/q/${trackId}`, { responseType: "arraybuffer" })
+      axios.get(`/api/yt/q/${trackId.value}`, { responseType: "arraybuffer" })
         .then((res) => {
           const { data } = res;
           const parsedTrack = TrackMetadata.decode(new Uint8Array(data));
@@ -29,13 +29,13 @@ export default function SearchPanel() {
 
   return (
     <div className="w-full h-full bg-base-100 rounded-lg p-4 flex flex-col gap-4">
+      <h1 className="text-xl">Tracks</h1>
       <div className="form-control">
         <div className="input-group">
           <input ref={inputRef} type="text" placeholder="Track Id" className="input input-bordered w-full" />
-          {/* @ts-ignore */}
           <button className="btn btn-square" onClick={() => {
             /// @ts-ignore 
-            setTrackId(inputRef.current!.value);
+            setTrackId({ value: inputRef.current!.value});
           }}>
             {loading ? <Spinner /> : <IconSearch />}
           </button>
@@ -44,7 +44,7 @@ export default function SearchPanel() {
 
 
       <div className="w-full flex justify-center">
-        {track ? (
+        {track && !loading? (
           <div className="card w-full shadow-xl">
             <figure>
               <img src={track.thumbnail} alt="thumbnail" />

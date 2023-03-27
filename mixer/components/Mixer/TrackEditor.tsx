@@ -5,7 +5,7 @@ import EffectsPanel from "./TrackEditor/EffectsPanel";
 
 export default function TrackEditor() {
   return (
-    <div className="w-full h-[26rem]">
+    <div className="w-full h-[28rem]">
       <PanelGroup direction="horizontal">
         <Panel defaultSize={15} minSize={15}>
           <SearchPanel />
