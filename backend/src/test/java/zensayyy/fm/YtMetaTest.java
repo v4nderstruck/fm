@@ -26,7 +26,7 @@ public class YtMetaTest {
 
   @Test
   public void test_query_metadata() throws Exception {
-    var result = mvc.perform(MockMvcRequestBuilders.get("/yt/q/DCkJ5lGPqFs"))
+    var result = mvc.perform(MockMvcRequestBuilders.get("/api/yt/q/DCkJ5lGPqFs"))
                      .andExpect(MockMvcResultMatchers.status().isOk())
                      .andExpect(MockMvcResultMatchers.header().string(
                          HttpHeaderNames.CONTENT_TYPE.toString(),

@@ -21,7 +21,6 @@ public class QueryLatestVersion implements ApiIfc<TrackMetadata> {
 
   public TrackMetadata query() {
     try {
-      log.info("Query Metadata for {}", this.videoId);
       YoutubeStreamExtractor YTStreamExtractor;
       var url = YTService.getStreamLHFactory().fromId(videoId);
       YTStreamExtractor =
