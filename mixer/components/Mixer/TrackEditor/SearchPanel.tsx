@@ -60,7 +60,7 @@ export default function SearchPanel() {
             </div>
           </div>
         ) : (
-          <div className="text-xs text-base-300 fill-primary italic">
+          <div className="text-xs text-base-content fill-primary italic">
             {loading ? <Spinner /> : (
               <div className="flex items-center gap-2">
                 <IconMoodEmpty />

@@ -7,7 +7,7 @@ export default function NavBar() {
 
     <div className="navbar bg-base-100 rounded-md">
       <div className="flex-none text-neutral mx-2 p-2 rounded-full hover:bg-base-300 cursor-pointer">
-        <IconChevronLeft onClick={() => { router.back() }} />
+        <IconChevronLeft onClick={() => { router.push("/") }} />
       </div>
       <div className="flex-1">
         <h1 className="text-3xl font-bold text-primary">Mixer</h1>

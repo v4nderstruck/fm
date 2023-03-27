@@ -10,11 +10,11 @@ export default function TrackEditor() {
         <Panel defaultSize={15} minSize={15}>
           <SearchPanel />
         </Panel>
-        <PanelResizeHandle className="bg-base-300 w-3" />
+        <PanelResizeHandle className="bg-base-200 w-3" />
         <Panel defaultSize={60} >
           <EditPanel />
         </Panel>
-        <PanelResizeHandle className="bg-base-300 w-3" />
+        <PanelResizeHandle className="bg-base-200 w-3" />
         <Panel defaultSize={15} minSize={15}>
           <EffectsPanel />
         </Panel>
