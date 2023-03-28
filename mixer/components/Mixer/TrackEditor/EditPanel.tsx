@@ -1,5 +1,6 @@
 import { TrackMetadata } from "@/types/protocol/Track";
 import { useReducer, useRef } from "react";
+import TrackVisualizer from "./TrackVisualizer";
 
 export type EditPanelProps = {
   loadedTrack: TrackMetadata | null;
@@ -18,9 +19,9 @@ export default function EditPanel({ loadedTrack, setLoadedTrack }: EditPanelProp
     return (
       <div className="drawer-side">
         <label className="drawer-overlay" onClick={() => {
-          setLoadedTrack({ 
-            ...loadedTrack!, 
-            artist: artistRef.current!.value === "" ? artistRef.current!.placeholder : artistRef.current!.value, 
+          setLoadedTrack({
+            ...loadedTrack!,
+            artist: artistRef.current!.value === "" ? artistRef.current!.placeholder : artistRef.current!.value,
             title: titleRef.current!.value === "" ? titleRef.current!.placeholder : titleRef.current!.value,
           })
           editDrawerRef.current!.checked = false;
@@ -62,7 +63,7 @@ export default function EditPanel({ loadedTrack, setLoadedTrack }: EditPanelProp
           <div className="w-full flex items-center justify-between">
             <h1 className="text-xl">Editor</h1>
             {loadedTrack ? (
-              <p className="text-xs">Track: {loadedTrack.trackId}</p>
+                <p className="text-xs">Track: {loadedTrack.trackId}</p>
             ) : <></>}
           </div>
           <div>
@@ -77,6 +78,9 @@ export default function EditPanel({ loadedTrack, setLoadedTrack }: EditPanelProp
                 </div>
                 <div className="text-xs">
                   Artist: {loadedTrack.artist}
+                </div>
+                <div>
+                  <TrackVisualizer track={loadedTrack}/>
                 </div>
               </div>
             ) : <></>}

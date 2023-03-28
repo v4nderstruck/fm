@@ -1,4 +1,5 @@
 /* eslint-disable */
+import Long from "long";
 import _m0 from "protobufjs/minimal";
 import { Timestamp } from "../google/protobuf/timestamp";
 
@@ -56,6 +57,7 @@ export interface TrackMetadata {
   artist: string;
   thumbnail: string;
   source: string;
+  length: number;
   extension: string;
 }
 
@@ -221,7 +223,7 @@ export const TrackTimeEvent = {
 };
 
 function createBaseTrackMetadata(): TrackMetadata {
-  return { trackId: "", title: "", artist: "", thumbnail: "", source: "", extension: "" };
+  return { trackId: "", title: "", artist: "", thumbnail: "", source: "", length: 0, extension: "" };
 }
 
 export const TrackMetadata = {
@@ -241,8 +243,11 @@ export const TrackMetadata = {
     if (message.source !== "") {
       writer.uint32(42).string(message.source);
     }
+    if (message.length !== 0) {
+      writer.uint32(48).int64(message.length);
+    }
     if (message.extension !== "") {
-      writer.uint32(50).string(message.extension);
+      writer.uint32(58).string(message.extension);
     }
     return writer;
   },
@@ -270,6 +275,9 @@ export const TrackMetadata = {
           message.source = reader.string();
           break;
         case 6:
+          message.length = longToNumber(reader.int64() as Long);
+          break;
+        case 7:
           message.extension = reader.string();
           break;
         default:
@@ -287,6 +295,7 @@ export const TrackMetadata = {
       artist: isSet(object.artist) ? String(object.artist) : "",
       thumbnail: isSet(object.thumbnail) ? String(object.thumbnail) : "",
       source: isSet(object.source) ? String(object.source) : "",
+      length: isSet(object.length) ? Number(object.length) : 0,
       extension: isSet(object.extension) ? String(object.extension) : "",
     };
   },
@@ -298,6 +307,7 @@ export const TrackMetadata = {
     message.artist !== undefined && (obj.artist = message.artist);
     message.thumbnail !== undefined && (obj.thumbnail = message.thumbnail);
     message.source !== undefined && (obj.source = message.source);
+    message.length !== undefined && (obj.length = Math.round(message.length));
     message.extension !== undefined && (obj.extension = message.extension);
     return obj;
   },
@@ -313,10 +323,30 @@ export const TrackMetadata = {
     message.artist = object.artist ?? "";
     message.thumbnail = object.thumbnail ?? "";
     message.source = object.source ?? "";
+    message.length = object.length ?? 0;
     message.extension = object.extension ?? "";
     return message;
   },
 };
+
+declare var self: any | undefined;
+declare var window: any | undefined;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
+  throw "Unable to locate global object";
+})();
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
@@ -349,6 +379,18 @@ function fromJsonTimestamp(o: any): Date {
   } else {
     return fromTimestamp(Timestamp.fromJSON(o));
   }
+}
+
+function longToNumber(long: Long): number {
+  if (long.gt(Number.MAX_SAFE_INTEGER)) {
+    throw new tsProtoGlobalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+  }
+  return long.toNumber();
+}
+
+if (_m0.util.Long !== Long) {
+  _m0.util.Long = Long as any;
+  _m0.configure();
 }
 
 function isSet(value: any): boolean {

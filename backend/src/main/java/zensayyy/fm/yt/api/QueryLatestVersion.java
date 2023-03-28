@@ -36,6 +36,7 @@ public class QueryLatestVersion implements ApiIfc<TrackMetadata> {
               .setThumbnail(YTStreamExtractor.getThumbnailUrl())
               .setTitle(YTStreamExtractor.getName())
               .setArtist(YTStreamExtractor.getUploaderName())
+              .setLength(YTStreamExtractor.getLength())
               .setSource(results.get(0).getContent())
               .build();
       return metadata;

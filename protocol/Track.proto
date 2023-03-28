@@ -25,5 +25,6 @@ message TrackMetadata {
   string artist = 3;
   string thumbnail = 4;
   string source = 5;
-  string extension = 6;
+  int64 length = 6;
+  string extension = 7;
 }

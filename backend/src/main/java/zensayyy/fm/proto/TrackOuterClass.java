@@ -2196,12 +2196,18 @@ public final class TrackOuterClass {
         getSourceBytes();
 
     /**
-     * <code>string extension = 6;</code>
+     * <code>int64 length = 6;</code>
+     * @return The length.
+     */
+    long getLength();
+
+    /**
+     * <code>string extension = 7;</code>
      * @return The extension.
      */
     java.lang.String getExtension();
     /**
-     * <code>string extension = 6;</code>
+     * <code>string extension = 7;</code>
      * @return The bytes for extension.
      */
     com.google.protobuf.ByteString
@@ -2443,11 +2449,22 @@ public final class TrackOuterClass {
       }
     }
 
-    public static final int EXTENSION_FIELD_NUMBER = 6;
+    public static final int LENGTH_FIELD_NUMBER = 6;
+    private long length_ = 0L;
+    /**
+     * <code>int64 length = 6;</code>
+     * @return The length.
+     */
+    @java.lang.Override
+    public long getLength() {
+      return length_;
+    }
+
+    public static final int EXTENSION_FIELD_NUMBER = 7;
     @SuppressWarnings("serial")
     private volatile java.lang.Object extension_ = "";
     /**
-     * <code>string extension = 6;</code>
+     * <code>string extension = 7;</code>
      * @return The extension.
      */
     @java.lang.Override
@@ -2464,7 +2481,7 @@ public final class TrackOuterClass {
       }
     }
     /**
-     * <code>string extension = 6;</code>
+     * <code>string extension = 7;</code>
      * @return The bytes for extension.
      */
     @java.lang.Override
@@ -2511,8 +2528,11 @@ public final class TrackOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, source_);
       }
+      if (length_ != 0L) {
+        output.writeInt64(6, length_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(extension_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, extension_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, extension_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -2538,8 +2558,12 @@ public final class TrackOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, source_);
       }
+      if (length_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, length_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(extension_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, extension_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, extension_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -2566,6 +2590,8 @@ public final class TrackOuterClass {
           .equals(other.getThumbnail())) return false;
       if (!getSource()
           .equals(other.getSource())) return false;
+      if (getLength()
+          != other.getLength()) return false;
       if (!getExtension()
           .equals(other.getExtension())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -2589,6 +2615,9 @@ public final class TrackOuterClass {
       hash = (53 * hash) + getThumbnail().hashCode();
       hash = (37 * hash) + SOURCE_FIELD_NUMBER;
       hash = (53 * hash) + getSource().hashCode();
+      hash = (37 * hash) + LENGTH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLength());
       hash = (37 * hash) + EXTENSION_FIELD_NUMBER;
       hash = (53 * hash) + getExtension().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -2725,6 +2754,7 @@ public final class TrackOuterClass {
         artist_ = "";
         thumbnail_ = "";
         source_ = "";
+        length_ = 0L;
         extension_ = "";
         return this;
       }
@@ -2775,6 +2805,9 @@ public final class TrackOuterClass {
           result.source_ = source_;
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.length_ = length_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
           result.extension_ = extension_;
         }
       }
@@ -2816,9 +2849,12 @@ public final class TrackOuterClass {
           bitField0_ |= 0x00000010;
           onChanged();
         }
+        if (other.getLength() != 0L) {
+          setLength(other.getLength());
+        }
         if (!other.getExtension().isEmpty()) {
           extension_ = other.extension_;
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -2872,11 +2908,16 @@ public final class TrackOuterClass {
                 bitField0_ |= 0x00000010;
                 break;
               } // case 42
-              case 50: {
-                extension_ = input.readStringRequireUtf8();
+              case 48: {
+                length_ = input.readInt64();
                 bitField0_ |= 0x00000020;
                 break;
-              } // case 50
+              } // case 48
+              case 58: {
+                extension_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3254,9 +3295,41 @@ public final class TrackOuterClass {
         return this;
       }
 
+      private long length_ ;
+      /**
+       * <code>int64 length = 6;</code>
+       * @return The length.
+       */
+      @java.lang.Override
+      public long getLength() {
+        return length_;
+      }
+      /**
+       * <code>int64 length = 6;</code>
+       * @param value The length to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLength(long value) {
+
+        length_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 length = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLength() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        length_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object extension_ = "";
       /**
-       * <code>string extension = 6;</code>
+       * <code>string extension = 7;</code>
        * @return The extension.
        */
       public java.lang.String getExtension() {
@@ -3272,7 +3345,7 @@ public final class TrackOuterClass {
         }
       }
       /**
-       * <code>string extension = 6;</code>
+       * <code>string extension = 7;</code>
        * @return The bytes for extension.
        */
       public com.google.protobuf.ByteString
@@ -3289,7 +3362,7 @@ public final class TrackOuterClass {
         }
       }
       /**
-       * <code>string extension = 6;</code>
+       * <code>string extension = 7;</code>
        * @param value The extension to set.
        * @return This builder for chaining.
        */
@@ -3297,22 +3370,22 @@ public final class TrackOuterClass {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         extension_ = value;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
       /**
-       * <code>string extension = 6;</code>
+       * <code>string extension = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearExtension() {
         extension_ = getDefaultInstance().getExtension();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
       /**
-       * <code>string extension = 6;</code>
+       * <code>string extension = 7;</code>
        * @param value The bytes for extension to set.
        * @return This builder for chaining.
        */
@@ -3321,7 +3394,7 @@ public final class TrackOuterClass {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         extension_ = value;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -3422,10 +3495,11 @@ public final class TrackOuterClass {
       "ckTimeEvent\0226\n\005event\030\001 \001(\0162\'.zensayyy.fm" +
       ".proto.TrackTimeEvent.Event\022\014\n\004time\030\002 \001(" +
       "\005\022\020\n\010duration\030\003 \001(\005\022\022\n\nrefTrackId\030\004 \001(\005\"" +
-      "\037\n\005Event\022\014\n\010FADE_OUT\020\000\022\010\n\004DUCK\020\001\"u\n\rTrac" +
-      "kMetadata\022\017\n\007trackId\030\001 \001(\t\022\r\n\005title\030\002 \001(" +
-      "\t\022\016\n\006artist\030\003 \001(\t\022\021\n\tthumbnail\030\004 \001(\t\022\016\n\006" +
-      "source\030\005 \001(\t\022\021\n\textension\030\006 \001(\tb\006proto3"
+      "\037\n\005Event\022\014\n\010FADE_OUT\020\000\022\010\n\004DUCK\020\001\"\205\001\n\rTra" +
+      "ckMetadata\022\017\n\007trackId\030\001 \001(\t\022\r\n\005title\030\002 \001" +
+      "(\t\022\016\n\006artist\030\003 \001(\t\022\021\n\tthumbnail\030\004 \001(\t\022\016\n" +
+      "\006source\030\005 \001(\t\022\016\n\006length\030\006 \001(\003\022\021\n\textensi" +
+      "on\030\007 \001(\tb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3449,7 +3523,7 @@ public final class TrackOuterClass {
     internal_static_zensayyy_fm_proto_TrackMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_zensayyy_fm_proto_TrackMetadata_descriptor,
-        new java.lang.String[] { "TrackId", "Title", "Artist", "Thumbnail", "Source", "Extension", });
+        new java.lang.String[] { "TrackId", "Title", "Artist", "Thumbnail", "Source", "Length", "Extension", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 
