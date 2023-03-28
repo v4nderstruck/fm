@@ -4,13 +4,17 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import Spinner from "../helpers/Spinner";
 
-/// todo: add some stream context shit, metadata endpoint
+export type SearchPanelProps = {
+  setLoadedTrack: (track: TrackMetadata | null) => void;
+}
 
-export default function SearchPanel() {
+/// todo: add some stream context shit, metadata endpoint
+export default function SearchPanel({ setLoadedTrack }: SearchPanelProps) {
   const inputRef = useRef(null);
-  const [trackId, setTrackId] = useState<{value: string}>({value: ""});
+  const [trackId, setTrackId] = useState<{ value: string }>({ value: "" });
   const [track, setTrack] = useState<TrackMetadata | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+
   useEffect(() => {
     if (trackId.value !== "") {
       setLoading(true);
@@ -35,7 +39,7 @@ export default function SearchPanel() {
           <input ref={inputRef} type="text" placeholder="Track Id" className="input input-bordered w-full" />
           <button className="btn btn-square" onClick={() => {
             /// @ts-ignore 
-            setTrackId({ value: inputRef.current!.value});
+            setTrackId({ value: inputRef.current!.value });
           }}>
             {loading ? <Spinner /> : <IconSearch />}
           </button>
@@ -44,7 +48,7 @@ export default function SearchPanel() {
 
 
       <div className="w-full flex justify-center">
-        {track && !loading? (
+        {track && !loading ? (
           <div className="card w-full shadow-xl">
             <figure>
               <img src={track.thumbnail} alt="thumbnail" />
@@ -52,7 +56,9 @@ export default function SearchPanel() {
             <div className="card-body gap-4">
               <h2 className="card-title justify-between">
                 {track.trackId}
-                <button className="btn btn-primary btn-xs">Load</button>
+                <button
+                  onClick={() => {setLoadedTrack(track)}}
+                  className="btn btn-primary btn-xs" > Load</button>
               </h2>
               <div>
                 <audio src={track.source} controls className="w-full" />

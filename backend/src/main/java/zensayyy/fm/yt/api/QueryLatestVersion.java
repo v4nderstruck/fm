@@ -34,6 +34,8 @@ public class QueryLatestVersion implements ApiIfc<TrackMetadata> {
           TrackMetadata.newBuilder()
               .setTrackId(this.videoId)
               .setThumbnail(YTStreamExtractor.getThumbnailUrl())
+              .setTitle(YTStreamExtractor.getName())
+              .setArtist(YTStreamExtractor.getUploaderName())
               .setSource(results.get(0).getContent())
               .build();
       return metadata;
@@ -43,4 +45,3 @@ public class QueryLatestVersion implements ApiIfc<TrackMetadata> {
     return null;
   }
 }
-
