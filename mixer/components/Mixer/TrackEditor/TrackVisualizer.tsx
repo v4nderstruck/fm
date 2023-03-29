@@ -11,14 +11,13 @@ export type TrackVisualizerProps = {
   track: TrackMetadata;
 }
 
+// todo: global states to work with navigation!!
 export default function TrackVisualizer({ track }: TrackVisualizerProps) {
   const { theme } = useContext(ThemeCtx);
   const visualizerRef = useRef<HTMLDivElement>(null);
   const [wave, setWave] = useState<WaveSurfer | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-
-  console.log(theme);
 
   useEffect(() => {
     if (!visualizerRef.current) return;
@@ -53,7 +52,7 @@ export default function TrackVisualizer({ track }: TrackVisualizerProps) {
   return (
     <div className="w-full flex flex-col gap-2">
       <h1 className="text-xl text-accent">Audio</h1>
-      <div className="p-2 bg-base-200 rounded-lg flex flex-col">
+      <div className="p-2 bg-base-200 rounded-lg flex flex-col gap-2">
         <div ref={visualizerRef}></div>
         {isLoading ? <Spinner /> : (
           <button

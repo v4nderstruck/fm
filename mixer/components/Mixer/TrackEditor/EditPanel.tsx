@@ -63,10 +63,10 @@ export default function EditPanel({ loadedTrack, setLoadedTrack }: EditPanelProp
           <div className="w-full flex items-center justify-between">
             <h1 className="text-xl">Editor</h1>
             {loadedTrack ? (
-                <p className="text-xs">Track: {loadedTrack.trackId}</p>
+              <p className="text-xs">Track: {loadedTrack.trackId}</p>
             ) : <></>}
           </div>
-          <div>
+          <div className="my-4">
             {loadedTrack ? (
               <div>
                 <h2 className="text-lg flex gap-2 items-center text-accent">
@@ -79,8 +79,9 @@ export default function EditPanel({ loadedTrack, setLoadedTrack }: EditPanelProp
                 <div className="text-xs">
                   Artist: {loadedTrack.artist}
                 </div>
+                <div className="divider" />
                 <div className="my-2">
-                  <TrackVisualizer track={loadedTrack}/>
+                  <TrackVisualizer track={loadedTrack} />
                 </div>
               </div>
             ) : <></>}
