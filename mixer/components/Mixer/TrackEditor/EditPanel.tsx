@@ -79,7 +79,7 @@ export default function EditPanel({ loadedTrack, setLoadedTrack }: EditPanelProp
                 <div className="text-xs">
                   Artist: {loadedTrack.artist}
                 </div>
-                <div>
+                <div className="my-2">
                   <TrackVisualizer track={loadedTrack}/>
                 </div>
               </div>
