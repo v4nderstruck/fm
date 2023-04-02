@@ -6,10 +6,13 @@ import { IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
 // @ts-ignore 
 import daisyColors from 'daisyui/src/colors/themes';
 import Spinner from "../helpers/Spinner";
+import { invoke } from "@tauri-apps/api";
+
 
 export type TrackVisualizerProps = {
   track: TrackMetadata;
 }
+
 
 // todo: global states to work with navigation!!
 export default function TrackVisualizer({ track }: TrackVisualizerProps) {
@@ -18,27 +21,39 @@ export default function TrackVisualizer({ track }: TrackVisualizerProps) {
   const [wave, setWave] = useState<WaveSurfer | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [audioBlob, setAudioBlob] = useState<Blob>(new Blob());
+
+  useEffect(() => {
+    if (!visualizerRef.current) return;
+
+    const fetch = async () => {
+      setIsLoading(true);
+      const audioArray = await invoke("audio_stream_handler", {id: track.trackId});
+      console.log(audioArray)
+      if (audioArray) setAudioBlob(new Blob([new Uint8Array(audioArray.value)], {type: "audio/mp3"}))
+      setIsLoading(false);
+    };
+
+    fetch();
+  }, [track.source])
 
   useEffect(() => {
     if (!visualizerRef.current) return;
     if (wave) wave.destroy();
+    if (audioBlob.size == 0)  return;
 
-    setIsLoading(true);
     const newWave = WaveSurfer.create({
       progressColor: `${daisyColors[`[data-theme=${theme.value}]`].primary}`,
       waveColor: `${daisyColors[`[data-theme=${theme.value}]`].accent}`,
       cursorColor: `${daisyColors[`[data-theme=${theme.value}]`]['base-content']}`,
       container: visualizerRef.current,
     });
-
-    newWave.load(`mixer://localhost/${track.trackId}`);
-    newWave.on('ready', () => {
-      setIsLoading(false);
-    });
+  
+    console.log("Loading Blob");
+    newWave.loadBlob(audioBlob);
     setWave(newWave);
     setIsPlaying(false);
-  }, [track.source])
-
+  }, [audioBlob ])
 
   useEffect(() => {
     if (!wave) return;

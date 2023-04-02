@@ -3,13 +3,12 @@
   windows_subsystem = "windows"
 )]
 
-use services::stream::stream_handler;
-
 mod services;
+use services::stream::audio_stream_handler;
 
 fn main() {
   tauri::Builder::default()
-    .register_uri_scheme_protocol("mixer", stream_handler)
+    .invoke_handler(tauri::generate_handler![audio_stream_handler])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
