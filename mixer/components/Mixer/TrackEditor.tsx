@@ -9,9 +9,9 @@ export default function TrackEditor() {
   const [loadedTrack, setLoadedTrack] = useState<TrackMetadata | null>(null);
 
   return (
-    <div className="w-full h-[28rem]">
+    <div className="w-full h-full">
       <PanelGroup direction="horizontal">
-        <Panel defaultSize={15} minSize={15}>
+        <Panel defaultSize={20} minSize={20}>
           <SearchPanel setLoadedTrack={setLoadedTrack}/>
         </Panel>
         <PanelResizeHandle className="bg-base-200 w-3" />

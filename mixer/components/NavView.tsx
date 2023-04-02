@@ -43,9 +43,9 @@ export default function NavView() {
           <div className="flex gap-4 my-8">
             <div
               className="tooltip tooltip-bottom tooltip-primary"
-              data-tip="Create prerecorded Programs!">
+              data-tip="Create prerecorded Programs! (Coming soon)">
               <button
-                className="btn btn-accent"
+                className="btn btn-accent btn-disabled"
                 onClick={() => router.push("/program")}
               >
                 Program Editor
