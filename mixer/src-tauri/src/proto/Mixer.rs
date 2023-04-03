@@ -26,66 +26,45 @@
 const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_2_0;
 
 #[derive(PartialEq,Clone,Default,Debug)]
-// @@protoc_insertion_point(message:zensayyy.fm.proto.MixerControl)
-pub struct MixerControl {
+// @@protoc_insertion_point(message:zensayyy.fm.proto.ServerTrackData)
+pub struct ServerTrackData {
     // message fields
-    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerControl.steamId)
-    pub steamId: ::std::string::String,
-    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerControl.token)
-    pub token: ::std::string::String,
-    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerControl.control)
-    pub control: ::protobuf::EnumOrUnknown<mixer_control::Control>,
-    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerControl.tracks)
+    // @@protoc_insertion_point(field:zensayyy.fm.proto.ServerTrackData.tracks)
     pub tracks: ::std::vec::Vec<super::Track::Track>,
     // special fields
-    // @@protoc_insertion_point(special_field:zensayyy.fm.proto.MixerControl.special_fields)
+    // @@protoc_insertion_point(special_field:zensayyy.fm.proto.ServerTrackData.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
 }
 
-impl<'a> ::std::default::Default for &'a MixerControl {
-    fn default() -> &'a MixerControl {
-        <MixerControl as ::protobuf::Message>::default_instance()
+impl<'a> ::std::default::Default for &'a ServerTrackData {
+    fn default() -> &'a ServerTrackData {
+        <ServerTrackData as ::protobuf::Message>::default_instance()
     }
 }
 
-impl MixerControl {
-    pub fn new() -> MixerControl {
+impl ServerTrackData {
+    pub fn new() -> ServerTrackData {
         ::std::default::Default::default()
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(4);
+        let mut fields = ::std::vec::Vec::with_capacity(1);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "steamId",
-            |m: &MixerControl| { &m.steamId },
-            |m: &mut MixerControl| { &mut m.steamId },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "token",
-            |m: &MixerControl| { &m.token },
-            |m: &mut MixerControl| { &mut m.token },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "control",
-            |m: &MixerControl| { &m.control },
-            |m: &mut MixerControl| { &mut m.control },
-        ));
         fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
             "tracks",
-            |m: &MixerControl| { &m.tracks },
-            |m: &mut MixerControl| { &mut m.tracks },
+            |m: &ServerTrackData| { &m.tracks },
+            |m: &mut ServerTrackData| { &mut m.tracks },
         ));
-        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<MixerControl>(
-            "MixerControl",
+        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<ServerTrackData>(
+            "ServerTrackData",
             fields,
             oneofs,
         )
     }
 }
 
-impl ::protobuf::Message for MixerControl {
-    const NAME: &'static str = "MixerControl";
+impl ::protobuf::Message for ServerTrackData {
+    const NAME: &'static str = "ServerTrackData";
 
     fn is_initialized(&self) -> bool {
         true
@@ -95,15 +74,6 @@ impl ::protobuf::Message for MixerControl {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
                 10 => {
-                    self.steamId = is.read_string()?;
-                },
-                18 => {
-                    self.token = is.read_string()?;
-                },
-                24 => {
-                    self.control = is.read_enum_or_unknown()?;
-                },
-                34 => {
                     self.tracks.push(is.read_message()?);
                 },
                 tag => {
@@ -118,15 +88,6 @@ impl ::protobuf::Message for MixerControl {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
-        if !self.steamId.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.steamId);
-        }
-        if !self.token.is_empty() {
-            my_size += ::protobuf::rt::string_size(2, &self.token);
-        }
-        if self.control != ::protobuf::EnumOrUnknown::new(mixer_control::Control::DATA) {
-            my_size += ::protobuf::rt::int32_size(3, self.control.value());
-        }
         for value in &self.tracks {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
@@ -137,17 +98,8 @@ impl ::protobuf::Message for MixerControl {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
-        if !self.steamId.is_empty() {
-            os.write_string(1, &self.steamId)?;
-        }
-        if !self.token.is_empty() {
-            os.write_string(2, &self.token)?;
-        }
-        if self.control != ::protobuf::EnumOrUnknown::new(mixer_control::Control::DATA) {
-            os.write_enum(3, ::protobuf::EnumOrUnknown::value(&self.control))?;
-        }
         for v in &self.tracks {
-            ::protobuf::rt::write_message_field_with_cached_size(4, v, os)?;
+            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
         };
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -161,23 +113,17 @@ impl ::protobuf::Message for MixerControl {
         &mut self.special_fields
     }
 
-    fn new() -> MixerControl {
-        MixerControl::new()
+    fn new() -> ServerTrackData {
+        ServerTrackData::new()
     }
 
     fn clear(&mut self) {
-        self.steamId.clear();
-        self.token.clear();
-        self.control = ::protobuf::EnumOrUnknown::new(mixer_control::Control::DATA);
         self.tracks.clear();
         self.special_fields.clear();
     }
 
-    fn default_instance() -> &'static MixerControl {
-        static instance: MixerControl = MixerControl {
-            steamId: ::std::string::String::new(),
-            token: ::std::string::String::new(),
-            control: ::protobuf::EnumOrUnknown::from_i32(0),
+    fn default_instance() -> &'static ServerTrackData {
+        static instance: ServerTrackData = ServerTrackData {
             tracks: ::std::vec::Vec::new(),
             special_fields: ::protobuf::SpecialFields::new(),
         };
@@ -185,55 +131,59 @@ impl ::protobuf::Message for MixerControl {
     }
 }
 
-impl ::protobuf::MessageFull for MixerControl {
+impl ::protobuf::MessageFull for ServerTrackData {
     fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
         static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
-        descriptor.get(|| file_descriptor().message_by_package_relative_name("MixerControl").unwrap()).clone()
+        descriptor.get(|| file_descriptor().message_by_package_relative_name("ServerTrackData").unwrap()).clone()
     }
 }
 
-impl ::std::fmt::Display for MixerControl {
+impl ::std::fmt::Display for ServerTrackData {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
     }
 }
 
-impl ::protobuf::reflect::ProtobufValue for MixerControl {
+impl ::protobuf::reflect::ProtobufValue for ServerTrackData {
     type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
 }
 
-/// Nested message and enums of message `MixerControl`
-pub mod mixer_control {
+/// Nested message and enums of message `ServerTrackData`
+pub mod server_track_data {
     #[derive(Clone,Copy,PartialEq,Eq,Debug,Hash)]
-    // @@protoc_insertion_point(enum:zensayyy.fm.proto.MixerControl.Control)
-    pub enum Control {
-        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.MixerControl.Control.DATA)
-        DATA = 0,
+    // @@protoc_insertion_point(enum:zensayyy.fm.proto.ServerTrackData.Operation)
+    pub enum Operation {
+        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.ServerTrackData.Operation.ADD)
+        ADD = 0,
+        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.ServerTrackData.Operation.NEW)
+        NEW = 1,
     }
 
-    impl ::protobuf::Enum for Control {
-        const NAME: &'static str = "Control";
+    impl ::protobuf::Enum for Operation {
+        const NAME: &'static str = "Operation";
 
         fn value(&self) -> i32 {
             *self as i32
         }
 
-        fn from_i32(value: i32) -> ::std::option::Option<Control> {
+        fn from_i32(value: i32) -> ::std::option::Option<Operation> {
             match value {
-                0 => ::std::option::Option::Some(Control::DATA),
+                0 => ::std::option::Option::Some(Operation::ADD),
+                1 => ::std::option::Option::Some(Operation::NEW),
                 _ => ::std::option::Option::None
             }
         }
 
-        const VALUES: &'static [Control] = &[
-            Control::DATA,
+        const VALUES: &'static [Operation] = &[
+            Operation::ADD,
+            Operation::NEW,
         ];
     }
 
-    impl ::protobuf::EnumFull for Control {
+    impl ::protobuf::EnumFull for Operation {
         fn enum_descriptor() -> ::protobuf::reflect::EnumDescriptor {
             static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::EnumDescriptor> = ::protobuf::rt::Lazy::new();
-            descriptor.get(|| super::file_descriptor().enum_by_package_relative_name("MixerControl.Control").unwrap()).clone()
+            descriptor.get(|| super::file_descriptor().enum_by_package_relative_name("ServerTrackData.Operation").unwrap()).clone()
         }
 
         fn descriptor(&self) -> ::protobuf::reflect::EnumValueDescriptor {
@@ -242,27 +192,357 @@ pub mod mixer_control {
         }
     }
 
-    impl ::std::default::Default for Control {
+    impl ::std::default::Default for Operation {
         fn default() -> Self {
-            Control::DATA
+            Operation::ADD
         }
     }
 
-    impl Control {
+    impl Operation {
         pub(in super) fn generated_enum_descriptor_data() -> ::protobuf::reflect::GeneratedEnumDescriptorData {
-            ::protobuf::reflect::GeneratedEnumDescriptorData::new::<Control>("MixerControl.Control")
+            ::protobuf::reflect::GeneratedEnumDescriptorData::new::<Operation>("ServerTrackData.Operation")
         }
     }
+}
+
+#[derive(PartialEq,Clone,Default,Debug)]
+// @@protoc_insertion_point(message:zensayyy.fm.proto.MixerControlData)
+pub struct MixerControlData {
+    // message fields
+    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerControlData.track)
+    pub track: ::protobuf::MessageField<super::Track::Track>,
+    // special fields
+    // @@protoc_insertion_point(special_field:zensayyy.fm.proto.MixerControlData.special_fields)
+    pub special_fields: ::protobuf::SpecialFields,
+}
+
+impl<'a> ::std::default::Default for &'a MixerControlData {
+    fn default() -> &'a MixerControlData {
+        <MixerControlData as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl MixerControlData {
+    pub fn new() -> MixerControlData {
+        ::std::default::Default::default()
+    }
+
+    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
+        let mut fields = ::std::vec::Vec::with_capacity(1);
+        let mut oneofs = ::std::vec::Vec::with_capacity(0);
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::Track::Track>(
+            "track",
+            |m: &MixerControlData| { &m.track },
+            |m: &mut MixerControlData| { &mut m.track },
+        ));
+        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<MixerControlData>(
+            "MixerControlData",
+            fields,
+            oneofs,
+        )
+    }
+}
+
+impl ::protobuf::Message for MixerControlData {
+    const NAME: &'static str = "MixerControlData";
+
+    fn is_initialized(&self) -> bool {
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
+        while let Some(tag) = is.read_raw_tag_or_eof()? {
+            match tag {
+                10 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.track)?;
+                },
+                tag => {
+                    ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u64 {
+        let mut my_size = 0;
+        if let Some(v) = self.track.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
+        self.special_fields.cached_size().set(my_size as u32);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+        if let Some(v) = self.track.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
+        }
+        os.write_unknown_fields(self.special_fields.unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn special_fields(&self) -> &::protobuf::SpecialFields {
+        &self.special_fields
+    }
+
+    fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
+        &mut self.special_fields
+    }
+
+    fn new() -> MixerControlData {
+        MixerControlData::new()
+    }
+
+    fn clear(&mut self) {
+        self.track.clear();
+        self.special_fields.clear();
+    }
+
+    fn default_instance() -> &'static MixerControlData {
+        static instance: MixerControlData = MixerControlData {
+            track: ::protobuf::MessageField::none(),
+            special_fields: ::protobuf::SpecialFields::new(),
+        };
+        &instance
+    }
+}
+
+impl ::protobuf::MessageFull for MixerControlData {
+    fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
+        descriptor.get(|| file_descriptor().message_by_package_relative_name("MixerControlData").unwrap()).clone()
+    }
+}
+
+impl ::std::fmt::Display for MixerControlData {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for MixerControlData {
+    type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
+}
+
+/// Nested message and enums of message `MixerControlData`
+pub mod mixer_control_data {
+    #[derive(Clone,Copy,PartialEq,Eq,Debug,Hash)]
+    // @@protoc_insertion_point(enum:zensayyy.fm.proto.MixerControlData.Operation)
+    pub enum Operation {
+        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.MixerControlData.Operation.ADD)
+        ADD = 0,
+        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.MixerControlData.Operation.UPDATE)
+        UPDATE = 1,
+        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.MixerControlData.Operation.REMOVE)
+        REMOVE = 2,
+    }
+
+    impl ::protobuf::Enum for Operation {
+        const NAME: &'static str = "Operation";
+
+        fn value(&self) -> i32 {
+            *self as i32
+        }
+
+        fn from_i32(value: i32) -> ::std::option::Option<Operation> {
+            match value {
+                0 => ::std::option::Option::Some(Operation::ADD),
+                1 => ::std::option::Option::Some(Operation::UPDATE),
+                2 => ::std::option::Option::Some(Operation::REMOVE),
+                _ => ::std::option::Option::None
+            }
+        }
+
+        const VALUES: &'static [Operation] = &[
+            Operation::ADD,
+            Operation::UPDATE,
+            Operation::REMOVE,
+        ];
+    }
+
+    impl ::protobuf::EnumFull for Operation {
+        fn enum_descriptor() -> ::protobuf::reflect::EnumDescriptor {
+            static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::EnumDescriptor> = ::protobuf::rt::Lazy::new();
+            descriptor.get(|| super::file_descriptor().enum_by_package_relative_name("MixerControlData.Operation").unwrap()).clone()
+        }
+
+        fn descriptor(&self) -> ::protobuf::reflect::EnumValueDescriptor {
+            let index = *self as usize;
+            Self::enum_descriptor().value_by_index(index)
+        }
+    }
+
+    impl ::std::default::Default for Operation {
+        fn default() -> Self {
+            Operation::ADD
+        }
+    }
+
+    impl Operation {
+        pub(in super) fn generated_enum_descriptor_data() -> ::protobuf::reflect::GeneratedEnumDescriptorData {
+            ::protobuf::reflect::GeneratedEnumDescriptorData::new::<Operation>("MixerControlData.Operation")
+        }
+    }
+}
+
+#[derive(PartialEq,Clone,Default,Debug)]
+// @@protoc_insertion_point(message:zensayyy.fm.proto.MixerReqData)
+pub struct MixerReqData {
+    // message fields
+    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerReqData.sliceStart)
+    pub sliceStart: i32,
+    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerReqData.sliceEnd)
+    pub sliceEnd: i32,
+    // special fields
+    // @@protoc_insertion_point(special_field:zensayyy.fm.proto.MixerReqData.special_fields)
+    pub special_fields: ::protobuf::SpecialFields,
+}
+
+impl<'a> ::std::default::Default for &'a MixerReqData {
+    fn default() -> &'a MixerReqData {
+        <MixerReqData as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl MixerReqData {
+    pub fn new() -> MixerReqData {
+        ::std::default::Default::default()
+    }
+
+    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
+        let mut fields = ::std::vec::Vec::with_capacity(2);
+        let mut oneofs = ::std::vec::Vec::with_capacity(0);
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "sliceStart",
+            |m: &MixerReqData| { &m.sliceStart },
+            |m: &mut MixerReqData| { &mut m.sliceStart },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "sliceEnd",
+            |m: &MixerReqData| { &m.sliceEnd },
+            |m: &mut MixerReqData| { &mut m.sliceEnd },
+        ));
+        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<MixerReqData>(
+            "MixerReqData",
+            fields,
+            oneofs,
+        )
+    }
+}
+
+impl ::protobuf::Message for MixerReqData {
+    const NAME: &'static str = "MixerReqData";
+
+    fn is_initialized(&self) -> bool {
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
+        while let Some(tag) = is.read_raw_tag_or_eof()? {
+            match tag {
+                8 => {
+                    self.sliceStart = is.read_int32()?;
+                },
+                16 => {
+                    self.sliceEnd = is.read_int32()?;
+                },
+                tag => {
+                    ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u64 {
+        let mut my_size = 0;
+        if self.sliceStart != 0 {
+            my_size += ::protobuf::rt::int32_size(1, self.sliceStart);
+        }
+        if self.sliceEnd != 0 {
+            my_size += ::protobuf::rt::int32_size(2, self.sliceEnd);
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
+        self.special_fields.cached_size().set(my_size as u32);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+        if self.sliceStart != 0 {
+            os.write_int32(1, self.sliceStart)?;
+        }
+        if self.sliceEnd != 0 {
+            os.write_int32(2, self.sliceEnd)?;
+        }
+        os.write_unknown_fields(self.special_fields.unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn special_fields(&self) -> &::protobuf::SpecialFields {
+        &self.special_fields
+    }
+
+    fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
+        &mut self.special_fields
+    }
+
+    fn new() -> MixerReqData {
+        MixerReqData::new()
+    }
+
+    fn clear(&mut self) {
+        self.sliceStart = 0;
+        self.sliceEnd = 0;
+        self.special_fields.clear();
+    }
+
+    fn default_instance() -> &'static MixerReqData {
+        static instance: MixerReqData = MixerReqData {
+            sliceStart: 0,
+            sliceEnd: 0,
+            special_fields: ::protobuf::SpecialFields::new(),
+        };
+        &instance
+    }
+}
+
+impl ::protobuf::MessageFull for MixerReqData {
+    fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
+        descriptor.get(|| file_descriptor().message_by_package_relative_name("MixerReqData").unwrap()).clone()
+    }
+}
+
+impl ::std::fmt::Display for MixerReqData {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for MixerReqData {
+    type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
 }
 
 #[derive(PartialEq,Clone,Default,Debug)]
 // @@protoc_insertion_point(message:zensayyy.fm.proto.MixerProtocol)
 pub struct MixerProtocol {
     // message fields
+    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerProtocol.type)
+    pub type_: ::protobuf::EnumOrUnknown<mixer_protocol::Type>,
+    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerProtocol.steamId)
+    pub steamId: ::std::string::String,
+    // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerProtocol.token)
+    pub token: ::std::string::String,
     // @@protoc_insertion_point(field:zensayyy.fm.proto.MixerProtocol.time)
     pub time: ::protobuf::MessageField<::protobuf::well_known_types::timestamp::Timestamp>,
     // message oneof groups
-    pub msg: ::std::option::Option<mixer_protocol::Msg>,
+    pub payload: ::std::option::Option<mixer_protocol::Payload>,
     // special fields
     // @@protoc_insertion_point(special_field:zensayyy.fm.proto.MixerProtocol.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -279,71 +559,198 @@ impl MixerProtocol {
         ::std::default::Default::default()
     }
 
-    // .zensayyy.fm.proto.MixerControl control = 2;
+    // .zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;
 
-    pub fn control(&self) -> &MixerControl {
-        match self.msg {
-            ::std::option::Option::Some(mixer_protocol::Msg::Control(ref v)) => v,
-            _ => <MixerControl as ::protobuf::Message>::default_instance(),
+    pub fn serverTrackPayload(&self) -> &ServerTrackData {
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::ServerTrackPayload(ref v)) => v,
+            _ => <ServerTrackData as ::protobuf::Message>::default_instance(),
         }
     }
 
-    pub fn clear_control(&mut self) {
-        self.msg = ::std::option::Option::None;
+    pub fn clear_serverTrackPayload(&mut self) {
+        self.payload = ::std::option::Option::None;
     }
 
-    pub fn has_control(&self) -> bool {
-        match self.msg {
-            ::std::option::Option::Some(mixer_protocol::Msg::Control(..)) => true,
+    pub fn has_serverTrackPayload(&self) -> bool {
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::ServerTrackPayload(..)) => true,
             _ => false,
         }
     }
 
     // Param is passed by value, moved
-    pub fn set_control(&mut self, v: MixerControl) {
-        self.msg = ::std::option::Option::Some(mixer_protocol::Msg::Control(v))
+    pub fn set_serverTrackPayload(&mut self, v: ServerTrackData) {
+        self.payload = ::std::option::Option::Some(mixer_protocol::Payload::ServerTrackPayload(v))
     }
 
     // Mutable pointer to the field.
-    pub fn mut_control(&mut self) -> &mut MixerControl {
-        if let ::std::option::Option::Some(mixer_protocol::Msg::Control(_)) = self.msg {
+    pub fn mut_serverTrackPayload(&mut self) -> &mut ServerTrackData {
+        if let ::std::option::Option::Some(mixer_protocol::Payload::ServerTrackPayload(_)) = self.payload {
         } else {
-            self.msg = ::std::option::Option::Some(mixer_protocol::Msg::Control(MixerControl::new()));
+            self.payload = ::std::option::Option::Some(mixer_protocol::Payload::ServerTrackPayload(ServerTrackData::new()));
         }
-        match self.msg {
-            ::std::option::Option::Some(mixer_protocol::Msg::Control(ref mut v)) => v,
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::ServerTrackPayload(ref mut v)) => v,
             _ => panic!(),
         }
     }
 
     // Take field
-    pub fn take_control(&mut self) -> MixerControl {
-        if self.has_control() {
-            match self.msg.take() {
-                ::std::option::Option::Some(mixer_protocol::Msg::Control(v)) => v,
+    pub fn take_serverTrackPayload(&mut self) -> ServerTrackData {
+        if self.has_serverTrackPayload() {
+            match self.payload.take() {
+                ::std::option::Option::Some(mixer_protocol::Payload::ServerTrackPayload(v)) => v,
                 _ => panic!(),
             }
         } else {
-            MixerControl::new()
+            ServerTrackData::new()
+        }
+    }
+
+    // .zensayyy.fm.proto.MixerReqData mixerReqData = 6;
+
+    pub fn mixerReqData(&self) -> &MixerReqData {
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::MixerReqData(ref v)) => v,
+            _ => <MixerReqData as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_mixerReqData(&mut self) {
+        self.payload = ::std::option::Option::None;
+    }
+
+    pub fn has_mixerReqData(&self) -> bool {
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::MixerReqData(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_mixerReqData(&mut self, v: MixerReqData) {
+        self.payload = ::std::option::Option::Some(mixer_protocol::Payload::MixerReqData(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_mixerReqData(&mut self) -> &mut MixerReqData {
+        if let ::std::option::Option::Some(mixer_protocol::Payload::MixerReqData(_)) = self.payload {
+        } else {
+            self.payload = ::std::option::Option::Some(mixer_protocol::Payload::MixerReqData(MixerReqData::new()));
+        }
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::MixerReqData(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_mixerReqData(&mut self) -> MixerReqData {
+        if self.has_mixerReqData() {
+            match self.payload.take() {
+                ::std::option::Option::Some(mixer_protocol::Payload::MixerReqData(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            MixerReqData::new()
+        }
+    }
+
+    // .zensayyy.fm.proto.MixerControlData mixerControlData = 7;
+
+    pub fn mixerControlData(&self) -> &MixerControlData {
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::MixerControlData(ref v)) => v,
+            _ => <MixerControlData as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_mixerControlData(&mut self) {
+        self.payload = ::std::option::Option::None;
+    }
+
+    pub fn has_mixerControlData(&self) -> bool {
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::MixerControlData(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_mixerControlData(&mut self, v: MixerControlData) {
+        self.payload = ::std::option::Option::Some(mixer_protocol::Payload::MixerControlData(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_mixerControlData(&mut self) -> &mut MixerControlData {
+        if let ::std::option::Option::Some(mixer_protocol::Payload::MixerControlData(_)) = self.payload {
+        } else {
+            self.payload = ::std::option::Option::Some(mixer_protocol::Payload::MixerControlData(MixerControlData::new()));
+        }
+        match self.payload {
+            ::std::option::Option::Some(mixer_protocol::Payload::MixerControlData(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_mixerControlData(&mut self) -> MixerControlData {
+        if self.has_mixerControlData() {
+            match self.payload.take() {
+                ::std::option::Option::Some(mixer_protocol::Payload::MixerControlData(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            MixerControlData::new()
         }
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(2);
+        let mut fields = ::std::vec::Vec::with_capacity(7);
         let mut oneofs = ::std::vec::Vec::with_capacity(1);
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "type",
+            |m: &MixerProtocol| { &m.type_ },
+            |m: &mut MixerProtocol| { &mut m.type_ },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "steamId",
+            |m: &MixerProtocol| { &m.steamId },
+            |m: &mut MixerProtocol| { &mut m.steamId },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "token",
+            |m: &MixerProtocol| { &m.token },
+            |m: &mut MixerProtocol| { &mut m.token },
+        ));
         fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, ::protobuf::well_known_types::timestamp::Timestamp>(
             "time",
             |m: &MixerProtocol| { &m.time },
             |m: &mut MixerProtocol| { &mut m.time },
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, MixerControl>(
-            "control",
-            MixerProtocol::has_control,
-            MixerProtocol::control,
-            MixerProtocol::mut_control,
-            MixerProtocol::set_control,
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, ServerTrackData>(
+            "serverTrackPayload",
+            MixerProtocol::has_serverTrackPayload,
+            MixerProtocol::serverTrackPayload,
+            MixerProtocol::mut_serverTrackPayload,
+            MixerProtocol::set_serverTrackPayload,
         ));
-        oneofs.push(mixer_protocol::Msg::generated_oneof_descriptor_data());
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, MixerReqData>(
+            "mixerReqData",
+            MixerProtocol::has_mixerReqData,
+            MixerProtocol::mixerReqData,
+            MixerProtocol::mut_mixerReqData,
+            MixerProtocol::set_mixerReqData,
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, MixerControlData>(
+            "mixerControlData",
+            MixerProtocol::has_mixerControlData,
+            MixerProtocol::mixerControlData,
+            MixerProtocol::mut_mixerControlData,
+            MixerProtocol::set_mixerControlData,
+        ));
+        oneofs.push(mixer_protocol::Payload::generated_oneof_descriptor_data());
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<MixerProtocol>(
             "MixerProtocol",
             fields,
@@ -362,11 +769,26 @@ impl ::protobuf::Message for MixerProtocol {
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
-                10 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.time)?;
+                8 => {
+                    self.type_ = is.read_enum_or_unknown()?;
                 },
                 18 => {
-                    self.msg = ::std::option::Option::Some(mixer_protocol::Msg::Control(is.read_message()?));
+                    self.steamId = is.read_string()?;
+                },
+                26 => {
+                    self.token = is.read_string()?;
+                },
+                34 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.time)?;
+                },
+                42 => {
+                    self.payload = ::std::option::Option::Some(mixer_protocol::Payload::ServerTrackPayload(is.read_message()?));
+                },
+                50 => {
+                    self.payload = ::std::option::Option::Some(mixer_protocol::Payload::MixerReqData(is.read_message()?));
+                },
+                58 => {
+                    self.payload = ::std::option::Option::Some(mixer_protocol::Payload::MixerControlData(is.read_message()?));
                 },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -380,13 +802,30 @@ impl ::protobuf::Message for MixerProtocol {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
+        if self.type_ != ::protobuf::EnumOrUnknown::new(mixer_protocol::Type::MIXER_CONTROL_DATA) {
+            my_size += ::protobuf::rt::int32_size(1, self.type_.value());
+        }
+        if !self.steamId.is_empty() {
+            my_size += ::protobuf::rt::string_size(2, &self.steamId);
+        }
+        if !self.token.is_empty() {
+            my_size += ::protobuf::rt::string_size(3, &self.token);
+        }
         if let Some(v) = self.time.as_ref() {
             let len = v.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
         }
-        if let ::std::option::Option::Some(ref v) = self.msg {
+        if let ::std::option::Option::Some(ref v) = self.payload {
             match v {
-                &mixer_protocol::Msg::Control(ref v) => {
+                &mixer_protocol::Payload::ServerTrackPayload(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+                &mixer_protocol::Payload::MixerReqData(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+                &mixer_protocol::Payload::MixerControlData(ref v) => {
                     let len = v.compute_size();
                     my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
                 },
@@ -398,13 +837,28 @@ impl ::protobuf::Message for MixerProtocol {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
-        if let Some(v) = self.time.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
+        if self.type_ != ::protobuf::EnumOrUnknown::new(mixer_protocol::Type::MIXER_CONTROL_DATA) {
+            os.write_enum(1, ::protobuf::EnumOrUnknown::value(&self.type_))?;
         }
-        if let ::std::option::Option::Some(ref v) = self.msg {
+        if !self.steamId.is_empty() {
+            os.write_string(2, &self.steamId)?;
+        }
+        if !self.token.is_empty() {
+            os.write_string(3, &self.token)?;
+        }
+        if let Some(v) = self.time.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(4, v, os)?;
+        }
+        if let ::std::option::Option::Some(ref v) = self.payload {
             match v {
-                &mixer_protocol::Msg::Control(ref v) => {
-                    ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
+                &mixer_protocol::Payload::ServerTrackPayload(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(5, v, os)?;
+                },
+                &mixer_protocol::Payload::MixerReqData(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(6, v, os)?;
+                },
+                &mixer_protocol::Payload::MixerControlData(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(7, v, os)?;
                 },
             };
         }
@@ -425,15 +879,23 @@ impl ::protobuf::Message for MixerProtocol {
     }
 
     fn clear(&mut self) {
+        self.type_ = ::protobuf::EnumOrUnknown::new(mixer_protocol::Type::MIXER_CONTROL_DATA);
+        self.steamId.clear();
+        self.token.clear();
         self.time.clear();
-        self.msg = ::std::option::Option::None;
+        self.payload = ::std::option::Option::None;
+        self.payload = ::std::option::Option::None;
+        self.payload = ::std::option::Option::None;
         self.special_fields.clear();
     }
 
     fn default_instance() -> &'static MixerProtocol {
         static instance: MixerProtocol = MixerProtocol {
+            type_: ::protobuf::EnumOrUnknown::from_i32(0),
+            steamId: ::std::string::String::new(),
+            token: ::std::string::String::new(),
             time: ::protobuf::MessageField::none(),
-            msg: ::std::option::Option::None,
+            payload: ::std::option::Option::None,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -462,66 +924,171 @@ pub mod mixer_protocol {
 
     #[derive(Clone,PartialEq,Debug)]
     #[non_exhaustive]
-    // @@protoc_insertion_point(oneof:zensayyy.fm.proto.MixerProtocol.msg)
-    pub enum Msg {
-        // @@protoc_insertion_point(oneof_field:zensayyy.fm.proto.MixerProtocol.control)
-        Control(super::MixerControl),
+    // @@protoc_insertion_point(oneof:zensayyy.fm.proto.MixerProtocol.payload)
+    pub enum Payload {
+        // @@protoc_insertion_point(oneof_field:zensayyy.fm.proto.MixerProtocol.serverTrackPayload)
+        ServerTrackPayload(super::ServerTrackData),
+        // @@protoc_insertion_point(oneof_field:zensayyy.fm.proto.MixerProtocol.mixerReqData)
+        MixerReqData(super::MixerReqData),
+        // @@protoc_insertion_point(oneof_field:zensayyy.fm.proto.MixerProtocol.mixerControlData)
+        MixerControlData(super::MixerControlData),
     }
 
-    impl ::protobuf::Oneof for Msg {
+    impl ::protobuf::Oneof for Payload {
     }
 
-    impl ::protobuf::OneofFull for Msg {
+    impl ::protobuf::OneofFull for Payload {
         fn descriptor() -> ::protobuf::reflect::OneofDescriptor {
             static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::OneofDescriptor> = ::protobuf::rt::Lazy::new();
-            descriptor.get(|| <super::MixerProtocol as ::protobuf::MessageFull>::descriptor().oneof_by_name("msg").unwrap()).clone()
+            descriptor.get(|| <super::MixerProtocol as ::protobuf::MessageFull>::descriptor().oneof_by_name("payload").unwrap()).clone()
         }
     }
 
-    impl Msg {
+    impl Payload {
         pub(in super) fn generated_oneof_descriptor_data() -> ::protobuf::reflect::GeneratedOneofDescriptorData {
-            ::protobuf::reflect::GeneratedOneofDescriptorData::new::<Msg>("msg")
+            ::protobuf::reflect::GeneratedOneofDescriptorData::new::<Payload>("payload")
+        }
+    }
+    #[derive(Clone,Copy,PartialEq,Eq,Debug,Hash)]
+    // @@protoc_insertion_point(enum:zensayyy.fm.proto.MixerProtocol.Type)
+    pub enum Type {
+        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.MixerProtocol.Type.MIXER_CONTROL_DATA)
+        MIXER_CONTROL_DATA = 0,
+        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.MixerProtocol.Type.MIXER_REQ_DATA)
+        MIXER_REQ_DATA = 1,
+        // @@protoc_insertion_point(enum_value:zensayyy.fm.proto.MixerProtocol.Type.SERVER_TRACK_DATA)
+        SERVER_TRACK_DATA = 2,
+    }
+
+    impl ::protobuf::Enum for Type {
+        const NAME: &'static str = "Type";
+
+        fn value(&self) -> i32 {
+            *self as i32
+        }
+
+        fn from_i32(value: i32) -> ::std::option::Option<Type> {
+            match value {
+                0 => ::std::option::Option::Some(Type::MIXER_CONTROL_DATA),
+                1 => ::std::option::Option::Some(Type::MIXER_REQ_DATA),
+                2 => ::std::option::Option::Some(Type::SERVER_TRACK_DATA),
+                _ => ::std::option::Option::None
+            }
+        }
+
+        const VALUES: &'static [Type] = &[
+            Type::MIXER_CONTROL_DATA,
+            Type::MIXER_REQ_DATA,
+            Type::SERVER_TRACK_DATA,
+        ];
+    }
+
+    impl ::protobuf::EnumFull for Type {
+        fn enum_descriptor() -> ::protobuf::reflect::EnumDescriptor {
+            static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::EnumDescriptor> = ::protobuf::rt::Lazy::new();
+            descriptor.get(|| super::file_descriptor().enum_by_package_relative_name("MixerProtocol.Type").unwrap()).clone()
+        }
+
+        fn descriptor(&self) -> ::protobuf::reflect::EnumValueDescriptor {
+            let index = *self as usize;
+            Self::enum_descriptor().value_by_index(index)
+        }
+    }
+
+    impl ::std::default::Default for Type {
+        fn default() -> Self {
+            Type::MIXER_CONTROL_DATA
+        }
+    }
+
+    impl Type {
+        pub(in super) fn generated_enum_descriptor_data() -> ::protobuf::reflect::GeneratedEnumDescriptorData {
+            ::protobuf::reflect::GeneratedEnumDescriptorData::new::<Type>("MixerProtocol.Type")
         }
     }
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
     \n\x14protocol/Mixer.proto\x12\x11zensayyy.fm.proto\x1a\x14protocol/Trac\
-    k.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc8\x01\n\x0cMixerContr\
-    ol\x12\x18\n\x07steamId\x18\x01\x20\x01(\tR\x07steamId\x12\x14\n\x05toke\
-    n\x18\x02\x20\x01(\tR\x05token\x12A\n\x07control\x18\x03\x20\x01(\x0e2'.\
-    zensayyy.fm.proto.MixerControl.ControlR\x07control\x120\n\x06tracks\x18\
-    \x04\x20\x03(\x0b2\x18.zensayyy.fm.proto.TrackR\x06tracks\"\x13\n\x07Con\
-    trol\x12\x08\n\x04DATA\x10\0\"\x83\x01\n\rMixerProtocol\x12.\n\x04time\
-    \x18\x01\x20\x01(\x0b2\x1a.google.protobuf.TimestampR\x04time\x12;\n\x07\
-    control\x18\x02\x20\x01(\x0b2\x1f.zensayyy.fm.proto.MixerControlH\0R\x07\
-    controlB\x05\n\x03msgJ\xa1\x04\n\x06\x12\x04\0\0\x17\x01\n\x08\n\x01\x0c\
-    \x12\x03\0\0\x12\n\x08\n\x01\x02\x12\x03\x01\0\x1a\n\t\n\x02\x03\0\x12\
-    \x03\x02\0\x1e\n\t\n\x02\x03\x01\x12\x03\x03\0)\n\n\n\x02\x04\0\x12\x04\
-    \x05\0\x0f\x01\n\n\n\x03\x04\0\x01\x12\x03\x05\x08\x14\n\x0b\n\x04\x04\0\
-    \x02\0\x12\x03\x06\x02\x15\n\x0c\n\x05\x04\0\x02\0\x05\x12\x03\x06\x02\
-    \x08\n\x0c\n\x05\x04\0\x02\0\x01\x12\x03\x06\t\x10\n\x0c\n\x05\x04\0\x02\
-    \0\x03\x12\x03\x06\x13\x14\n\x0b\n\x04\x04\0\x02\x01\x12\x03\x07\x02\x13\
-    \n\x0c\n\x05\x04\0\x02\x01\x05\x12\x03\x07\x02\x08\n\x0c\n\x05\x04\0\x02\
-    \x01\x01\x12\x03\x07\t\x0e\n\x0c\n\x05\x04\0\x02\x01\x03\x12\x03\x07\x11\
-    \x12\n\x0c\n\x04\x04\0\x04\0\x12\x04\t\x02\x0b\x03\n\x0c\n\x05\x04\0\x04\
-    \0\x01\x12\x03\t\x07\x0e\n\r\n\x06\x04\0\x04\0\x02\0\x12\x03\n\x04\r\n\
-    \x0e\n\x07\x04\0\x04\0\x02\0\x01\x12\x03\n\x04\x08\n\x0e\n\x07\x04\0\x04\
-    \0\x02\0\x02\x12\x03\n\x0b\x0c\n\x0b\n\x04\x04\0\x02\x02\x12\x03\r\x02\
-    \x16\n\x0c\n\x05\x04\0\x02\x02\x06\x12\x03\r\x02\t\n\x0c\n\x05\x04\0\x02\
-    \x02\x01\x12\x03\r\n\x11\n\x0c\n\x05\x04\0\x02\x02\x03\x12\x03\r\x14\x15\
-    \n\x0b\n\x04\x04\0\x02\x03\x12\x03\x0e\x02\x1c\n\x0c\n\x05\x04\0\x02\x03\
-    \x04\x12\x03\x0e\x02\n\n\x0c\n\x05\x04\0\x02\x03\x06\x12\x03\x0e\x0b\x10\
-    \n\x0c\n\x05\x04\0\x02\x03\x01\x12\x03\x0e\x11\x17\n\x0c\n\x05\x04\0\x02\
-    \x03\x03\x12\x03\x0e\x1a\x1b\n\n\n\x02\x04\x01\x12\x04\x11\0\x17\x01\n\n\
-    \n\x03\x04\x01\x01\x12\x03\x11\x08\x15\n\x0b\n\x04\x04\x01\x02\0\x12\x03\
-    \x12\x02%\n\x0c\n\x05\x04\x01\x02\0\x06\x12\x03\x12\x02\x1b\n\x0c\n\x05\
-    \x04\x01\x02\0\x01\x12\x03\x12\x1c\x20\n\x0c\n\x05\x04\x01\x02\0\x03\x12\
-    \x03\x12#$\n\x0c\n\x04\x04\x01\x08\0\x12\x04\x13\x02\x15\x03\n\x0c\n\x05\
-    \x04\x01\x08\0\x01\x12\x03\x13\x08\x0b\n\x0b\n\x04\x04\x01\x02\x01\x12\
-    \x03\x14\x04\x1d\n\x0c\n\x05\x04\x01\x02\x01\x06\x12\x03\x14\x04\x10\n\
-    \x0c\n\x05\x04\x01\x02\x01\x01\x12\x03\x14\x11\x18\n\x0c\n\x05\x04\x01\
-    \x02\x01\x03\x12\x03\x14\x1b\x1cb\x06proto3\
+    k.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"b\n\x0fServerTrackData\
+    \x120\n\x06tracks\x18\x01\x20\x03(\x0b2\x18.zensayyy.fm.proto.TrackR\x06\
+    tracks\"\x1d\n\tOperation\x12\x07\n\x03ADD\x10\0\x12\x07\n\x03NEW\x10\
+    \x01\"p\n\x10MixerControlData\x12.\n\x05track\x18\x01\x20\x01(\x0b2\x18.\
+    zensayyy.fm.proto.TrackR\x05track\",\n\tOperation\x12\x07\n\x03ADD\x10\0\
+    \x12\n\n\x06UPDATE\x10\x01\x12\n\n\x06REMOVE\x10\x02\"J\n\x0cMixerReqDat\
+    a\x12\x1e\n\nsliceStart\x18\x01\x20\x01(\x05R\nsliceStart\x12\x1a\n\x08s\
+    liceEnd\x18\x02\x20\x01(\x05R\x08sliceEnd\"\xf0\x03\n\rMixerProtocol\x12\
+    9\n\x04type\x18\x01\x20\x01(\x0e2%.zensayyy.fm.proto.MixerProtocol.TypeR\
+    \x04type\x12\x18\n\x07steamId\x18\x02\x20\x01(\tR\x07steamId\x12\x14\n\
+    \x05token\x18\x03\x20\x01(\tR\x05token\x12.\n\x04time\x18\x04\x20\x01(\
+    \x0b2\x1a.google.protobuf.TimestampR\x04time\x12T\n\x12serverTrackPayloa\
+    d\x18\x05\x20\x01(\x0b2\".zensayyy.fm.proto.ServerTrackDataH\0R\x12serve\
+    rTrackPayload\x12E\n\x0cmixerReqData\x18\x06\x20\x01(\x0b2\x1f.zensayyy.\
+    fm.proto.MixerReqDataH\0R\x0cmixerReqData\x12Q\n\x10mixerControlData\x18\
+    \x07\x20\x01(\x0b2#.zensayyy.fm.proto.MixerControlDataH\0R\x10mixerContr\
+    olData\"I\n\x04Type\x12\x16\n\x12MIXER_CONTROL_DATA\x10\0\x12\x12\n\x0eM\
+    IXER_REQ_DATA\x10\x01\x12\x15\n\x11SERVER_TRACK_DATA\x10\x02B\t\n\x07pay\
+    loadJ\xe5\t\n\x06\x12\x04\0\0.\x01\n\x08\n\x01\x0c\x12\x03\0\0\x12\n\x08\
+    \n\x01\x02\x12\x03\x01\0\x1a\n\t\n\x02\x03\0\x12\x03\x02\0\x1e\n\t\n\x02\
+    \x03\x01\x12\x03\x03\0)\n\n\n\x02\x04\0\x12\x04\x05\0\x0b\x01\n\n\n\x03\
+    \x04\0\x01\x12\x03\x05\x08\x17\n\x0c\n\x04\x04\0\x04\0\x12\x04\x06\x02\t\
+    \x03\n\x0c\n\x05\x04\0\x04\0\x01\x12\x03\x06\x07\x10\n\r\n\x06\x04\0\x04\
+    \0\x02\0\x12\x03\x07\x04\x0c\n\x0e\n\x07\x04\0\x04\0\x02\0\x01\x12\x03\
+    \x07\x04\x07\n\x0e\n\x07\x04\0\x04\0\x02\0\x02\x12\x03\x07\n\x0b\n\r\n\
+    \x06\x04\0\x04\0\x02\x01\x12\x03\x08\x04\x0c\n\x0e\n\x07\x04\0\x04\0\x02\
+    \x01\x01\x12\x03\x08\x04\x07\n\x0e\n\x07\x04\0\x04\0\x02\x01\x02\x12\x03\
+    \x08\n\x0b\n\x0b\n\x04\x04\0\x02\0\x12\x03\n\x02\x1c\n\x0c\n\x05\x04\0\
+    \x02\0\x04\x12\x03\n\x02\n\n\x0c\n\x05\x04\0\x02\0\x06\x12\x03\n\x0b\x10\
+    \n\x0c\n\x05\x04\0\x02\0\x01\x12\x03\n\x11\x17\n\x0c\n\x05\x04\0\x02\0\
+    \x03\x12\x03\n\x1a\x1b\n\n\n\x02\x04\x01\x12\x04\r\0\x14\x01\n\n\n\x03\
+    \x04\x01\x01\x12\x03\r\x08\x18\n\x0c\n\x04\x04\x01\x04\0\x12\x04\x0e\x02\
+    \x12\x03\n\x0c\n\x05\x04\x01\x04\0\x01\x12\x03\x0e\x07\x10\n\r\n\x06\x04\
+    \x01\x04\0\x02\0\x12\x03\x0f\x04\x0c\n\x0e\n\x07\x04\x01\x04\0\x02\0\x01\
+    \x12\x03\x0f\x04\x07\n\x0e\n\x07\x04\x01\x04\0\x02\0\x02\x12\x03\x0f\n\
+    \x0b\n\r\n\x06\x04\x01\x04\0\x02\x01\x12\x03\x10\x04\x0f\n\x0e\n\x07\x04\
+    \x01\x04\0\x02\x01\x01\x12\x03\x10\x04\n\n\x0e\n\x07\x04\x01\x04\0\x02\
+    \x01\x02\x12\x03\x10\r\x0e\n\r\n\x06\x04\x01\x04\0\x02\x02\x12\x03\x11\
+    \x04\x0f\n\x0e\n\x07\x04\x01\x04\0\x02\x02\x01\x12\x03\x11\x04\n\n\x0e\n\
+    \x07\x04\x01\x04\0\x02\x02\x02\x12\x03\x11\r\x0e\n\x0b\n\x04\x04\x01\x02\
+    \0\x12\x03\x13\x02\x12\n\x0c\n\x05\x04\x01\x02\0\x06\x12\x03\x13\x02\x07\
+    \n\x0c\n\x05\x04\x01\x02\0\x01\x12\x03\x13\x08\r\n\x0c\n\x05\x04\x01\x02\
+    \0\x03\x12\x03\x13\x10\x11\n\n\n\x02\x04\x02\x12\x04\x16\0\x19\x01\n\n\n\
+    \x03\x04\x02\x01\x12\x03\x16\x08\x14\n\x0b\n\x04\x04\x02\x02\0\x12\x03\
+    \x17\x02\x17\n\x0c\n\x05\x04\x02\x02\0\x05\x12\x03\x17\x02\x07\n\x0c\n\
+    \x05\x04\x02\x02\0\x01\x12\x03\x17\x08\x12\n\x0c\n\x05\x04\x02\x02\0\x03\
+    \x12\x03\x17\x15\x16\n\x0b\n\x04\x04\x02\x02\x01\x12\x03\x18\x02\x15\n\
+    \x0c\n\x05\x04\x02\x02\x01\x05\x12\x03\x18\x02\x07\n\x0c\n\x05\x04\x02\
+    \x02\x01\x01\x12\x03\x18\x08\x10\n\x0c\n\x05\x04\x02\x02\x01\x03\x12\x03\
+    \x18\x13\x14\n\n\n\x02\x04\x03\x12\x04\x1c\0.\x01\n\n\n\x03\x04\x03\x01\
+    \x12\x03\x1c\x08\x15\n\x0c\n\x04\x04\x03\x04\0\x12\x04\x1d\x02!\x03\n\
+    \x0c\n\x05\x04\x03\x04\0\x01\x12\x03\x1d\x07\x0b\n\r\n\x06\x04\x03\x04\0\
+    \x02\0\x12\x03\x1e\x04\x1b\n\x0e\n\x07\x04\x03\x04\0\x02\0\x01\x12\x03\
+    \x1e\x04\x16\n\x0e\n\x07\x04\x03\x04\0\x02\0\x02\x12\x03\x1e\x19\x1a\n\r\
+    \n\x06\x04\x03\x04\0\x02\x01\x12\x03\x1f\x04\x17\n\x0e\n\x07\x04\x03\x04\
+    \0\x02\x01\x01\x12\x03\x1f\x04\x12\n\x0e\n\x07\x04\x03\x04\0\x02\x01\x02\
+    \x12\x03\x1f\x15\x16\n\r\n\x06\x04\x03\x04\0\x02\x02\x12\x03\x20\x04\x1a\
+    \n\x0e\n\x07\x04\x03\x04\0\x02\x02\x01\x12\x03\x20\x04\x15\n\x0e\n\x07\
+    \x04\x03\x04\0\x02\x02\x02\x12\x03\x20\x18\x19\n\x0b\n\x04\x04\x03\x02\0\
+    \x12\x03#\x02\x10\n\x0c\n\x05\x04\x03\x02\0\x06\x12\x03#\x02\x06\n\x0c\n\
+    \x05\x04\x03\x02\0\x01\x12\x03#\x07\x0b\n\x0c\n\x05\x04\x03\x02\0\x03\
+    \x12\x03#\x0e\x0f\n\x0b\n\x04\x04\x03\x02\x01\x12\x03$\x02\x15\n\x0c\n\
+    \x05\x04\x03\x02\x01\x05\x12\x03$\x02\x08\n\x0c\n\x05\x04\x03\x02\x01\
+    \x01\x12\x03$\t\x10\n\x0c\n\x05\x04\x03\x02\x01\x03\x12\x03$\x13\x14\n\
+    \x0b\n\x04\x04\x03\x02\x02\x12\x03%\x02\x13\n\x0c\n\x05\x04\x03\x02\x02\
+    \x05\x12\x03%\x02\x08\n\x0c\n\x05\x04\x03\x02\x02\x01\x12\x03%\t\x0e\n\
+    \x0c\n\x05\x04\x03\x02\x02\x03\x12\x03%\x11\x12\n\x0b\n\x04\x04\x03\x02\
+    \x03\x12\x03&\x02%\n\x0c\n\x05\x04\x03\x02\x03\x06\x12\x03&\x02\x1b\n\
+    \x0c\n\x05\x04\x03\x02\x03\x01\x12\x03&\x1c\x20\n\x0c\n\x05\x04\x03\x02\
+    \x03\x03\x12\x03&#$\n\x0c\n\x04\x04\x03\x08\0\x12\x04(\x02,\x03\n\x0c\n\
+    \x05\x04\x03\x08\0\x01\x12\x03(\x08\x0f\n\x0b\n\x04\x04\x03\x02\x04\x12\
+    \x03)\x04+\n\x0c\n\x05\x04\x03\x02\x04\x06\x12\x03)\x04\x13\n\x0c\n\x05\
+    \x04\x03\x02\x04\x01\x12\x03)\x14&\n\x0c\n\x05\x04\x03\x02\x04\x03\x12\
+    \x03))*\n\x0b\n\x04\x04\x03\x02\x05\x12\x03*\x04\"\n\x0c\n\x05\x04\x03\
+    \x02\x05\x06\x12\x03*\x04\x10\n\x0c\n\x05\x04\x03\x02\x05\x01\x12\x03*\
+    \x11\x1d\n\x0c\n\x05\x04\x03\x02\x05\x03\x12\x03*\x20!\n\x0b\n\x04\x04\
+    \x03\x02\x06\x12\x03+\x04*\n\x0c\n\x05\x04\x03\x02\x06\x06\x12\x03+\x04\
+    \x14\n\x0c\n\x05\x04\x03\x02\x06\x01\x12\x03+\x15%\n\x0c\n\x05\x04\x03\
+    \x02\x06\x03\x12\x03+()b\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -541,11 +1108,15 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
             let mut deps = ::std::vec::Vec::with_capacity(2);
             deps.push(super::Track::file_descriptor().clone());
             deps.push(::protobuf::well_known_types::timestamp::file_descriptor().clone());
-            let mut messages = ::std::vec::Vec::with_capacity(2);
-            messages.push(MixerControl::generated_message_descriptor_data());
+            let mut messages = ::std::vec::Vec::with_capacity(4);
+            messages.push(ServerTrackData::generated_message_descriptor_data());
+            messages.push(MixerControlData::generated_message_descriptor_data());
+            messages.push(MixerReqData::generated_message_descriptor_data());
             messages.push(MixerProtocol::generated_message_descriptor_data());
-            let mut enums = ::std::vec::Vec::with_capacity(1);
-            enums.push(mixer_control::Control::generated_enum_descriptor_data());
+            let mut enums = ::std::vec::Vec::with_capacity(3);
+            enums.push(server_track_data::Operation::generated_enum_descriptor_data());
+            enums.push(mixer_control_data::Operation::generated_enum_descriptor_data());
+            enums.push(mixer_protocol::Type::generated_enum_descriptor_data());
             ::protobuf::reflect::GeneratedFileDescriptor::new_generated(
                 file_descriptor_proto(),
                 deps,

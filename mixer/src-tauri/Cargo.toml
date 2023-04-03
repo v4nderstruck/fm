@@ -21,6 +21,10 @@ tauri = { version = "1.2.4", features = ["http-all"] }
 protobuf = "3.2.0"
 anyhow = "1.0.70"
 async-process = "1.6.0"
+tokio-tungstenite = "0.18.0"
+url = "2.3.1"
+tokio = {version = "1.27.0", features = ["macros"]}
+futures-util = "0.3.28"
 
 [features]
 # by default Tauri runs in production mode

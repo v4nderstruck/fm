@@ -14,85 +14,47 @@ public final class Mixer {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface MixerControlOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:zensayyy.fm.proto.MixerControl)
+  public interface ServerTrackDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:zensayyy.fm.proto.ServerTrackData)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string steamId = 1;</code>
-     * @return The steamId.
-     */
-    java.lang.String getSteamId();
-    /**
-     * <code>string steamId = 1;</code>
-     * @return The bytes for steamId.
-     */
-    com.google.protobuf.ByteString
-        getSteamIdBytes();
-
-    /**
-     * <code>string token = 2;</code>
-     * @return The token.
-     */
-    java.lang.String getToken();
-    /**
-     * <code>string token = 2;</code>
-     * @return The bytes for token.
-     */
-    com.google.protobuf.ByteString
-        getTokenBytes();
-
-    /**
-     * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-     * @return The enum numeric value on the wire for control.
-     */
-    int getControlValue();
-    /**
-     * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-     * @return The control.
-     */
-    zensayyy.fm.proto.Mixer.MixerControl.Control getControl();
-
-    /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     java.util.List<zensayyy.fm.proto.TrackOuterClass.Track> 
         getTracksList();
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     zensayyy.fm.proto.TrackOuterClass.Track getTracks(int index);
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     int getTracksCount();
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     java.util.List<? extends zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder> 
         getTracksOrBuilderList();
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder getTracksOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code zensayyy.fm.proto.MixerControl}
+   * Protobuf type {@code zensayyy.fm.proto.ServerTrackData}
    */
-  public static final class MixerControl extends
+  public static final class ServerTrackData extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:zensayyy.fm.proto.MixerControl)
-      MixerControlOrBuilder {
+      // @@protoc_insertion_point(message_implements:zensayyy.fm.proto.ServerTrackData)
+      ServerTrackDataOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use MixerControl.newBuilder() to construct.
-    private MixerControl(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ServerTrackData.newBuilder() to construct.
+    private ServerTrackData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private MixerControl() {
-      steamId_ = "";
-      token_ = "";
-      control_ = 0;
+    private ServerTrackData() {
       tracks_ = java.util.Collections.emptyList();
     }
 
@@ -100,38 +62,46 @@ public final class Mixer {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new MixerControl();
+      return new ServerTrackData();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControl_descriptor;
+      return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_ServerTrackData_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControl_fieldAccessorTable
+      return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_ServerTrackData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              zensayyy.fm.proto.Mixer.MixerControl.class, zensayyy.fm.proto.Mixer.MixerControl.Builder.class);
+              zensayyy.fm.proto.Mixer.ServerTrackData.class, zensayyy.fm.proto.Mixer.ServerTrackData.Builder.class);
     }
 
     /**
-     * Protobuf enum {@code zensayyy.fm.proto.MixerControl.Control}
+     * Protobuf enum {@code zensayyy.fm.proto.ServerTrackData.Operation}
      */
-    public enum Control
+    public enum Operation
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>DATA = 0;</code>
+       * <code>ADD = 0;</code>
        */
-      DATA(0),
+      ADD(0),
+      /**
+       * <code>NEW = 1;</code>
+       */
+      NEW(1),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>DATA = 0;</code>
+       * <code>ADD = 0;</code>
        */
-      public static final int DATA_VALUE = 0;
+      public static final int ADD_VALUE = 0;
+      /**
+       * <code>NEW = 1;</code>
+       */
+      public static final int NEW_VALUE = 1;
 
 
       public final int getNumber() {
@@ -148,7 +118,7 @@ public final class Mixer {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static Control valueOf(int value) {
+      public static Operation valueOf(int value) {
         return forNumber(value);
       }
 
@@ -156,22 +126,23 @@ public final class Mixer {
        * @param value The numeric wire value of the corresponding enum entry.
        * @return The enum associated with the given numeric wire value.
        */
-      public static Control forNumber(int value) {
+      public static Operation forNumber(int value) {
         switch (value) {
-          case 0: return DATA;
+          case 0: return ADD;
+          case 1: return NEW;
           default: return null;
         }
       }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<Control>
+      public static com.google.protobuf.Internal.EnumLiteMap<Operation>
           internalGetValueMap() {
         return internalValueMap;
       }
       private static final com.google.protobuf.Internal.EnumLiteMap<
-          Control> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Control>() {
-              public Control findValueByNumber(int number) {
-                return Control.forNumber(number);
+          Operation> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Operation>() {
+              public Operation findValueByNumber(int number) {
+                return Operation.forNumber(number);
               }
             };
 
@@ -189,12 +160,12 @@ public final class Mixer {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return zensayyy.fm.proto.Mixer.MixerControl.getDescriptor().getEnumTypes().get(0);
+        return zensayyy.fm.proto.Mixer.ServerTrackData.getDescriptor().getEnumTypes().get(0);
       }
 
-      private static final Control[] VALUES = values();
+      private static final Operation[] VALUES = values();
 
-      public static Control valueOf(
+      public static Operation valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
           throw new java.lang.IllegalArgumentException(
@@ -208,121 +179,25 @@ public final class Mixer {
 
       private final int value;
 
-      private Control(int value) {
+      private Operation(int value) {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:zensayyy.fm.proto.MixerControl.Control)
+      // @@protoc_insertion_point(enum_scope:zensayyy.fm.proto.ServerTrackData.Operation)
     }
 
-    public static final int STEAMID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object steamId_ = "";
-    /**
-     * <code>string steamId = 1;</code>
-     * @return The steamId.
-     */
-    @java.lang.Override
-    public java.lang.String getSteamId() {
-      java.lang.Object ref = steamId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        steamId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string steamId = 1;</code>
-     * @return The bytes for steamId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSteamIdBytes() {
-      java.lang.Object ref = steamId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        steamId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TOKEN_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object token_ = "";
-    /**
-     * <code>string token = 2;</code>
-     * @return The token.
-     */
-    @java.lang.Override
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        token_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string token = 2;</code>
-     * @return The bytes for token.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CONTROL_FIELD_NUMBER = 3;
-    private int control_ = 0;
-    /**
-     * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-     * @return The enum numeric value on the wire for control.
-     */
-    @java.lang.Override public int getControlValue() {
-      return control_;
-    }
-    /**
-     * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-     * @return The control.
-     */
-    @java.lang.Override public zensayyy.fm.proto.Mixer.MixerControl.Control getControl() {
-      zensayyy.fm.proto.Mixer.MixerControl.Control result = zensayyy.fm.proto.Mixer.MixerControl.Control.forNumber(control_);
-      return result == null ? zensayyy.fm.proto.Mixer.MixerControl.Control.UNRECOGNIZED : result;
-    }
-
-    public static final int TRACKS_FIELD_NUMBER = 4;
+    public static final int TRACKS_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
     private java.util.List<zensayyy.fm.proto.TrackOuterClass.Track> tracks_;
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     @java.lang.Override
     public java.util.List<zensayyy.fm.proto.TrackOuterClass.Track> getTracksList() {
       return tracks_;
     }
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     @java.lang.Override
     public java.util.List<? extends zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder> 
@@ -330,21 +205,21 @@ public final class Mixer {
       return tracks_;
     }
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     @java.lang.Override
     public int getTracksCount() {
       return tracks_.size();
     }
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     @java.lang.Override
     public zensayyy.fm.proto.TrackOuterClass.Track getTracks(int index) {
       return tracks_.get(index);
     }
     /**
-     * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+     * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
      */
     @java.lang.Override
     public zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder getTracksOrBuilder(
@@ -366,17 +241,8 @@ public final class Mixer {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(steamId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, steamId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, token_);
-      }
-      if (control_ != zensayyy.fm.proto.Mixer.MixerControl.Control.DATA.getNumber()) {
-        output.writeEnum(3, control_);
-      }
       for (int i = 0; i < tracks_.size(); i++) {
-        output.writeMessage(4, tracks_.get(i));
+        output.writeMessage(1, tracks_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -387,19 +253,9 @@ public final class Mixer {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(steamId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, steamId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, token_);
-      }
-      if (control_ != zensayyy.fm.proto.Mixer.MixerControl.Control.DATA.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, control_);
-      }
       for (int i = 0; i < tracks_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, tracks_.get(i));
+          .computeMessageSize(1, tracks_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -411,16 +267,11 @@ public final class Mixer {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof zensayyy.fm.proto.Mixer.MixerControl)) {
+      if (!(obj instanceof zensayyy.fm.proto.Mixer.ServerTrackData)) {
         return super.equals(obj);
       }
-      zensayyy.fm.proto.Mixer.MixerControl other = (zensayyy.fm.proto.Mixer.MixerControl) obj;
+      zensayyy.fm.proto.Mixer.ServerTrackData other = (zensayyy.fm.proto.Mixer.ServerTrackData) obj;
 
-      if (!getSteamId()
-          .equals(other.getSteamId())) return false;
-      if (!getToken()
-          .equals(other.getToken())) return false;
-      if (control_ != other.control_) return false;
       if (!getTracksList()
           .equals(other.getTracksList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -434,12 +285,6 @@ public final class Mixer {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + STEAMID_FIELD_NUMBER;
-      hash = (53 * hash) + getSteamId().hashCode();
-      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-      hash = (53 * hash) + getToken().hashCode();
-      hash = (37 * hash) + CONTROL_FIELD_NUMBER;
-      hash = (53 * hash) + control_;
       if (getTracksCount() > 0) {
         hash = (37 * hash) + TRACKS_FIELD_NUMBER;
         hash = (53 * hash) + getTracksList().hashCode();
@@ -449,69 +294,69 @@ public final class Mixer {
       return hash;
     }
 
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(byte[] data)
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(java.io.InputStream input)
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseDelimitedFrom(java.io.InputStream input)
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseDelimitedFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static zensayyy.fm.proto.Mixer.MixerControl parseFrom(
+    public static zensayyy.fm.proto.Mixer.ServerTrackData parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -524,7 +369,7 @@ public final class Mixer {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(zensayyy.fm.proto.Mixer.MixerControl prototype) {
+    public static Builder newBuilder(zensayyy.fm.proto.Mixer.ServerTrackData prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -540,26 +385,26 @@ public final class Mixer {
       return builder;
     }
     /**
-     * Protobuf type {@code zensayyy.fm.proto.MixerControl}
+     * Protobuf type {@code zensayyy.fm.proto.ServerTrackData}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:zensayyy.fm.proto.MixerControl)
-        zensayyy.fm.proto.Mixer.MixerControlOrBuilder {
+        // @@protoc_insertion_point(builder_implements:zensayyy.fm.proto.ServerTrackData)
+        zensayyy.fm.proto.Mixer.ServerTrackDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControl_descriptor;
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_ServerTrackData_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControl_fieldAccessorTable
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_ServerTrackData_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                zensayyy.fm.proto.Mixer.MixerControl.class, zensayyy.fm.proto.Mixer.MixerControl.Builder.class);
+                zensayyy.fm.proto.Mixer.ServerTrackData.class, zensayyy.fm.proto.Mixer.ServerTrackData.Builder.class);
       }
 
-      // Construct using zensayyy.fm.proto.Mixer.MixerControl.newBuilder()
+      // Construct using zensayyy.fm.proto.Mixer.ServerTrackData.newBuilder()
       private Builder() {
 
       }
@@ -573,33 +418,30 @@ public final class Mixer {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        steamId_ = "";
-        token_ = "";
-        control_ = 0;
         if (tracksBuilder_ == null) {
           tracks_ = java.util.Collections.emptyList();
         } else {
           tracks_ = null;
           tracksBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControl_descriptor;
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_ServerTrackData_descriptor;
       }
 
       @java.lang.Override
-      public zensayyy.fm.proto.Mixer.MixerControl getDefaultInstanceForType() {
-        return zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance();
+      public zensayyy.fm.proto.Mixer.ServerTrackData getDefaultInstanceForType() {
+        return zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance();
       }
 
       @java.lang.Override
-      public zensayyy.fm.proto.Mixer.MixerControl build() {
-        zensayyy.fm.proto.Mixer.MixerControl result = buildPartial();
+      public zensayyy.fm.proto.Mixer.ServerTrackData build() {
+        zensayyy.fm.proto.Mixer.ServerTrackData result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -607,19 +449,19 @@ public final class Mixer {
       }
 
       @java.lang.Override
-      public zensayyy.fm.proto.Mixer.MixerControl buildPartial() {
-        zensayyy.fm.proto.Mixer.MixerControl result = new zensayyy.fm.proto.Mixer.MixerControl(this);
+      public zensayyy.fm.proto.Mixer.ServerTrackData buildPartial() {
+        zensayyy.fm.proto.Mixer.ServerTrackData result = new zensayyy.fm.proto.Mixer.ServerTrackData(this);
         buildPartialRepeatedFields(result);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartialRepeatedFields(zensayyy.fm.proto.Mixer.MixerControl result) {
+      private void buildPartialRepeatedFields(zensayyy.fm.proto.Mixer.ServerTrackData result) {
         if (tracksBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             tracks_ = java.util.Collections.unmodifiableList(tracks_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.tracks_ = tracks_;
         } else {
@@ -627,49 +469,27 @@ public final class Mixer {
         }
       }
 
-      private void buildPartial0(zensayyy.fm.proto.Mixer.MixerControl result) {
+      private void buildPartial0(zensayyy.fm.proto.Mixer.ServerTrackData result) {
         int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.steamId_ = steamId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.token_ = token_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.control_ = control_;
-        }
       }
 
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof zensayyy.fm.proto.Mixer.MixerControl) {
-          return mergeFrom((zensayyy.fm.proto.Mixer.MixerControl)other);
+        if (other instanceof zensayyy.fm.proto.Mixer.ServerTrackData) {
+          return mergeFrom((zensayyy.fm.proto.Mixer.ServerTrackData)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(zensayyy.fm.proto.Mixer.MixerControl other) {
-        if (other == zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance()) return this;
-        if (!other.getSteamId().isEmpty()) {
-          steamId_ = other.steamId_;
-          bitField0_ |= 0x00000001;
-          onChanged();
-        }
-        if (!other.getToken().isEmpty()) {
-          token_ = other.token_;
-          bitField0_ |= 0x00000002;
-          onChanged();
-        }
-        if (other.control_ != 0) {
-          setControlValue(other.getControlValue());
-        }
+      public Builder mergeFrom(zensayyy.fm.proto.Mixer.ServerTrackData other) {
+        if (other == zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance()) return this;
         if (tracksBuilder_ == null) {
           if (!other.tracks_.isEmpty()) {
             if (tracks_.isEmpty()) {
               tracks_ = other.tracks_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureTracksIsMutable();
               tracks_.addAll(other.tracks_);
@@ -682,7 +502,7 @@ public final class Mixer {
               tracksBuilder_.dispose();
               tracksBuilder_ = null;
               tracks_ = other.tracks_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
               tracksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTracksFieldBuilder() : null;
@@ -718,21 +538,6 @@ public final class Mixer {
                 done = true;
                 break;
               case 10: {
-                steamId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                token_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                control_ = input.readEnum();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
                 zensayyy.fm.proto.TrackOuterClass.Track m =
                     input.readMessage(
                         zensayyy.fm.proto.TrackOuterClass.Track.parser(),
@@ -744,7 +549,7 @@ public final class Mixer {
                   tracksBuilder_.addMessage(m);
                 }
                 break;
-              } // case 34
+              } // case 10
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -762,209 +567,12 @@ public final class Mixer {
       }
       private int bitField0_;
 
-      private java.lang.Object steamId_ = "";
-      /**
-       * <code>string steamId = 1;</code>
-       * @return The steamId.
-       */
-      public java.lang.String getSteamId() {
-        java.lang.Object ref = steamId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          steamId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string steamId = 1;</code>
-       * @return The bytes for steamId.
-       */
-      public com.google.protobuf.ByteString
-          getSteamIdBytes() {
-        java.lang.Object ref = steamId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          steamId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string steamId = 1;</code>
-       * @param value The steamId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSteamId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        steamId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string steamId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSteamId() {
-        steamId_ = getDefaultInstance().getSteamId();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string steamId = 1;</code>
-       * @param value The bytes for steamId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSteamIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        steamId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object token_ = "";
-      /**
-       * <code>string token = 2;</code>
-       * @return The token.
-       */
-      public java.lang.String getToken() {
-        java.lang.Object ref = token_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          token_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string token = 2;</code>
-       * @return The bytes for token.
-       */
-      public com.google.protobuf.ByteString
-          getTokenBytes() {
-        java.lang.Object ref = token_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          token_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string token = 2;</code>
-       * @param value The token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setToken(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        token_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string token = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearToken() {
-        token_ = getDefaultInstance().getToken();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string token = 2;</code>
-       * @param value The bytes for token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTokenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        token_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
-
-      private int control_ = 0;
-      /**
-       * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-       * @return The enum numeric value on the wire for control.
-       */
-      @java.lang.Override public int getControlValue() {
-        return control_;
-      }
-      /**
-       * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-       * @param value The enum numeric value on the wire for control to set.
-       * @return This builder for chaining.
-       */
-      public Builder setControlValue(int value) {
-        control_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-       * @return The control.
-       */
-      @java.lang.Override
-      public zensayyy.fm.proto.Mixer.MixerControl.Control getControl() {
-        zensayyy.fm.proto.Mixer.MixerControl.Control result = zensayyy.fm.proto.Mixer.MixerControl.Control.forNumber(control_);
-        return result == null ? zensayyy.fm.proto.Mixer.MixerControl.Control.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-       * @param value The control to set.
-       * @return This builder for chaining.
-       */
-      public Builder setControl(zensayyy.fm.proto.Mixer.MixerControl.Control value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000004;
-        control_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.zensayyy.fm.proto.MixerControl.Control control = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearControl() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        control_ = 0;
-        onChanged();
-        return this;
-      }
-
       private java.util.List<zensayyy.fm.proto.TrackOuterClass.Track> tracks_ =
         java.util.Collections.emptyList();
       private void ensureTracksIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           tracks_ = new java.util.ArrayList<zensayyy.fm.proto.TrackOuterClass.Track>(tracks_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -972,7 +580,7 @@ public final class Mixer {
           zensayyy.fm.proto.TrackOuterClass.Track, zensayyy.fm.proto.TrackOuterClass.Track.Builder, zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder> tracksBuilder_;
 
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public java.util.List<zensayyy.fm.proto.TrackOuterClass.Track> getTracksList() {
         if (tracksBuilder_ == null) {
@@ -982,7 +590,7 @@ public final class Mixer {
         }
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public int getTracksCount() {
         if (tracksBuilder_ == null) {
@@ -992,7 +600,7 @@ public final class Mixer {
         }
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public zensayyy.fm.proto.TrackOuterClass.Track getTracks(int index) {
         if (tracksBuilder_ == null) {
@@ -1002,7 +610,7 @@ public final class Mixer {
         }
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder setTracks(
           int index, zensayyy.fm.proto.TrackOuterClass.Track value) {
@@ -1019,7 +627,7 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder setTracks(
           int index, zensayyy.fm.proto.TrackOuterClass.Track.Builder builderForValue) {
@@ -1033,7 +641,7 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder addTracks(zensayyy.fm.proto.TrackOuterClass.Track value) {
         if (tracksBuilder_ == null) {
@@ -1049,7 +657,7 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder addTracks(
           int index, zensayyy.fm.proto.TrackOuterClass.Track value) {
@@ -1066,7 +674,7 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder addTracks(
           zensayyy.fm.proto.TrackOuterClass.Track.Builder builderForValue) {
@@ -1080,7 +688,7 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder addTracks(
           int index, zensayyy.fm.proto.TrackOuterClass.Track.Builder builderForValue) {
@@ -1094,7 +702,7 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder addAllTracks(
           java.lang.Iterable<? extends zensayyy.fm.proto.TrackOuterClass.Track> values) {
@@ -1109,12 +717,12 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder clearTracks() {
         if (tracksBuilder_ == null) {
           tracks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           tracksBuilder_.clear();
@@ -1122,7 +730,7 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public Builder removeTracks(int index) {
         if (tracksBuilder_ == null) {
@@ -1135,14 +743,14 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public zensayyy.fm.proto.TrackOuterClass.Track.Builder getTracksBuilder(
           int index) {
         return getTracksFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder getTracksOrBuilder(
           int index) {
@@ -1152,7 +760,7 @@ public final class Mixer {
         }
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public java.util.List<? extends zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder> 
            getTracksOrBuilderList() {
@@ -1163,14 +771,14 @@ public final class Mixer {
         }
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public zensayyy.fm.proto.TrackOuterClass.Track.Builder addTracksBuilder() {
         return getTracksFieldBuilder().addBuilder(
             zensayyy.fm.proto.TrackOuterClass.Track.getDefaultInstance());
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public zensayyy.fm.proto.TrackOuterClass.Track.Builder addTracksBuilder(
           int index) {
@@ -1178,7 +786,7 @@ public final class Mixer {
             index, zensayyy.fm.proto.TrackOuterClass.Track.getDefaultInstance());
       }
       /**
-       * <code>repeated .zensayyy.fm.proto.Track tracks = 4;</code>
+       * <code>repeated .zensayyy.fm.proto.Track tracks = 1;</code>
        */
       public java.util.List<zensayyy.fm.proto.TrackOuterClass.Track.Builder> 
            getTracksBuilderList() {
@@ -1191,7 +799,7 @@ public final class Mixer {
           tracksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               zensayyy.fm.proto.TrackOuterClass.Track, zensayyy.fm.proto.TrackOuterClass.Track.Builder, zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder>(
                   tracks_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           tracks_ = null;
@@ -1211,23 +819,23 @@ public final class Mixer {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:zensayyy.fm.proto.MixerControl)
+      // @@protoc_insertion_point(builder_scope:zensayyy.fm.proto.ServerTrackData)
     }
 
-    // @@protoc_insertion_point(class_scope:zensayyy.fm.proto.MixerControl)
-    private static final zensayyy.fm.proto.Mixer.MixerControl DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:zensayyy.fm.proto.ServerTrackData)
+    private static final zensayyy.fm.proto.Mixer.ServerTrackData DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new zensayyy.fm.proto.Mixer.MixerControl();
+      DEFAULT_INSTANCE = new zensayyy.fm.proto.Mixer.ServerTrackData();
     }
 
-    public static zensayyy.fm.proto.Mixer.MixerControl getDefaultInstance() {
+    public static zensayyy.fm.proto.Mixer.ServerTrackData getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<MixerControl>
-        PARSER = new com.google.protobuf.AbstractParser<MixerControl>() {
+    private static final com.google.protobuf.Parser<ServerTrackData>
+        PARSER = new com.google.protobuf.AbstractParser<ServerTrackData>() {
       @java.lang.Override
-      public MixerControl parsePartialFrom(
+      public ServerTrackData parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1246,17 +854,1214 @@ public final class Mixer {
       }
     };
 
-    public static com.google.protobuf.Parser<MixerControl> parser() {
+    public static com.google.protobuf.Parser<ServerTrackData> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<MixerControl> getParserForType() {
+    public com.google.protobuf.Parser<ServerTrackData> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public zensayyy.fm.proto.Mixer.MixerControl getDefaultInstanceForType() {
+    public zensayyy.fm.proto.Mixer.ServerTrackData getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MixerControlDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:zensayyy.fm.proto.MixerControlData)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.zensayyy.fm.proto.Track track = 1;</code>
+     * @return Whether the track field is set.
+     */
+    boolean hasTrack();
+    /**
+     * <code>.zensayyy.fm.proto.Track track = 1;</code>
+     * @return The track.
+     */
+    zensayyy.fm.proto.TrackOuterClass.Track getTrack();
+    /**
+     * <code>.zensayyy.fm.proto.Track track = 1;</code>
+     */
+    zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder getTrackOrBuilder();
+  }
+  /**
+   * Protobuf type {@code zensayyy.fm.proto.MixerControlData}
+   */
+  public static final class MixerControlData extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:zensayyy.fm.proto.MixerControlData)
+      MixerControlDataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MixerControlData.newBuilder() to construct.
+    private MixerControlData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MixerControlData() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MixerControlData();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControlData_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControlData_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              zensayyy.fm.proto.Mixer.MixerControlData.class, zensayyy.fm.proto.Mixer.MixerControlData.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code zensayyy.fm.proto.MixerControlData.Operation}
+     */
+    public enum Operation
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>ADD = 0;</code>
+       */
+      ADD(0),
+      /**
+       * <code>UPDATE = 1;</code>
+       */
+      UPDATE(1),
+      /**
+       * <code>REMOVE = 2;</code>
+       */
+      REMOVE(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>ADD = 0;</code>
+       */
+      public static final int ADD_VALUE = 0;
+      /**
+       * <code>UPDATE = 1;</code>
+       */
+      public static final int UPDATE_VALUE = 1;
+      /**
+       * <code>REMOVE = 2;</code>
+       */
+      public static final int REMOVE_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Operation valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Operation forNumber(int value) {
+        switch (value) {
+          case 0: return ADD;
+          case 1: return UPDATE;
+          case 2: return REMOVE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Operation>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Operation> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Operation>() {
+              public Operation findValueByNumber(int number) {
+                return Operation.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return zensayyy.fm.proto.Mixer.MixerControlData.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Operation[] VALUES = values();
+
+      public static Operation valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Operation(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:zensayyy.fm.proto.MixerControlData.Operation)
+    }
+
+    public static final int TRACK_FIELD_NUMBER = 1;
+    private zensayyy.fm.proto.TrackOuterClass.Track track_;
+    /**
+     * <code>.zensayyy.fm.proto.Track track = 1;</code>
+     * @return Whether the track field is set.
+     */
+    @java.lang.Override
+    public boolean hasTrack() {
+      return track_ != null;
+    }
+    /**
+     * <code>.zensayyy.fm.proto.Track track = 1;</code>
+     * @return The track.
+     */
+    @java.lang.Override
+    public zensayyy.fm.proto.TrackOuterClass.Track getTrack() {
+      return track_ == null ? zensayyy.fm.proto.TrackOuterClass.Track.getDefaultInstance() : track_;
+    }
+    /**
+     * <code>.zensayyy.fm.proto.Track track = 1;</code>
+     */
+    @java.lang.Override
+    public zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder getTrackOrBuilder() {
+      return track_ == null ? zensayyy.fm.proto.TrackOuterClass.Track.getDefaultInstance() : track_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (track_ != null) {
+        output.writeMessage(1, getTrack());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (track_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getTrack());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof zensayyy.fm.proto.Mixer.MixerControlData)) {
+        return super.equals(obj);
+      }
+      zensayyy.fm.proto.Mixer.MixerControlData other = (zensayyy.fm.proto.Mixer.MixerControlData) obj;
+
+      if (hasTrack() != other.hasTrack()) return false;
+      if (hasTrack()) {
+        if (!getTrack()
+            .equals(other.getTrack())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTrack()) {
+        hash = (37 * hash) + TRACK_FIELD_NUMBER;
+        hash = (53 * hash) + getTrack().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerControlData parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(zensayyy.fm.proto.Mixer.MixerControlData prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code zensayyy.fm.proto.MixerControlData}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:zensayyy.fm.proto.MixerControlData)
+        zensayyy.fm.proto.Mixer.MixerControlDataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControlData_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControlData_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                zensayyy.fm.proto.Mixer.MixerControlData.class, zensayyy.fm.proto.Mixer.MixerControlData.Builder.class);
+      }
+
+      // Construct using zensayyy.fm.proto.Mixer.MixerControlData.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        track_ = null;
+        if (trackBuilder_ != null) {
+          trackBuilder_.dispose();
+          trackBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerControlData_descriptor;
+      }
+
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerControlData getDefaultInstanceForType() {
+        return zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerControlData build() {
+        zensayyy.fm.proto.Mixer.MixerControlData result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerControlData buildPartial() {
+        zensayyy.fm.proto.Mixer.MixerControlData result = new zensayyy.fm.proto.Mixer.MixerControlData(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(zensayyy.fm.proto.Mixer.MixerControlData result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.track_ = trackBuilder_ == null
+              ? track_
+              : trackBuilder_.build();
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof zensayyy.fm.proto.Mixer.MixerControlData) {
+          return mergeFrom((zensayyy.fm.proto.Mixer.MixerControlData)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(zensayyy.fm.proto.Mixer.MixerControlData other) {
+        if (other == zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance()) return this;
+        if (other.hasTrack()) {
+          mergeTrack(other.getTrack());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTrackFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private zensayyy.fm.proto.TrackOuterClass.Track track_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          zensayyy.fm.proto.TrackOuterClass.Track, zensayyy.fm.proto.TrackOuterClass.Track.Builder, zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder> trackBuilder_;
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       * @return Whether the track field is set.
+       */
+      public boolean hasTrack() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       * @return The track.
+       */
+      public zensayyy.fm.proto.TrackOuterClass.Track getTrack() {
+        if (trackBuilder_ == null) {
+          return track_ == null ? zensayyy.fm.proto.TrackOuterClass.Track.getDefaultInstance() : track_;
+        } else {
+          return trackBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       */
+      public Builder setTrack(zensayyy.fm.proto.TrackOuterClass.Track value) {
+        if (trackBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          track_ = value;
+        } else {
+          trackBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       */
+      public Builder setTrack(
+          zensayyy.fm.proto.TrackOuterClass.Track.Builder builderForValue) {
+        if (trackBuilder_ == null) {
+          track_ = builderForValue.build();
+        } else {
+          trackBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       */
+      public Builder mergeTrack(zensayyy.fm.proto.TrackOuterClass.Track value) {
+        if (trackBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            track_ != null &&
+            track_ != zensayyy.fm.proto.TrackOuterClass.Track.getDefaultInstance()) {
+            getTrackBuilder().mergeFrom(value);
+          } else {
+            track_ = value;
+          }
+        } else {
+          trackBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       */
+      public Builder clearTrack() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        track_ = null;
+        if (trackBuilder_ != null) {
+          trackBuilder_.dispose();
+          trackBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       */
+      public zensayyy.fm.proto.TrackOuterClass.Track.Builder getTrackBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getTrackFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       */
+      public zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder getTrackOrBuilder() {
+        if (trackBuilder_ != null) {
+          return trackBuilder_.getMessageOrBuilder();
+        } else {
+          return track_ == null ?
+              zensayyy.fm.proto.TrackOuterClass.Track.getDefaultInstance() : track_;
+        }
+      }
+      /**
+       * <code>.zensayyy.fm.proto.Track track = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          zensayyy.fm.proto.TrackOuterClass.Track, zensayyy.fm.proto.TrackOuterClass.Track.Builder, zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder> 
+          getTrackFieldBuilder() {
+        if (trackBuilder_ == null) {
+          trackBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              zensayyy.fm.proto.TrackOuterClass.Track, zensayyy.fm.proto.TrackOuterClass.Track.Builder, zensayyy.fm.proto.TrackOuterClass.TrackOrBuilder>(
+                  getTrack(),
+                  getParentForChildren(),
+                  isClean());
+          track_ = null;
+        }
+        return trackBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:zensayyy.fm.proto.MixerControlData)
+    }
+
+    // @@protoc_insertion_point(class_scope:zensayyy.fm.proto.MixerControlData)
+    private static final zensayyy.fm.proto.Mixer.MixerControlData DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new zensayyy.fm.proto.Mixer.MixerControlData();
+    }
+
+    public static zensayyy.fm.proto.Mixer.MixerControlData getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MixerControlData>
+        PARSER = new com.google.protobuf.AbstractParser<MixerControlData>() {
+      @java.lang.Override
+      public MixerControlData parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<MixerControlData> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MixerControlData> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public zensayyy.fm.proto.Mixer.MixerControlData getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MixerReqDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:zensayyy.fm.proto.MixerReqData)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 sliceStart = 1;</code>
+     * @return The sliceStart.
+     */
+    int getSliceStart();
+
+    /**
+     * <code>int32 sliceEnd = 2;</code>
+     * @return The sliceEnd.
+     */
+    int getSliceEnd();
+  }
+  /**
+   * Protobuf type {@code zensayyy.fm.proto.MixerReqData}
+   */
+  public static final class MixerReqData extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:zensayyy.fm.proto.MixerReqData)
+      MixerReqDataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MixerReqData.newBuilder() to construct.
+    private MixerReqData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MixerReqData() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MixerReqData();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerReqData_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerReqData_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              zensayyy.fm.proto.Mixer.MixerReqData.class, zensayyy.fm.proto.Mixer.MixerReqData.Builder.class);
+    }
+
+    public static final int SLICESTART_FIELD_NUMBER = 1;
+    private int sliceStart_ = 0;
+    /**
+     * <code>int32 sliceStart = 1;</code>
+     * @return The sliceStart.
+     */
+    @java.lang.Override
+    public int getSliceStart() {
+      return sliceStart_;
+    }
+
+    public static final int SLICEEND_FIELD_NUMBER = 2;
+    private int sliceEnd_ = 0;
+    /**
+     * <code>int32 sliceEnd = 2;</code>
+     * @return The sliceEnd.
+     */
+    @java.lang.Override
+    public int getSliceEnd() {
+      return sliceEnd_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (sliceStart_ != 0) {
+        output.writeInt32(1, sliceStart_);
+      }
+      if (sliceEnd_ != 0) {
+        output.writeInt32(2, sliceEnd_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (sliceStart_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, sliceStart_);
+      }
+      if (sliceEnd_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, sliceEnd_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof zensayyy.fm.proto.Mixer.MixerReqData)) {
+        return super.equals(obj);
+      }
+      zensayyy.fm.proto.Mixer.MixerReqData other = (zensayyy.fm.proto.Mixer.MixerReqData) obj;
+
+      if (getSliceStart()
+          != other.getSliceStart()) return false;
+      if (getSliceEnd()
+          != other.getSliceEnd()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SLICESTART_FIELD_NUMBER;
+      hash = (53 * hash) + getSliceStart();
+      hash = (37 * hash) + SLICEEND_FIELD_NUMBER;
+      hash = (53 * hash) + getSliceEnd();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static zensayyy.fm.proto.Mixer.MixerReqData parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(zensayyy.fm.proto.Mixer.MixerReqData prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code zensayyy.fm.proto.MixerReqData}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:zensayyy.fm.proto.MixerReqData)
+        zensayyy.fm.proto.Mixer.MixerReqDataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerReqData_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerReqData_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                zensayyy.fm.proto.Mixer.MixerReqData.class, zensayyy.fm.proto.Mixer.MixerReqData.Builder.class);
+      }
+
+      // Construct using zensayyy.fm.proto.Mixer.MixerReqData.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        sliceStart_ = 0;
+        sliceEnd_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return zensayyy.fm.proto.Mixer.internal_static_zensayyy_fm_proto_MixerReqData_descriptor;
+      }
+
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerReqData getDefaultInstanceForType() {
+        return zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerReqData build() {
+        zensayyy.fm.proto.Mixer.MixerReqData result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerReqData buildPartial() {
+        zensayyy.fm.proto.Mixer.MixerReqData result = new zensayyy.fm.proto.Mixer.MixerReqData(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(zensayyy.fm.proto.Mixer.MixerReqData result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sliceStart_ = sliceStart_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.sliceEnd_ = sliceEnd_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof zensayyy.fm.proto.Mixer.MixerReqData) {
+          return mergeFrom((zensayyy.fm.proto.Mixer.MixerReqData)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(zensayyy.fm.proto.Mixer.MixerReqData other) {
+        if (other == zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance()) return this;
+        if (other.getSliceStart() != 0) {
+          setSliceStart(other.getSliceStart());
+        }
+        if (other.getSliceEnd() != 0) {
+          setSliceEnd(other.getSliceEnd());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                sliceStart_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                sliceEnd_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int sliceStart_ ;
+      /**
+       * <code>int32 sliceStart = 1;</code>
+       * @return The sliceStart.
+       */
+      @java.lang.Override
+      public int getSliceStart() {
+        return sliceStart_;
+      }
+      /**
+       * <code>int32 sliceStart = 1;</code>
+       * @param value The sliceStart to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSliceStart(int value) {
+
+        sliceStart_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 sliceStart = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSliceStart() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        sliceStart_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int sliceEnd_ ;
+      /**
+       * <code>int32 sliceEnd = 2;</code>
+       * @return The sliceEnd.
+       */
+      @java.lang.Override
+      public int getSliceEnd() {
+        return sliceEnd_;
+      }
+      /**
+       * <code>int32 sliceEnd = 2;</code>
+       * @param value The sliceEnd to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSliceEnd(int value) {
+
+        sliceEnd_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 sliceEnd = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSliceEnd() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sliceEnd_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:zensayyy.fm.proto.MixerReqData)
+    }
+
+    // @@protoc_insertion_point(class_scope:zensayyy.fm.proto.MixerReqData)
+    private static final zensayyy.fm.proto.Mixer.MixerReqData DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new zensayyy.fm.proto.Mixer.MixerReqData();
+    }
+
+    public static zensayyy.fm.proto.Mixer.MixerReqData getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MixerReqData>
+        PARSER = new com.google.protobuf.AbstractParser<MixerReqData>() {
+      @java.lang.Override
+      public MixerReqData parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<MixerReqData> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MixerReqData> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public zensayyy.fm.proto.Mixer.MixerReqData getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1267,36 +2072,101 @@ public final class Mixer {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.google.protobuf.Timestamp time = 1;</code>
+     * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+     * @return The type.
+     */
+    zensayyy.fm.proto.Mixer.MixerProtocol.Type getType();
+
+    /**
+     * <code>string steamId = 2;</code>
+     * @return The steamId.
+     */
+    java.lang.String getSteamId();
+    /**
+     * <code>string steamId = 2;</code>
+     * @return The bytes for steamId.
+     */
+    com.google.protobuf.ByteString
+        getSteamIdBytes();
+
+    /**
+     * <code>string token = 3;</code>
+     * @return The token.
+     */
+    java.lang.String getToken();
+    /**
+     * <code>string token = 3;</code>
+     * @return The bytes for token.
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
+
+    /**
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      * @return Whether the time field is set.
      */
     boolean hasTime();
     /**
-     * <code>.google.protobuf.Timestamp time = 1;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      * @return The time.
      */
     com.google.protobuf.Timestamp getTime();
     /**
-     * <code>.google.protobuf.Timestamp time = 1;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
 
     /**
-     * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
-     * @return Whether the control field is set.
+     * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
+     * @return Whether the serverTrackPayload field is set.
      */
-    boolean hasControl();
+    boolean hasServerTrackPayload();
     /**
-     * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
-     * @return The control.
+     * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
+     * @return The serverTrackPayload.
      */
-    zensayyy.fm.proto.Mixer.MixerControl getControl();
+    zensayyy.fm.proto.Mixer.ServerTrackData getServerTrackPayload();
     /**
-     * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+     * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
      */
-    zensayyy.fm.proto.Mixer.MixerControlOrBuilder getControlOrBuilder();
+    zensayyy.fm.proto.Mixer.ServerTrackDataOrBuilder getServerTrackPayloadOrBuilder();
 
-    zensayyy.fm.proto.Mixer.MixerProtocol.MsgCase getMsgCase();
+    /**
+     * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+     * @return Whether the mixerReqData field is set.
+     */
+    boolean hasMixerReqData();
+    /**
+     * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+     * @return The mixerReqData.
+     */
+    zensayyy.fm.proto.Mixer.MixerReqData getMixerReqData();
+    /**
+     * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+     */
+    zensayyy.fm.proto.Mixer.MixerReqDataOrBuilder getMixerReqDataOrBuilder();
+
+    /**
+     * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+     * @return Whether the mixerControlData field is set.
+     */
+    boolean hasMixerControlData();
+    /**
+     * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+     * @return The mixerControlData.
+     */
+    zensayyy.fm.proto.Mixer.MixerControlData getMixerControlData();
+    /**
+     * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+     */
+    zensayyy.fm.proto.Mixer.MixerControlDataOrBuilder getMixerControlDataOrBuilder();
+
+    zensayyy.fm.proto.Mixer.MixerProtocol.PayloadCase getPayloadCase();
   }
   /**
    * Protobuf type {@code zensayyy.fm.proto.MixerProtocol}
@@ -1311,6 +2181,9 @@ public final class Mixer {
       super(builder);
     }
     private MixerProtocol() {
+      type_ = 0;
+      steamId_ = "";
+      token_ = "";
     }
 
     @java.lang.Override
@@ -1333,16 +2206,135 @@ public final class Mixer {
               zensayyy.fm.proto.Mixer.MixerProtocol.class, zensayyy.fm.proto.Mixer.MixerProtocol.Builder.class);
     }
 
-    private int msgCase_ = 0;
+    /**
+     * Protobuf enum {@code zensayyy.fm.proto.MixerProtocol.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>MIXER_CONTROL_DATA = 0;</code>
+       */
+      MIXER_CONTROL_DATA(0),
+      /**
+       * <code>MIXER_REQ_DATA = 1;</code>
+       */
+      MIXER_REQ_DATA(1),
+      /**
+       * <code>SERVER_TRACK_DATA = 2;</code>
+       */
+      SERVER_TRACK_DATA(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>MIXER_CONTROL_DATA = 0;</code>
+       */
+      public static final int MIXER_CONTROL_DATA_VALUE = 0;
+      /**
+       * <code>MIXER_REQ_DATA = 1;</code>
+       */
+      public static final int MIXER_REQ_DATA_VALUE = 1;
+      /**
+       * <code>SERVER_TRACK_DATA = 2;</code>
+       */
+      public static final int SERVER_TRACK_DATA_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return MIXER_CONTROL_DATA;
+          case 1: return MIXER_REQ_DATA;
+          case 2: return SERVER_TRACK_DATA;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return zensayyy.fm.proto.Mixer.MixerProtocol.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:zensayyy.fm.proto.MixerProtocol.Type)
+    }
+
+    private int payloadCase_ = 0;
     @SuppressWarnings("serial")
-    private java.lang.Object msg_;
-    public enum MsgCase
+    private java.lang.Object payload_;
+    public enum PayloadCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      CONTROL(2),
-      MSG_NOT_SET(0);
+      SERVERTRACKPAYLOAD(5),
+      MIXERREQDATA(6),
+      MIXERCONTROLDATA(7),
+      PAYLOAD_NOT_SET(0);
       private final int value;
-      private MsgCase(int value) {
+      private PayloadCase(int value) {
         this.value = value;
       }
       /**
@@ -1351,14 +2343,16 @@ public final class Mixer {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static MsgCase valueOf(int value) {
+      public static PayloadCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static MsgCase forNumber(int value) {
+      public static PayloadCase forNumber(int value) {
         switch (value) {
-          case 2: return CONTROL;
-          case 0: return MSG_NOT_SET;
+          case 5: return SERVERTRACKPAYLOAD;
+          case 6: return MIXERREQDATA;
+          case 7: return MIXERCONTROLDATA;
+          case 0: return PAYLOAD_NOT_SET;
           default: return null;
         }
       }
@@ -1367,16 +2361,112 @@ public final class Mixer {
       }
     };
 
-    public MsgCase
-    getMsgCase() {
-      return MsgCase.forNumber(
-          msgCase_);
+    public PayloadCase
+    getPayloadCase() {
+      return PayloadCase.forNumber(
+          payloadCase_);
     }
 
-    public static final int TIME_FIELD_NUMBER = 1;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private int type_ = 0;
+    /**
+     * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+     * @return The type.
+     */
+    @java.lang.Override public zensayyy.fm.proto.Mixer.MixerProtocol.Type getType() {
+      zensayyy.fm.proto.Mixer.MixerProtocol.Type result = zensayyy.fm.proto.Mixer.MixerProtocol.Type.forNumber(type_);
+      return result == null ? zensayyy.fm.proto.Mixer.MixerProtocol.Type.UNRECOGNIZED : result;
+    }
+
+    public static final int STEAMID_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object steamId_ = "";
+    /**
+     * <code>string steamId = 2;</code>
+     * @return The steamId.
+     */
+    @java.lang.Override
+    public java.lang.String getSteamId() {
+      java.lang.Object ref = steamId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        steamId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string steamId = 2;</code>
+     * @return The bytes for steamId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSteamIdBytes() {
+      java.lang.Object ref = steamId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        steamId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOKEN_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object token_ = "";
+    /**
+     * <code>string token = 3;</code>
+     * @return The token.
+     */
+    @java.lang.Override
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        token_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string token = 3;</code>
+     * @return The bytes for token.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIME_FIELD_NUMBER = 4;
     private com.google.protobuf.Timestamp time_;
     /**
-     * <code>.google.protobuf.Timestamp time = 1;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      * @return Whether the time field is set.
      */
     @java.lang.Override
@@ -1384,7 +2474,7 @@ public final class Mixer {
       return time_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 1;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      * @return The time.
      */
     @java.lang.Override
@@ -1392,42 +2482,104 @@ public final class Mixer {
       return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 1;</code>
+     * <code>.google.protobuf.Timestamp time = 4;</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
       return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
     }
 
-    public static final int CONTROL_FIELD_NUMBER = 2;
+    public static final int SERVERTRACKPAYLOAD_FIELD_NUMBER = 5;
     /**
-     * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
-     * @return Whether the control field is set.
+     * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
+     * @return Whether the serverTrackPayload field is set.
      */
     @java.lang.Override
-    public boolean hasControl() {
-      return msgCase_ == 2;
+    public boolean hasServerTrackPayload() {
+      return payloadCase_ == 5;
     }
     /**
-     * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
-     * @return The control.
+     * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
+     * @return The serverTrackPayload.
      */
     @java.lang.Override
-    public zensayyy.fm.proto.Mixer.MixerControl getControl() {
-      if (msgCase_ == 2) {
-         return (zensayyy.fm.proto.Mixer.MixerControl) msg_;
+    public zensayyy.fm.proto.Mixer.ServerTrackData getServerTrackPayload() {
+      if (payloadCase_ == 5) {
+         return (zensayyy.fm.proto.Mixer.ServerTrackData) payload_;
       }
-      return zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance();
+      return zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance();
     }
     /**
-     * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+     * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
      */
     @java.lang.Override
-    public zensayyy.fm.proto.Mixer.MixerControlOrBuilder getControlOrBuilder() {
-      if (msgCase_ == 2) {
-         return (zensayyy.fm.proto.Mixer.MixerControl) msg_;
+    public zensayyy.fm.proto.Mixer.ServerTrackDataOrBuilder getServerTrackPayloadOrBuilder() {
+      if (payloadCase_ == 5) {
+         return (zensayyy.fm.proto.Mixer.ServerTrackData) payload_;
       }
-      return zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance();
+      return zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance();
+    }
+
+    public static final int MIXERREQDATA_FIELD_NUMBER = 6;
+    /**
+     * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+     * @return Whether the mixerReqData field is set.
+     */
+    @java.lang.Override
+    public boolean hasMixerReqData() {
+      return payloadCase_ == 6;
+    }
+    /**
+     * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+     * @return The mixerReqData.
+     */
+    @java.lang.Override
+    public zensayyy.fm.proto.Mixer.MixerReqData getMixerReqData() {
+      if (payloadCase_ == 6) {
+         return (zensayyy.fm.proto.Mixer.MixerReqData) payload_;
+      }
+      return zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance();
+    }
+    /**
+     * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+     */
+    @java.lang.Override
+    public zensayyy.fm.proto.Mixer.MixerReqDataOrBuilder getMixerReqDataOrBuilder() {
+      if (payloadCase_ == 6) {
+         return (zensayyy.fm.proto.Mixer.MixerReqData) payload_;
+      }
+      return zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance();
+    }
+
+    public static final int MIXERCONTROLDATA_FIELD_NUMBER = 7;
+    /**
+     * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+     * @return Whether the mixerControlData field is set.
+     */
+    @java.lang.Override
+    public boolean hasMixerControlData() {
+      return payloadCase_ == 7;
+    }
+    /**
+     * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+     * @return The mixerControlData.
+     */
+    @java.lang.Override
+    public zensayyy.fm.proto.Mixer.MixerControlData getMixerControlData() {
+      if (payloadCase_ == 7) {
+         return (zensayyy.fm.proto.Mixer.MixerControlData) payload_;
+      }
+      return zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance();
+    }
+    /**
+     * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+     */
+    @java.lang.Override
+    public zensayyy.fm.proto.Mixer.MixerControlDataOrBuilder getMixerControlDataOrBuilder() {
+      if (payloadCase_ == 7) {
+         return (zensayyy.fm.proto.Mixer.MixerControlData) payload_;
+      }
+      return zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1444,11 +2596,26 @@ public final class Mixer {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (time_ != null) {
-        output.writeMessage(1, getTime());
+      if (type_ != zensayyy.fm.proto.Mixer.MixerProtocol.Type.MIXER_CONTROL_DATA.getNumber()) {
+        output.writeEnum(1, type_);
       }
-      if (msgCase_ == 2) {
-        output.writeMessage(2, (zensayyy.fm.proto.Mixer.MixerControl) msg_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(steamId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, steamId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, token_);
+      }
+      if (time_ != null) {
+        output.writeMessage(4, getTime());
+      }
+      if (payloadCase_ == 5) {
+        output.writeMessage(5, (zensayyy.fm.proto.Mixer.ServerTrackData) payload_);
+      }
+      if (payloadCase_ == 6) {
+        output.writeMessage(6, (zensayyy.fm.proto.Mixer.MixerReqData) payload_);
+      }
+      if (payloadCase_ == 7) {
+        output.writeMessage(7, (zensayyy.fm.proto.Mixer.MixerControlData) payload_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1459,13 +2626,31 @@ public final class Mixer {
       if (size != -1) return size;
 
       size = 0;
+      if (type_ != zensayyy.fm.proto.Mixer.MixerProtocol.Type.MIXER_CONTROL_DATA.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, type_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(steamId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, steamId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, token_);
+      }
       if (time_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getTime());
+          .computeMessageSize(4, getTime());
       }
-      if (msgCase_ == 2) {
+      if (payloadCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (zensayyy.fm.proto.Mixer.MixerControl) msg_);
+          .computeMessageSize(5, (zensayyy.fm.proto.Mixer.ServerTrackData) payload_);
+      }
+      if (payloadCase_ == 6) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, (zensayyy.fm.proto.Mixer.MixerReqData) payload_);
+      }
+      if (payloadCase_ == 7) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, (zensayyy.fm.proto.Mixer.MixerControlData) payload_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1482,16 +2667,29 @@ public final class Mixer {
       }
       zensayyy.fm.proto.Mixer.MixerProtocol other = (zensayyy.fm.proto.Mixer.MixerProtocol) obj;
 
+      if (type_ != other.type_) return false;
+      if (!getSteamId()
+          .equals(other.getSteamId())) return false;
+      if (!getToken()
+          .equals(other.getToken())) return false;
       if (hasTime() != other.hasTime()) return false;
       if (hasTime()) {
         if (!getTime()
             .equals(other.getTime())) return false;
       }
-      if (!getMsgCase().equals(other.getMsgCase())) return false;
-      switch (msgCase_) {
-        case 2:
-          if (!getControl()
-              .equals(other.getControl())) return false;
+      if (!getPayloadCase().equals(other.getPayloadCase())) return false;
+      switch (payloadCase_) {
+        case 5:
+          if (!getServerTrackPayload()
+              .equals(other.getServerTrackPayload())) return false;
+          break;
+        case 6:
+          if (!getMixerReqData()
+              .equals(other.getMixerReqData())) return false;
+          break;
+        case 7:
+          if (!getMixerControlData()
+              .equals(other.getMixerControlData())) return false;
           break;
         case 0:
         default:
@@ -1507,14 +2705,28 @@ public final class Mixer {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      hash = (37 * hash) + STEAMID_FIELD_NUMBER;
+      hash = (53 * hash) + getSteamId().hashCode();
+      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getToken().hashCode();
       if (hasTime()) {
         hash = (37 * hash) + TIME_FIELD_NUMBER;
         hash = (53 * hash) + getTime().hashCode();
       }
-      switch (msgCase_) {
-        case 2:
-          hash = (37 * hash) + CONTROL_FIELD_NUMBER;
-          hash = (53 * hash) + getControl().hashCode();
+      switch (payloadCase_) {
+        case 5:
+          hash = (37 * hash) + SERVERTRACKPAYLOAD_FIELD_NUMBER;
+          hash = (53 * hash) + getServerTrackPayload().hashCode();
+          break;
+        case 6:
+          hash = (37 * hash) + MIXERREQDATA_FIELD_NUMBER;
+          hash = (53 * hash) + getMixerReqData().hashCode();
+          break;
+        case 7:
+          hash = (37 * hash) + MIXERCONTROLDATA_FIELD_NUMBER;
+          hash = (53 * hash) + getMixerControlData().hashCode();
           break;
         case 0:
         default:
@@ -1648,16 +2860,25 @@ public final class Mixer {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
+        type_ = 0;
+        steamId_ = "";
+        token_ = "";
         time_ = null;
         if (timeBuilder_ != null) {
           timeBuilder_.dispose();
           timeBuilder_ = null;
         }
-        if (controlBuilder_ != null) {
-          controlBuilder_.clear();
+        if (serverTrackPayloadBuilder_ != null) {
+          serverTrackPayloadBuilder_.clear();
         }
-        msgCase_ = 0;
-        msg_ = null;
+        if (mixerReqDataBuilder_ != null) {
+          mixerReqDataBuilder_.clear();
+        }
+        if (mixerControlDataBuilder_ != null) {
+          mixerControlDataBuilder_.clear();
+        }
+        payloadCase_ = 0;
+        payload_ = null;
         return this;
       }
 
@@ -1693,6 +2914,15 @@ public final class Mixer {
       private void buildPartial0(zensayyy.fm.proto.Mixer.MixerProtocol result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.steamId_ = steamId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.token_ = token_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
           result.time_ = timeBuilder_ == null
               ? time_
               : timeBuilder_.build();
@@ -1700,11 +2930,19 @@ public final class Mixer {
       }
 
       private void buildPartialOneofs(zensayyy.fm.proto.Mixer.MixerProtocol result) {
-        result.msgCase_ = msgCase_;
-        result.msg_ = this.msg_;
-        if (msgCase_ == 2 &&
-            controlBuilder_ != null) {
-          result.msg_ = controlBuilder_.build();
+        result.payloadCase_ = payloadCase_;
+        result.payload_ = this.payload_;
+        if (payloadCase_ == 5 &&
+            serverTrackPayloadBuilder_ != null) {
+          result.payload_ = serverTrackPayloadBuilder_.build();
+        }
+        if (payloadCase_ == 6 &&
+            mixerReqDataBuilder_ != null) {
+          result.payload_ = mixerReqDataBuilder_.build();
+        }
+        if (payloadCase_ == 7 &&
+            mixerControlDataBuilder_ != null) {
+          result.payload_ = mixerControlDataBuilder_.build();
         }
       }
 
@@ -1720,15 +2958,36 @@ public final class Mixer {
 
       public Builder mergeFrom(zensayyy.fm.proto.Mixer.MixerProtocol other) {
         if (other == zensayyy.fm.proto.Mixer.MixerProtocol.getDefaultInstance()) return this;
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        if (!other.getSteamId().isEmpty()) {
+          steamId_ = other.steamId_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getToken().isEmpty()) {
+          token_ = other.token_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
         if (other.hasTime()) {
           mergeTime(other.getTime());
         }
-        switch (other.getMsgCase()) {
-          case CONTROL: {
-            mergeControl(other.getControl());
+        switch (other.getPayloadCase()) {
+          case SERVERTRACKPAYLOAD: {
+            mergeServerTrackPayload(other.getServerTrackPayload());
             break;
           }
-          case MSG_NOT_SET: {
+          case MIXERREQDATA: {
+            mergeMixerReqData(other.getMixerReqData());
+            break;
+          }
+          case MIXERCONTROLDATA: {
+            mergeMixerControlData(other.getMixerControlData());
+            break;
+          }
+          case PAYLOAD_NOT_SET: {
             break;
           }
         }
@@ -1758,20 +3017,49 @@ public final class Mixer {
               case 0:
                 done = true;
                 break;
-              case 10: {
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                steamId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                token_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
                 input.readMessage(
                     getTimeFieldBuilder().getBuilder(),
                     extensionRegistry);
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000008;
                 break;
-              } // case 10
-              case 18: {
+              } // case 34
+              case 42: {
                 input.readMessage(
-                    getControlFieldBuilder().getBuilder(),
+                    getServerTrackPayloadFieldBuilder().getBuilder(),
                     extensionRegistry);
-                msgCase_ = 2;
+                payloadCase_ = 5;
                 break;
-              } // case 18
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getMixerReqDataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                payloadCase_ = 6;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getMixerControlDataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                payloadCase_ = 7;
+                break;
+              } // case 58
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1787,35 +3075,232 @@ public final class Mixer {
         } // finally
         return this;
       }
-      private int msgCase_ = 0;
-      private java.lang.Object msg_;
-      public MsgCase
-          getMsgCase() {
-        return MsgCase.forNumber(
-            msgCase_);
+      private int payloadCase_ = 0;
+      private java.lang.Object payload_;
+      public PayloadCase
+          getPayloadCase() {
+        return PayloadCase.forNumber(
+            payloadCase_);
       }
 
-      public Builder clearMsg() {
-        msgCase_ = 0;
-        msg_ = null;
+      public Builder clearPayload() {
+        payloadCase_ = 0;
+        payload_ = null;
         onChanged();
         return this;
       }
 
       private int bitField0_;
 
+      private int type_ = 0;
+      /**
+       * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerProtocol.Type getType() {
+        zensayyy.fm.proto.Mixer.MixerProtocol.Type result = zensayyy.fm.proto.Mixer.MixerProtocol.Type.forNumber(type_);
+        return result == null ? zensayyy.fm.proto.Mixer.MixerProtocol.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(zensayyy.fm.proto.Mixer.MixerProtocol.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerProtocol.Type type = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object steamId_ = "";
+      /**
+       * <code>string steamId = 2;</code>
+       * @return The steamId.
+       */
+      public java.lang.String getSteamId() {
+        java.lang.Object ref = steamId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          steamId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string steamId = 2;</code>
+       * @return The bytes for steamId.
+       */
+      public com.google.protobuf.ByteString
+          getSteamIdBytes() {
+        java.lang.Object ref = steamId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          steamId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string steamId = 2;</code>
+       * @param value The steamId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSteamId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        steamId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string steamId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSteamId() {
+        steamId_ = getDefaultInstance().getSteamId();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string steamId = 2;</code>
+       * @param value The bytes for steamId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSteamIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        steamId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object token_ = "";
+      /**
+       * <code>string token = 3;</code>
+       * @return The token.
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string token = 3;</code>
+       * @return The bytes for token.
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string token = 3;</code>
+       * @param value The token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        token_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToken() {
+        token_ = getDefaultInstance().getToken();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 3;</code>
+       * @param value The bytes for token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        token_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.Timestamp time_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        * @return Whether the time field is set.
        */
       public boolean hasTime() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        * @return The time.
        */
       public com.google.protobuf.Timestamp getTime() {
@@ -1826,7 +3311,7 @@ public final class Mixer {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        */
       public Builder setTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
@@ -1837,12 +3322,12 @@ public final class Mixer {
         } else {
           timeBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        */
       public Builder setTime(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1851,16 +3336,16 @@ public final class Mixer {
         } else {
           timeBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        */
       public Builder mergeTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
+          if (((bitField0_ & 0x00000008) != 0) &&
             time_ != null &&
             time_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
             getTimeBuilder().mergeFrom(value);
@@ -1870,15 +3355,15 @@ public final class Mixer {
         } else {
           timeBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        */
       public Builder clearTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         time_ = null;
         if (timeBuilder_ != null) {
           timeBuilder_.dispose();
@@ -1888,15 +3373,15 @@ public final class Mixer {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
         onChanged();
         return getTimeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        */
       public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
         if (timeBuilder_ != null) {
@@ -1907,7 +3392,7 @@ public final class Mixer {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 1;</code>
+       * <code>.google.protobuf.Timestamp time = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1924,145 +3409,429 @@ public final class Mixer {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          zensayyy.fm.proto.Mixer.MixerControl, zensayyy.fm.proto.Mixer.MixerControl.Builder, zensayyy.fm.proto.Mixer.MixerControlOrBuilder> controlBuilder_;
+          zensayyy.fm.proto.Mixer.ServerTrackData, zensayyy.fm.proto.Mixer.ServerTrackData.Builder, zensayyy.fm.proto.Mixer.ServerTrackDataOrBuilder> serverTrackPayloadBuilder_;
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
-       * @return Whether the control field is set.
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
+       * @return Whether the serverTrackPayload field is set.
        */
       @java.lang.Override
-      public boolean hasControl() {
-        return msgCase_ == 2;
+      public boolean hasServerTrackPayload() {
+        return payloadCase_ == 5;
       }
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
-       * @return The control.
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
+       * @return The serverTrackPayload.
        */
       @java.lang.Override
-      public zensayyy.fm.proto.Mixer.MixerControl getControl() {
-        if (controlBuilder_ == null) {
-          if (msgCase_ == 2) {
-            return (zensayyy.fm.proto.Mixer.MixerControl) msg_;
+      public zensayyy.fm.proto.Mixer.ServerTrackData getServerTrackPayload() {
+        if (serverTrackPayloadBuilder_ == null) {
+          if (payloadCase_ == 5) {
+            return (zensayyy.fm.proto.Mixer.ServerTrackData) payload_;
           }
-          return zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance();
+          return zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance();
         } else {
-          if (msgCase_ == 2) {
-            return controlBuilder_.getMessage();
+          if (payloadCase_ == 5) {
+            return serverTrackPayloadBuilder_.getMessage();
           }
-          return zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance();
+          return zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance();
         }
       }
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
        */
-      public Builder setControl(zensayyy.fm.proto.Mixer.MixerControl value) {
-        if (controlBuilder_ == null) {
+      public Builder setServerTrackPayload(zensayyy.fm.proto.Mixer.ServerTrackData value) {
+        if (serverTrackPayloadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          msg_ = value;
+          payload_ = value;
           onChanged();
         } else {
-          controlBuilder_.setMessage(value);
+          serverTrackPayloadBuilder_.setMessage(value);
         }
-        msgCase_ = 2;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
        */
-      public Builder setControl(
-          zensayyy.fm.proto.Mixer.MixerControl.Builder builderForValue) {
-        if (controlBuilder_ == null) {
-          msg_ = builderForValue.build();
+      public Builder setServerTrackPayload(
+          zensayyy.fm.proto.Mixer.ServerTrackData.Builder builderForValue) {
+        if (serverTrackPayloadBuilder_ == null) {
+          payload_ = builderForValue.build();
           onChanged();
         } else {
-          controlBuilder_.setMessage(builderForValue.build());
+          serverTrackPayloadBuilder_.setMessage(builderForValue.build());
         }
-        msgCase_ = 2;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
        */
-      public Builder mergeControl(zensayyy.fm.proto.Mixer.MixerControl value) {
-        if (controlBuilder_ == null) {
-          if (msgCase_ == 2 &&
-              msg_ != zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance()) {
-            msg_ = zensayyy.fm.proto.Mixer.MixerControl.newBuilder((zensayyy.fm.proto.Mixer.MixerControl) msg_)
+      public Builder mergeServerTrackPayload(zensayyy.fm.proto.Mixer.ServerTrackData value) {
+        if (serverTrackPayloadBuilder_ == null) {
+          if (payloadCase_ == 5 &&
+              payload_ != zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance()) {
+            payload_ = zensayyy.fm.proto.Mixer.ServerTrackData.newBuilder((zensayyy.fm.proto.Mixer.ServerTrackData) payload_)
                 .mergeFrom(value).buildPartial();
           } else {
-            msg_ = value;
+            payload_ = value;
           }
           onChanged();
         } else {
-          if (msgCase_ == 2) {
-            controlBuilder_.mergeFrom(value);
+          if (payloadCase_ == 5) {
+            serverTrackPayloadBuilder_.mergeFrom(value);
           } else {
-            controlBuilder_.setMessage(value);
+            serverTrackPayloadBuilder_.setMessage(value);
           }
         }
-        msgCase_ = 2;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
        */
-      public Builder clearControl() {
-        if (controlBuilder_ == null) {
-          if (msgCase_ == 2) {
-            msgCase_ = 0;
-            msg_ = null;
+      public Builder clearServerTrackPayload() {
+        if (serverTrackPayloadBuilder_ == null) {
+          if (payloadCase_ == 5) {
+            payloadCase_ = 0;
+            payload_ = null;
             onChanged();
           }
         } else {
-          if (msgCase_ == 2) {
-            msgCase_ = 0;
-            msg_ = null;
+          if (payloadCase_ == 5) {
+            payloadCase_ = 0;
+            payload_ = null;
           }
-          controlBuilder_.clear();
+          serverTrackPayloadBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
        */
-      public zensayyy.fm.proto.Mixer.MixerControl.Builder getControlBuilder() {
-        return getControlFieldBuilder().getBuilder();
+      public zensayyy.fm.proto.Mixer.ServerTrackData.Builder getServerTrackPayloadBuilder() {
+        return getServerTrackPayloadFieldBuilder().getBuilder();
       }
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
        */
       @java.lang.Override
-      public zensayyy.fm.proto.Mixer.MixerControlOrBuilder getControlOrBuilder() {
-        if ((msgCase_ == 2) && (controlBuilder_ != null)) {
-          return controlBuilder_.getMessageOrBuilder();
+      public zensayyy.fm.proto.Mixer.ServerTrackDataOrBuilder getServerTrackPayloadOrBuilder() {
+        if ((payloadCase_ == 5) && (serverTrackPayloadBuilder_ != null)) {
+          return serverTrackPayloadBuilder_.getMessageOrBuilder();
         } else {
-          if (msgCase_ == 2) {
-            return (zensayyy.fm.proto.Mixer.MixerControl) msg_;
+          if (payloadCase_ == 5) {
+            return (zensayyy.fm.proto.Mixer.ServerTrackData) payload_;
           }
-          return zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance();
+          return zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance();
         }
       }
       /**
-       * <code>.zensayyy.fm.proto.MixerControl control = 2;</code>
+       * <code>.zensayyy.fm.proto.ServerTrackData serverTrackPayload = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          zensayyy.fm.proto.Mixer.MixerControl, zensayyy.fm.proto.Mixer.MixerControl.Builder, zensayyy.fm.proto.Mixer.MixerControlOrBuilder> 
-          getControlFieldBuilder() {
-        if (controlBuilder_ == null) {
-          if (!(msgCase_ == 2)) {
-            msg_ = zensayyy.fm.proto.Mixer.MixerControl.getDefaultInstance();
+          zensayyy.fm.proto.Mixer.ServerTrackData, zensayyy.fm.proto.Mixer.ServerTrackData.Builder, zensayyy.fm.proto.Mixer.ServerTrackDataOrBuilder> 
+          getServerTrackPayloadFieldBuilder() {
+        if (serverTrackPayloadBuilder_ == null) {
+          if (!(payloadCase_ == 5)) {
+            payload_ = zensayyy.fm.proto.Mixer.ServerTrackData.getDefaultInstance();
           }
-          controlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              zensayyy.fm.proto.Mixer.MixerControl, zensayyy.fm.proto.Mixer.MixerControl.Builder, zensayyy.fm.proto.Mixer.MixerControlOrBuilder>(
-                  (zensayyy.fm.proto.Mixer.MixerControl) msg_,
+          serverTrackPayloadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              zensayyy.fm.proto.Mixer.ServerTrackData, zensayyy.fm.proto.Mixer.ServerTrackData.Builder, zensayyy.fm.proto.Mixer.ServerTrackDataOrBuilder>(
+                  (zensayyy.fm.proto.Mixer.ServerTrackData) payload_,
                   getParentForChildren(),
                   isClean());
-          msg_ = null;
+          payload_ = null;
         }
-        msgCase_ = 2;
+        payloadCase_ = 5;
         onChanged();
-        return controlBuilder_;
+        return serverTrackPayloadBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          zensayyy.fm.proto.Mixer.MixerReqData, zensayyy.fm.proto.Mixer.MixerReqData.Builder, zensayyy.fm.proto.Mixer.MixerReqDataOrBuilder> mixerReqDataBuilder_;
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       * @return Whether the mixerReqData field is set.
+       */
+      @java.lang.Override
+      public boolean hasMixerReqData() {
+        return payloadCase_ == 6;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       * @return The mixerReqData.
+       */
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerReqData getMixerReqData() {
+        if (mixerReqDataBuilder_ == null) {
+          if (payloadCase_ == 6) {
+            return (zensayyy.fm.proto.Mixer.MixerReqData) payload_;
+          }
+          return zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance();
+        } else {
+          if (payloadCase_ == 6) {
+            return mixerReqDataBuilder_.getMessage();
+          }
+          return zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       */
+      public Builder setMixerReqData(zensayyy.fm.proto.Mixer.MixerReqData value) {
+        if (mixerReqDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          payload_ = value;
+          onChanged();
+        } else {
+          mixerReqDataBuilder_.setMessage(value);
+        }
+        payloadCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       */
+      public Builder setMixerReqData(
+          zensayyy.fm.proto.Mixer.MixerReqData.Builder builderForValue) {
+        if (mixerReqDataBuilder_ == null) {
+          payload_ = builderForValue.build();
+          onChanged();
+        } else {
+          mixerReqDataBuilder_.setMessage(builderForValue.build());
+        }
+        payloadCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       */
+      public Builder mergeMixerReqData(zensayyy.fm.proto.Mixer.MixerReqData value) {
+        if (mixerReqDataBuilder_ == null) {
+          if (payloadCase_ == 6 &&
+              payload_ != zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance()) {
+            payload_ = zensayyy.fm.proto.Mixer.MixerReqData.newBuilder((zensayyy.fm.proto.Mixer.MixerReqData) payload_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            payload_ = value;
+          }
+          onChanged();
+        } else {
+          if (payloadCase_ == 6) {
+            mixerReqDataBuilder_.mergeFrom(value);
+          } else {
+            mixerReqDataBuilder_.setMessage(value);
+          }
+        }
+        payloadCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       */
+      public Builder clearMixerReqData() {
+        if (mixerReqDataBuilder_ == null) {
+          if (payloadCase_ == 6) {
+            payloadCase_ = 0;
+            payload_ = null;
+            onChanged();
+          }
+        } else {
+          if (payloadCase_ == 6) {
+            payloadCase_ = 0;
+            payload_ = null;
+          }
+          mixerReqDataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       */
+      public zensayyy.fm.proto.Mixer.MixerReqData.Builder getMixerReqDataBuilder() {
+        return getMixerReqDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       */
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerReqDataOrBuilder getMixerReqDataOrBuilder() {
+        if ((payloadCase_ == 6) && (mixerReqDataBuilder_ != null)) {
+          return mixerReqDataBuilder_.getMessageOrBuilder();
+        } else {
+          if (payloadCase_ == 6) {
+            return (zensayyy.fm.proto.Mixer.MixerReqData) payload_;
+          }
+          return zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerReqData mixerReqData = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          zensayyy.fm.proto.Mixer.MixerReqData, zensayyy.fm.proto.Mixer.MixerReqData.Builder, zensayyy.fm.proto.Mixer.MixerReqDataOrBuilder> 
+          getMixerReqDataFieldBuilder() {
+        if (mixerReqDataBuilder_ == null) {
+          if (!(payloadCase_ == 6)) {
+            payload_ = zensayyy.fm.proto.Mixer.MixerReqData.getDefaultInstance();
+          }
+          mixerReqDataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              zensayyy.fm.proto.Mixer.MixerReqData, zensayyy.fm.proto.Mixer.MixerReqData.Builder, zensayyy.fm.proto.Mixer.MixerReqDataOrBuilder>(
+                  (zensayyy.fm.proto.Mixer.MixerReqData) payload_,
+                  getParentForChildren(),
+                  isClean());
+          payload_ = null;
+        }
+        payloadCase_ = 6;
+        onChanged();
+        return mixerReqDataBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          zensayyy.fm.proto.Mixer.MixerControlData, zensayyy.fm.proto.Mixer.MixerControlData.Builder, zensayyy.fm.proto.Mixer.MixerControlDataOrBuilder> mixerControlDataBuilder_;
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       * @return Whether the mixerControlData field is set.
+       */
+      @java.lang.Override
+      public boolean hasMixerControlData() {
+        return payloadCase_ == 7;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       * @return The mixerControlData.
+       */
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerControlData getMixerControlData() {
+        if (mixerControlDataBuilder_ == null) {
+          if (payloadCase_ == 7) {
+            return (zensayyy.fm.proto.Mixer.MixerControlData) payload_;
+          }
+          return zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance();
+        } else {
+          if (payloadCase_ == 7) {
+            return mixerControlDataBuilder_.getMessage();
+          }
+          return zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       */
+      public Builder setMixerControlData(zensayyy.fm.proto.Mixer.MixerControlData value) {
+        if (mixerControlDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          payload_ = value;
+          onChanged();
+        } else {
+          mixerControlDataBuilder_.setMessage(value);
+        }
+        payloadCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       */
+      public Builder setMixerControlData(
+          zensayyy.fm.proto.Mixer.MixerControlData.Builder builderForValue) {
+        if (mixerControlDataBuilder_ == null) {
+          payload_ = builderForValue.build();
+          onChanged();
+        } else {
+          mixerControlDataBuilder_.setMessage(builderForValue.build());
+        }
+        payloadCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       */
+      public Builder mergeMixerControlData(zensayyy.fm.proto.Mixer.MixerControlData value) {
+        if (mixerControlDataBuilder_ == null) {
+          if (payloadCase_ == 7 &&
+              payload_ != zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance()) {
+            payload_ = zensayyy.fm.proto.Mixer.MixerControlData.newBuilder((zensayyy.fm.proto.Mixer.MixerControlData) payload_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            payload_ = value;
+          }
+          onChanged();
+        } else {
+          if (payloadCase_ == 7) {
+            mixerControlDataBuilder_.mergeFrom(value);
+          } else {
+            mixerControlDataBuilder_.setMessage(value);
+          }
+        }
+        payloadCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       */
+      public Builder clearMixerControlData() {
+        if (mixerControlDataBuilder_ == null) {
+          if (payloadCase_ == 7) {
+            payloadCase_ = 0;
+            payload_ = null;
+            onChanged();
+          }
+        } else {
+          if (payloadCase_ == 7) {
+            payloadCase_ = 0;
+            payload_ = null;
+          }
+          mixerControlDataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       */
+      public zensayyy.fm.proto.Mixer.MixerControlData.Builder getMixerControlDataBuilder() {
+        return getMixerControlDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       */
+      @java.lang.Override
+      public zensayyy.fm.proto.Mixer.MixerControlDataOrBuilder getMixerControlDataOrBuilder() {
+        if ((payloadCase_ == 7) && (mixerControlDataBuilder_ != null)) {
+          return mixerControlDataBuilder_.getMessageOrBuilder();
+        } else {
+          if (payloadCase_ == 7) {
+            return (zensayyy.fm.proto.Mixer.MixerControlData) payload_;
+          }
+          return zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.zensayyy.fm.proto.MixerControlData mixerControlData = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          zensayyy.fm.proto.Mixer.MixerControlData, zensayyy.fm.proto.Mixer.MixerControlData.Builder, zensayyy.fm.proto.Mixer.MixerControlDataOrBuilder> 
+          getMixerControlDataFieldBuilder() {
+        if (mixerControlDataBuilder_ == null) {
+          if (!(payloadCase_ == 7)) {
+            payload_ = zensayyy.fm.proto.Mixer.MixerControlData.getDefaultInstance();
+          }
+          mixerControlDataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              zensayyy.fm.proto.Mixer.MixerControlData, zensayyy.fm.proto.Mixer.MixerControlData.Builder, zensayyy.fm.proto.Mixer.MixerControlDataOrBuilder>(
+                  (zensayyy.fm.proto.Mixer.MixerControlData) payload_,
+                  getParentForChildren(),
+                  isClean());
+          payload_ = null;
+        }
+        payloadCase_ = 7;
+        onChanged();
+        return mixerControlDataBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2129,10 +3898,20 @@ public final class Mixer {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_zensayyy_fm_proto_MixerControl_descriptor;
+    internal_static_zensayyy_fm_proto_ServerTrackData_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_zensayyy_fm_proto_MixerControl_fieldAccessorTable;
+      internal_static_zensayyy_fm_proto_ServerTrackData_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_zensayyy_fm_proto_MixerControlData_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_zensayyy_fm_proto_MixerControlData_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_zensayyy_fm_proto_MixerReqData_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_zensayyy_fm_proto_MixerReqData_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_zensayyy_fm_proto_MixerProtocol_descriptor;
   private static final 
@@ -2149,14 +3928,24 @@ public final class Mixer {
     java.lang.String[] descriptorData = {
       "\n\024protocol/Mixer.proto\022\021zensayyy.fm.prot" +
       "o\032\024protocol/Track.proto\032\037google/protobuf" +
-      "/timestamp.proto\"\247\001\n\014MixerControl\022\017\n\007ste" +
-      "amId\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\0228\n\007control\030\003 \001" +
-      "(\0162\'.zensayyy.fm.proto.MixerControl.Cont" +
-      "rol\022(\n\006tracks\030\004 \003(\0132\030.zensayyy.fm.proto." +
-      "Track\"\023\n\007Control\022\010\n\004DATA\020\000\"t\n\rMixerProto" +
-      "col\022(\n\004time\030\001 \001(\0132\032.google.protobuf.Time" +
-      "stamp\0222\n\007control\030\002 \001(\0132\037.zensayyy.fm.pro" +
-      "to.MixerControlH\000B\005\n\003msgb\006proto3"
+      "/timestamp.proto\"Z\n\017ServerTrackData\022(\n\006t" +
+      "racks\030\001 \003(\0132\030.zensayyy.fm.proto.Track\"\035\n" +
+      "\tOperation\022\007\n\003ADD\020\000\022\007\n\003NEW\020\001\"i\n\020MixerCon" +
+      "trolData\022\'\n\005track\030\001 \001(\0132\030.zensayyy.fm.pr" +
+      "oto.Track\",\n\tOperation\022\007\n\003ADD\020\000\022\n\n\006UPDAT" +
+      "E\020\001\022\n\n\006REMOVE\020\002\"4\n\014MixerReqData\022\022\n\nslice" +
+      "Start\030\001 \001(\005\022\020\n\010sliceEnd\030\002 \001(\005\"\240\003\n\rMixerP" +
+      "rotocol\0223\n\004type\030\001 \001(\0162%.zensayyy.fm.prot" +
+      "o.MixerProtocol.Type\022\017\n\007steamId\030\002 \001(\t\022\r\n" +
+      "\005token\030\003 \001(\t\022(\n\004time\030\004 \001(\0132\032.google.prot" +
+      "obuf.Timestamp\022@\n\022serverTrackPayload\030\005 \001" +
+      "(\0132\".zensayyy.fm.proto.ServerTrackDataH\000" +
+      "\0227\n\014mixerReqData\030\006 \001(\0132\037.zensayyy.fm.pro" +
+      "to.MixerReqDataH\000\022?\n\020mixerControlData\030\007 " +
+      "\001(\0132#.zensayyy.fm.proto.MixerControlData" +
+      "H\000\"I\n\004Type\022\026\n\022MIXER_CONTROL_DATA\020\000\022\022\n\016MI" +
+      "XER_REQ_DATA\020\001\022\025\n\021SERVER_TRACK_DATA\020\002B\t\n" +
+      "\007payloadb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2164,18 +3953,30 @@ public final class Mixer {
           zensayyy.fm.proto.TrackOuterClass.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
-    internal_static_zensayyy_fm_proto_MixerControl_descriptor =
+    internal_static_zensayyy_fm_proto_ServerTrackData_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_zensayyy_fm_proto_MixerControl_fieldAccessorTable = new
+    internal_static_zensayyy_fm_proto_ServerTrackData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_zensayyy_fm_proto_MixerControl_descriptor,
-        new java.lang.String[] { "SteamId", "Token", "Control", "Tracks", });
-    internal_static_zensayyy_fm_proto_MixerProtocol_descriptor =
+        internal_static_zensayyy_fm_proto_ServerTrackData_descriptor,
+        new java.lang.String[] { "Tracks", });
+    internal_static_zensayyy_fm_proto_MixerControlData_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_zensayyy_fm_proto_MixerControlData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_zensayyy_fm_proto_MixerControlData_descriptor,
+        new java.lang.String[] { "Track", });
+    internal_static_zensayyy_fm_proto_MixerReqData_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_zensayyy_fm_proto_MixerReqData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_zensayyy_fm_proto_MixerReqData_descriptor,
+        new java.lang.String[] { "SliceStart", "SliceEnd", });
+    internal_static_zensayyy_fm_proto_MixerProtocol_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_zensayyy_fm_proto_MixerProtocol_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_zensayyy_fm_proto_MixerProtocol_descriptor,
-        new java.lang.String[] { "Time", "Control", "Msg", });
+        new java.lang.String[] { "Type", "SteamId", "Token", "Time", "ServerTrackPayload", "MixerReqData", "MixerControlData", "Payload", });
     zensayyy.fm.proto.TrackOuterClass.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

@@ -9,6 +9,7 @@ export interface Track {
   trackEvents: TrackTimeEvent[];
   tracks: TrackMetadata[];
   time: Date | undefined;
+  id: string;
 }
 
 export interface TrackTimeEvent {
@@ -62,7 +63,7 @@ export interface TrackMetadata {
 }
 
 function createBaseTrack(): Track {
-  return { trackEvents: [], tracks: [], time: undefined };
+  return { trackEvents: [], tracks: [], time: undefined, id: "" };
 }
 
 export const Track = {
@@ -75,6 +76,9 @@ export const Track = {
     }
     if (message.time !== undefined) {
       Timestamp.encode(toTimestamp(message.time), writer.uint32(26).fork()).ldelim();
+    }
+    if (message.id !== "") {
+      writer.uint32(34).string(message.id);
     }
     return writer;
   },
@@ -95,6 +99,9 @@ export const Track = {
         case 3:
           message.time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
+        case 4:
+          message.id = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -110,6 +117,7 @@ export const Track = {
         : [],
       tracks: Array.isArray(object?.tracks) ? object.tracks.map((e: any) => TrackMetadata.fromJSON(e)) : [],
       time: isSet(object.time) ? fromJsonTimestamp(object.time) : undefined,
+      id: isSet(object.id) ? String(object.id) : "",
     };
   },
 
@@ -126,6 +134,7 @@ export const Track = {
       obj.tracks = [];
     }
     message.time !== undefined && (obj.time = message.time.toISOString());
+    message.id !== undefined && (obj.id = message.id);
     return obj;
   },
 
@@ -138,6 +147,7 @@ export const Track = {
     message.trackEvents = object.trackEvents?.map((e) => TrackTimeEvent.fromPartial(e)) || [];
     message.tracks = object.tracks?.map((e) => TrackMetadata.fromPartial(e)) || [];
     message.time = object.time ?? undefined;
+    message.id = object.id ?? "";
     return message;
   },
 };

@@ -80,6 +80,18 @@ public final class TrackOuterClass {
      * <code>.google.protobuf.Timestamp time = 3;</code>
      */
     com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
+
+    /**
+     * <code>string id = 4;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 4;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
   }
   /**
    * Protobuf type {@code zensayyy.fm.proto.Track}
@@ -96,6 +108,7 @@ public final class TrackOuterClass {
     private Track() {
       trackEvents_ = java.util.Collections.emptyList();
       tracks_ = java.util.Collections.emptyList();
+      id_ = "";
     }
 
     @java.lang.Override
@@ -226,6 +239,45 @@ public final class TrackOuterClass {
       return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
     }
 
+    public static final int ID_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 4;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 4;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -249,6 +301,9 @@ public final class TrackOuterClass {
       if (time_ != null) {
         output.writeMessage(3, getTime());
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, id_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -269,6 +324,9 @@ public final class TrackOuterClass {
       if (time_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, id_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -294,6 +352,8 @@ public final class TrackOuterClass {
         if (!getTime()
             .equals(other.getTime())) return false;
       }
+      if (!getId()
+          .equals(other.getId())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -317,6 +377,8 @@ public final class TrackOuterClass {
         hash = (37 * hash) + TIME_FIELD_NUMBER;
         hash = (53 * hash) + getTime().hashCode();
       }
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -465,6 +527,7 @@ public final class TrackOuterClass {
           timeBuilder_.dispose();
           timeBuilder_ = null;
         }
+        id_ = "";
         return this;
       }
 
@@ -524,6 +587,9 @@ public final class TrackOuterClass {
           result.time_ = timeBuilder_ == null
               ? time_
               : timeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.id_ = id_;
         }
       }
 
@@ -594,6 +660,11 @@ public final class TrackOuterClass {
         if (other.hasTime()) {
           mergeTime(other.getTime());
         }
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -653,6 +724,11 @@ public final class TrackOuterClass {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
+              case 34: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1267,6 +1343,78 @@ public final class TrackOuterClass {
           time_ = null;
         }
         return timeBuilder_;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 4;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 4;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 4;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 4;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3487,19 +3635,19 @@ public final class TrackOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\024protocol/Track.proto\022\021zensayyy.fm.prot" +
-      "o\032\037google/protobuf/timestamp.proto\"\233\001\n\005T" +
+      "o\032\037google/protobuf/timestamp.proto\"\247\001\n\005T" +
       "rack\0226\n\013trackEvents\030\001 \003(\0132!.zensayyy.fm." +
       "proto.TrackTimeEvent\0220\n\006tracks\030\002 \003(\0132 .z" +
       "ensayyy.fm.proto.TrackMetadata\022(\n\004time\030\003" +
-      " \001(\0132\032.google.protobuf.Timestamp\"\235\001\n\016Tra" +
-      "ckTimeEvent\0226\n\005event\030\001 \001(\0162\'.zensayyy.fm" +
-      ".proto.TrackTimeEvent.Event\022\014\n\004time\030\002 \001(" +
-      "\005\022\020\n\010duration\030\003 \001(\005\022\022\n\nrefTrackId\030\004 \001(\005\"" +
-      "\037\n\005Event\022\014\n\010FADE_OUT\020\000\022\010\n\004DUCK\020\001\"\205\001\n\rTra" +
-      "ckMetadata\022\017\n\007trackId\030\001 \001(\t\022\r\n\005title\030\002 \001" +
-      "(\t\022\016\n\006artist\030\003 \001(\t\022\021\n\tthumbnail\030\004 \001(\t\022\016\n" +
-      "\006source\030\005 \001(\t\022\016\n\006length\030\006 \001(\003\022\021\n\textensi" +
-      "on\030\007 \001(\tb\006proto3"
+      " \001(\0132\032.google.protobuf.Timestamp\022\n\n\002id\030\004" +
+      " \001(\t\"\235\001\n\016TrackTimeEvent\0226\n\005event\030\001 \001(\0162\'" +
+      ".zensayyy.fm.proto.TrackTimeEvent.Event\022" +
+      "\014\n\004time\030\002 \001(\005\022\020\n\010duration\030\003 \001(\005\022\022\n\nrefTr" +
+      "ackId\030\004 \001(\005\"\037\n\005Event\022\014\n\010FADE_OUT\020\000\022\010\n\004DU" +
+      "CK\020\001\"\205\001\n\rTrackMetadata\022\017\n\007trackId\030\001 \001(\t\022" +
+      "\r\n\005title\030\002 \001(\t\022\016\n\006artist\030\003 \001(\t\022\021\n\tthumbn" +
+      "ail\030\004 \001(\t\022\016\n\006source\030\005 \001(\t\022\016\n\006length\030\006 \001(" +
+      "\003\022\021\n\textension\030\007 \001(\tb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3511,7 +3659,7 @@ public final class TrackOuterClass {
     internal_static_zensayyy_fm_proto_Track_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_zensayyy_fm_proto_Track_descriptor,
-        new java.lang.String[] { "TrackEvents", "Tracks", "Time", });
+        new java.lang.String[] { "TrackEvents", "Tracks", "Time", "Id", });
     internal_static_zensayyy_fm_proto_TrackTimeEvent_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_zensayyy_fm_proto_TrackTimeEvent_fieldAccessorTable = new
