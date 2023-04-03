@@ -3,22 +3,45 @@ package zensayyy.fm.proto;
 import "protocol/Track.proto";
 import "google/protobuf/timestamp.proto";
 
-message MixerControl {
-  string steamId = 1; 
-  string token = 2;
-
-  enum Control {
-    DATA = 0;
+message ServerTrackData {
+  enum Operation {
+    ADD = 0;
+    NEW = 1;
   }
-
-  Control control = 3; 
-  repeated Track tracks = 4;
+  repeated Track tracks = 1;
 }
 
+message MixerControlData {
+  enum Operation {
+    ADD = 0;
+    UPDATE = 1;
+    REMOVE = 2;
+  }
+  Track track = 1;
+}
+
+message MixerReqData {
+  int32 sliceStart = 1; 
+  int32 sliceEnd = 2; 
+}
+
+
 message MixerProtocol {
-  google.protobuf.Timestamp time = 1;  
-  oneof msg {
-    MixerControl control = 2;
+  enum Type {
+    MIXER_CONTROL_DATA = 0;
+    MIXER_REQ_DATA = 1;
+    SERVER_TRACK_DATA = 2;
+  }
+
+  Type type = 1;
+  string steamId = 2; 
+  string token = 3;
+  google.protobuf.Timestamp time = 4;  
+
+  oneof payload {
+    ServerTrackData serverTrackPayload = 5;
+    MixerReqData mixerReqData = 6; 
+    MixerControlData mixerControlData = 7;
   }
 
 }

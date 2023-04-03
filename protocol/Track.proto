@@ -6,6 +6,7 @@ message Track {
   repeated TrackTimeEvent trackEvents = 1;
   repeated TrackMetadata tracks = 2;
   google.protobuf.Timestamp time = 3;  
+  string id = 4;
 }
 
 message TrackTimeEvent {
