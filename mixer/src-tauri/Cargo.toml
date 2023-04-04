@@ -23,8 +23,9 @@ anyhow = "1.0.70"
 async-process = "1.6.0"
 tokio-tungstenite = "0.18.0"
 url = "2.3.1"
-tokio = {version = "1.27.0", features = ["macros"]}
+tokio = {version = "1.27.0", features = ["macros", "sync"] }
 futures-util = "0.3.28"
+mixer_machine = {path = "../tauri-plugin-machine"}
 
 [features]
 # by default Tauri runs in production mode

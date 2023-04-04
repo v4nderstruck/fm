@@ -15,9 +15,7 @@ use tokio_tungstenite::connect_async;
 
 #[tokio::main]
 async fn main() {
-    let (ws, _) = connect_async(url::Url::parse("ws://localhost:8001/mixer").unwrap()).await.unwrap();
-     
-    let (write, read) = ws.split();
+
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![audio_stream_handler])
         .run(tauri::generate_context!())
