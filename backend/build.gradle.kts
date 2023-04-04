@@ -21,7 +21,7 @@ dependencies {
 
   implementation("org.projectlombok:lombok:1.18.26")
   implementation("javax.annotation:javax.annotation-api:1.3.2")
-  implementation("com.github.TeamNewPipe.NewPipeExtractor:NewPipeExtractor:v0.22.5")
+  implementation("com.github.TeamNewPipe.NewPipeExtractor:NewPipeExtractor:v0.22.6")
   implementation("com.google.protobuf:protobuf-java:3.22.0")
   implementation("org.springframework.boot:spring-boot-starter-webflux:3.0.4")
   implementation("org.json:json:20230227")
