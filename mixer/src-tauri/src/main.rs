@@ -17,6 +17,7 @@ use tokio_tungstenite::connect_async;
 async fn main() {
 
     tauri::Builder::default()
+        .plugin(mixer_machine::init())
         .invoke_handler(tauri::generate_handler![audio_stream_handler])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
